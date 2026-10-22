@@ -1,0 +1,8 @@
+# OPSIONAL dan berat (Level 6). Butuh unduhan besar; GPU tidak wajib.
+# Untuk PyTorch, ikuti perintah resmi di https://pytorch.org/get-started/locally/
+# agar build CPU/CUDA sesuai mesin Anda.
+-r requirements-ml.txt
+torch
+transformers>=4.40
+datasets>=2.19
+accelerate>=0.30

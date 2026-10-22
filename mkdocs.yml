@@ -1,0 +1,166 @@
+# ---------------------------------------------------------------------------
+# Reusable MkDocs + Material template.
+# To start a new subject, edit: site identity, `nav`, and (optionally) palette.
+# ---------------------------------------------------------------------------
+
+# --- Site identity (EDIT PER SUBJECT) --------------------------------------
+site_name: "NLP Learning Hub"
+site_description: "Belajar Natural Language Processing dengan Python: dari dasar hingga deployment, dengan studi kasus klasifikasi pesan kebencanaan."
+# Canonical URL. For GitHub Pages: https://<user>.github.io/<repo>/
+site_url: https://topekox.github.io/mkdocs-template/
+
+# --- Theme (shared) --------------------------------------------------------
+theme:
+  name: material
+  language: id
+  font: false # system fonts; no Google Fonts request
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.path # breadcrumbs
+    - navigation.footer # previous / next links
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+  # Native three-state switcher: System -> Light -> Dark.
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: "Theme: system (click for light)"
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: "Theme: light (click for dark)"
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: "Theme: dark (click for system)"
+
+# --- Navigation ---------------------------------------------------------------
+# Halaman bawaan template (curriculum, getting-started, examples) tetap ada di
+# disk tetapi tidak ditampilkan di navigasi (lihat `not_in_nav` di bawah).
+nav:
+  - Beranda: index.md
+  - Panduan Belajar: panduan-belajar.md
+  - "Level 0: Orientasi":
+      - level-0-orientasi/index.md
+      - "AI, ML, DL, NLP, Text Mining": level-0-orientasi/ai-ml-dl-nlp.md
+      - "Hubungan NLP dan ML": level-0-orientasi/hubungan-nlp-ml.md
+      - "Penerapan NLP": level-0-orientasi/penerapan-nlp.md
+      - "Cara Kerja Klasifikasi Teks": level-0-orientasi/cara-kerja-klasifikasi-teks.md
+      - "Masalah Emergency": level-0-orientasi/masalah-emergency.md
+      - "Teks Media Sosial": level-0-orientasi/teks-media-sosial.md
+      - "Istilah Dasar ML": level-0-orientasi/istilah-dasar-ml.md
+      - "Persiapan Python": level-0-orientasi/persiapan-python.md
+      - "Verifikasi Lingkungan": level-0-orientasi/verifikasi-lingkungan.md
+      - "Mini Proyek Manual": level-0-orientasi/mini-proyek-manual.md
+  - "Level 1: Python":
+      - level-1-python/index.md
+      - "Variabel dan Tipe Data": level-1-python/variabel-tipe-data.md
+      - "String": level-1-python/string-operasi-teks.md
+      - "Indexing dan Slicing": level-1-python/indexing-slicing.md
+      - "List, Tuple, Set, Dict": level-1-python/list-tuple-set-dict.md
+      - "Kondisional": level-1-python/kondisional.md
+      - "Perulangan": level-1-python/perulangan.md
+      - "Function": level-1-python/function-parameter.md
+      - "Import dan Modul": level-1-python/import-modul.md
+      - "Exception Handling": level-1-python/exception-handling.md
+      - "File Teks": level-1-python/file-teks.md
+      - "CSV dan JSON": level-1-python/csv-json.md
+      - "NumPy": level-1-python/numpy-dasar.md
+      - "pandas": level-1-python/pandas-dasar.md
+      - "Missing Values dan Duplikasi": level-1-python/missing-values-duplikasi.md
+      - "Regex": level-1-python/regex-dasar.md
+      - "Debugging dan Pengujian": level-1-python/debugging-pengujian.md
+  - "Level 2: Fondasi Teks": level-2-fondasi-teks/index.md
+  - "Level 3: Representasi Teks": level-3-representasi-teks/index.md
+  - "Level 4: Machine Learning": level-4-machine-learning/index.md
+  - "Level 5: Evaluasi": level-5-evaluasi/index.md
+  - "Level 6: Deep Learning": level-6-deep-learning/index.md
+  - "Level 7: Advanced NLP": level-7-advanced-nlp/index.md
+  - Proyek Kebencanaan: proyek-klasifikasi-bencana/index.md
+  - Latihan dan Kuis: latihan/index.md
+  - Glosarium: glosarium.md
+  - Referensi: referensi.md
+  - Lampiran:
+      - lampiran/index.md
+      - Rencana Implementasi: IMPLEMENTATION_PLAN.md
+      - Audit dan Verifikasi: lampiran/audit-verifikasi.md
+
+not_in_nav: |
+  /curriculum/
+  /getting-started/
+  /examples/
+  /authoring/
+# --- Plugins ----------------------------------------------------------------
+plugins:
+  - search
+
+# --- Markdown extensions (shared) ------------------------------------------
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets:
+      base_path: [examples]
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+# --- Custom assets (shared) -------------------------------------------------
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  # Vendored, pinned Mermaid 11.17.2 (docs/assets/vendor/mermaid/VERSION.txt).
+  # Material uses this global instead of fetching Mermaid from unpkg.
+  # Keep it BEFORE the MathJax CDN script so a slow CDN cannot delay diagrams.
+  - assets/vendor/mermaid/mermaid.min.js
+  - javascripts/mermaid-config.js
+  - javascripts/mathjax.js
+  # Pinned MathJax; requires network access (CDN). See README for vendoring.
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+
+# --- Validation: broken links/anchors fail `mkdocs build --strict` ----------
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
