@@ -23,8 +23,10 @@ Seluruh kurikulum memakai satu studi kasus: **klasifikasi teks Twitter/X berbaha
 | 3 | Analisis teks eksploratif dan representasi fitur (BoW, TF-IDF) | Tersedia |
 | 4 | Machine learning untuk klasifikasi teks (Naive Bayes, Logistic Regression, Linear SVM) | Tersedia |
 | 5 | Evaluasi, analisis kesalahan, dan eksperimen | Tersedia |
-| 6 | Deep learning untuk NLP | Belum |
-| 7 | Advanced NLP (Transformer, IndoBERT) dan *deployment* (FastAPI) | Belum |
+| 6 | Deep learning untuk NLP (embedding, neural network, RNN/LSTM/GRU, attention, Transformer, IndoBERT, fine-tuning) | Tersedia; kode NumPy diuji; kode PyTorch/Transformers (`berat/`) dieksekusi di CPU (IndoBERT 2 model × 5 seed, LSTM × 5 seed), hasil tidak diperiksa otomatis |
+| 7 | Advanced NLP dan *deployment* (kalibrasi, interpretabilitas, bias, drift, FastAPI, model card) | Tersedia; API dijalankan lokal dan diuji, tanpa autentikasi |
+| Proyek | Klasifikasi kebencanaan Tahap A–H (definisi, dataset, EDA, preprocessing, modeling, evaluasi, IndoBERT, API) | Tersedia |
+| Latihan | Latihan Level 0–7, mini-proyek berrubrik, kuis gabungan, kunci jawaban yang diuji | Tersedia |
 
 Status terkini dan keputusan teknis ada di [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md). Pemeriksaan yang benar-benar dijalankan dicatat di [`docs/lampiran/audit-verifikasi.md`](docs/lampiran/audit-verifikasi.md).
 
@@ -35,7 +37,7 @@ python -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt        # dokumentasi (MkDocs)
 pip install -r requirements-ml.txt     # contoh kode, notebook, pengujian
-# Opsional dan berat, hanya untuk Level 6:
+# Opsional dan berat, hanya untuk eksperimen di examples/level-6-deep-learning/berat/:
 # pip install -r requirements-dl.txt
 ```
 
@@ -46,6 +48,23 @@ macOS/Linux: `python3 -m venv .venv && source .venv/bin/activate`, lalu perintah
 | `requirements.txt` | MkDocs, Material, pymdown-extensions |
 | `requirements-ml.txt` | NumPy, pandas, scikit-learn, Sastrawi, pytest, JupyterLab, FastAPI, dll. |
 | `requirements-dl.txt` | PyTorch dan Transformers (opsional, unduhan besar) |
+
+## Menjalankan kode, tes, dan API
+
+Semua perintah dari folder `examples/`:
+
+```powershell
+cd examples
+python -m pytest -q                                          # seluruh tes (Level 2-7); tidak butuh PyTorch
+python check_page_outputs.py ../docs/level-6-deep-learning   # blok "Output nyata" harus cocok dengan eksekusi skrip
+python level-6-deep-learning/cek_lingkungan_dl.py            # apakah torch/transformers/CUDA tersedia
+python level-7-deployment/01_arsitektur_pipeline.py          # membuat artefak model untuk API
+python -m uvicorn nlp_hub.api:buat_app --factory --port 8000 # API; dokumentasi di http://127.0.0.1:8000/docs
+```
+
+- **Ringan vs berat.** Skrip `examples/level-6-deep-learning/01_*.py`-`06_*.py` dan seluruh Level 7 hanya butuh `requirements-ml.txt`. Skrip PyTorch/Transformers ada di `examples/level-6-deep-learning/berat/`, tidak dijalankan oleh `mkdocs build`, `pytest`, maupun pemeriksa keluaran. Lihat `berat/README.md`.
+- **Dokumentasi penggunaan API:** `examples/level-7-deployment/README.md` (endpoint, variabel lingkungan, pengujian).
+- API adalah demonstrasi pendidikan pada data sintetis: tanpa autentikasi, tidak untuk akses publik atau penggunaan operasional.
 
 ## Menjalankan dokumentasi
 

@@ -22,6 +22,10 @@ sistem NLP yang lebih lengkap.
 
     Proyek utama yang dikembangkan sepanjang kurikulum.
 
+- :material-pencil-box-outline: **[Latihan dan Kuis](latihan/index.md)**
+
+    Soal bertingkat dengan kunci jawaban yang diuji.
+
 - :material-book-alphabet: **[Glosarium](glosarium.md)**
 
     Istilah teknis dengan penjelasan berbahasa Indonesia.

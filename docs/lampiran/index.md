@@ -1,13 +1,10 @@
 # Lampiran
 
-Materi pendukung: rencana implementasi, audit, dan panduan kontributor.
+Materi pendukung proyek dan jejak pemeriksaannya.
 
-!!! info "Status"
-    Halaman materi level ini sedang disusun bertahap. Daftar di bawah adalah cakupan yang direncanakan.
+| Halaman | Isi |
+|---|---|
+| [Rencana Implementasi](../IMPLEMENTATION_PLAN.md) | Kondisi repository, keputusan teknis, status tiap tahap, dan langkah berikutnya |
+| [Audit dan Verifikasi](audit-verifikasi.md) | Log pemeriksaan yang benar-benar dijalankan, yang gagal, dan yang belum dilakukan |
 
-## Cakupan
-
-1. Rencana implementasi
-2. Audit dan verifikasi
-3. Panduan kontributor
-
+Skrip audit yang dapat dijalankan ulang ada di `examples/audit/` (`audit_statis.py`, `audit_browser.py`). Panduan kontributor dan referensi komponen halaman ada di `docs/authoring/` (tidak ditampilkan di navigasi utama).

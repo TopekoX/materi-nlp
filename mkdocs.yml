@@ -130,10 +130,43 @@ nav:
       - "Ablation dan Robustness": level-5-evaluasi/ablation-robustness.md
       - "Leakage dan Ketidakpastian": level-5-evaluasi/leakage-reproducibility.md
       - "Tabel dan Laporan": level-5-evaluasi/tabel-laporan-eksperimen.md
-  - "Level 6: Deep Learning": level-6-deep-learning/index.md
-  - "Level 7: Advanced NLP": level-7-advanced-nlp/index.md
-  - Proyek Kebencanaan: proyek-klasifikasi-bencana/index.md
-  - Latihan dan Kuis: latihan/index.md
+  - "Level 6: Deep Learning":
+      - level-6-deep-learning/index.md
+      - "ML Klasik vs DL, Komputasi": level-6-deep-learning/ml-klasik-vs-dl-komputasi.md
+      - "Embedding Kata": level-6-deep-learning/embedding-kata.md
+      - "Neural Network Dasar": level-6-deep-learning/neural-network-dasar.md
+      - "RNN, LSTM, GRU": level-6-deep-learning/rnn-lstm-gru.md
+      - "Attention dan Transformer": level-6-deep-learning/attention-transformer.md
+      - "Tokenizer, BERT, IndoBERT": level-6-deep-learning/tokenizer-bert-indobert.md
+      - "Fine-tuning": level-6-deep-learning/fine-tuning-transfer-learning.md
+      - "Overfitting dan Evaluasi DL": level-6-deep-learning/overfitting-evaluasi-dl.md
+  - "Level 7: Advanced NLP":
+      - level-7-advanced-nlp/index.md
+      - "Arsitektur Pipeline": level-7-advanced-nlp/arsitektur-pipeline.md
+      - "Kalibrasi dan Threshold": level-7-advanced-nlp/kalibrasi-threshold.md
+      - "Interpretabilitas": level-7-advanced-nlp/interpretabilitas.md
+      - "Bias, Robustness, OOD": level-7-advanced-nlp/bias-robustness-ood.md
+      - "Pemantauan Drift": level-7-advanced-nlp/pemantauan-drift.md
+      - "FastAPI Dasar": level-7-advanced-nlp/fastapi-dasar.md
+      - "Batch, Riwayat, Tes": level-7-advanced-nlp/fastapi-batch-riwayat-tes.md
+      - "Keamanan dan Model Card": level-7-advanced-nlp/keamanan-model-card-roadmap.md
+  - Proyek Kebencanaan:
+      - proyek-klasifikasi-bencana/index.md
+      - "A: Definisi Masalah": proyek-klasifikasi-bencana/tahap-a-definisi-masalah.md
+      - "B: Dataset": proyek-klasifikasi-bencana/tahap-b-dataset.md
+      - "C: EDA": proyek-klasifikasi-bencana/tahap-c-eda.md
+      - "D: Preprocessing": proyek-klasifikasi-bencana/tahap-d-preprocessing.md
+      - "E: Modeling": proyek-klasifikasi-bencana/tahap-e-modeling.md
+      - "F: Evaluasi": proyek-klasifikasi-bencana/tahap-f-evaluasi.md
+      - "G: Advanced Modeling": proyek-klasifikasi-bencana/tahap-g-advanced-modeling.md
+      - "H: Deployment": proyek-klasifikasi-bencana/tahap-h-deployment.md
+  - Latihan dan Kuis:
+      - latihan/index.md
+      - "Level 0–1": latihan/level-0-1.md
+      - "Level 2–3": latihan/level-2-3.md
+      - "Level 4–5": latihan/level-4-5.md
+      - "Level 6–7": latihan/level-6-7.md
+      - "Proyek dan Kuis Gabungan": latihan/proyek.md
   - Glosarium: glosarium.md
   - Referensi: referensi.md
   - Lampiran:
