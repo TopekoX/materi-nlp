@@ -7,7 +7,7 @@
 site_name: "NLP Learning Hub"
 site_description: "Belajar Natural Language Processing dengan Python: dari dasar hingga deployment, dengan studi kasus klasifikasi pesan kebencanaan."
 # Canonical URL. For GitHub Pages: https://<user>.github.io/<repo>/
-site_url: https://topekox.github.io/mkdocs-template/
+site_url: https://topekox.github.io/materi-nlp/
 
 # --- Theme (shared) --------------------------------------------------------
 theme:
@@ -84,10 +84,52 @@ nav:
       - "Missing Values dan Duplikasi": level-1-python/missing-values-duplikasi.md
       - "Regex": level-1-python/regex-dasar.md
       - "Debugging dan Pengujian": level-1-python/debugging-pengujian.md
-  - "Level 2: Fondasi Teks": level-2-fondasi-teks/index.md
-  - "Level 3: Representasi Teks": level-3-representasi-teks/index.md
-  - "Level 4: Machine Learning": level-4-machine-learning/index.md
-  - "Level 5: Evaluasi": level-5-evaluasi/index.md
+  - "Level 2: Fondasi Teks":
+      - level-2-fondasi-teks/index.md
+      - "Karakter, Unicode, UTF-8": level-2-fondasi-teks/karakter-unicode-encoding.md
+      - "Token dan Tokenisasi": level-2-fondasi-teks/token-kalimat-tokenisasi.md
+      - "Case Folding dan Pembersihan": level-2-fondasi-teks/case-folding-pembersihan.md
+      - "Emoji dan Emotikon": level-2-fondasi-teks/emoji-emotikon.md
+      - "Normalisasi Informal": level-2-fondasi-teks/normalisasi-informal.md
+      - "Stopwords": level-2-fondasi-teks/stopwords.md
+      - "Stemming dan Lemmatization": level-2-fondasi-teks/stemming-lemmatization.md
+      - "Negasi": level-2-fondasi-teks/negasi.md
+      - "Angka, Waktu, Lokasi": level-2-fondasi-teks/angka-waktu-lokasi.md
+      - "Perbandingan Pipeline": level-2-fondasi-teks/perbandingan-pipeline.md
+      - "Data Leakage Preprocessing": level-2-fondasi-teks/leakage-preprocessing.md
+      - "Pipeline yang Dapat Diuji": level-2-fondasi-teks/pipeline-teruji.md
+  - "Level 3: Representasi Teks":
+      - level-3-representasi-teks/index.md
+      - "Statistik Korpus": level-3-representasi-teks/statistik-korpus.md
+      - "N-gram": level-3-representasi-teks/n-gram.md
+      - "Bag of Words": level-3-representasi-teks/bag-of-words.md
+      - "TF-IDF": level-3-representasi-teks/tfidf.md
+      - "Sparse Matrix dan One-hot": level-3-representasi-teks/sparse-matrix-one-hot.md
+      - "Feature Engineering": level-3-representasi-teks/feature-engineering-kebencanaan.md
+      - "Representasi dengan scikit-learn": level-3-representasi-teks/representasi-sklearn.md
+      - "Latihan Analisis Dataset": level-3-representasi-teks/latihan-analisis-dataset.md
+  - "Level 4: Machine Learning":
+      - level-4-machine-learning/index.md
+      - "Supervised Learning, X, y": level-4-machine-learning/supervised-learning-xy.md
+      - "Pembagian Data": level-4-machine-learning/pembagian-data.md
+      - "Pipeline scikit-learn": level-4-machine-learning/pipeline-sklearn.md
+      - "Naive Bayes": level-4-machine-learning/naive-bayes.md
+      - "Logistic Regression": level-4-machine-learning/logistic-regression.md
+      - "Linear SVM": level-4-machine-learning/linear-svm.md
+      - "Perbandingan Model": level-4-machine-learning/perbandingan-model.md
+      - "Tuning dan Cross-validation": level-4-machine-learning/tuning-cross-validation.md
+      - "Simpan Model dan Prediksi": level-4-machine-learning/serialisasi-prediksi.md
+      - "Kesalahan Umum Training": level-4-machine-learning/kesalahan-umum-training.md
+  - "Level 5: Evaluasi":
+      - level-5-evaluasi/index.md
+      - "Confusion Matrix": level-5-evaluasi/confusion-matrix.md
+      - "Metrik Klasifikasi": level-5-evaluasi/metrik-klasifikasi.md
+      - "Class Imbalance dan Baseline": level-5-evaluasi/class-imbalance-baseline.md
+      - "Threshold, PR, ROC": level-5-evaluasi/threshold-pr-roc.md
+      - "Error Analysis": level-5-evaluasi/error-analysis.md
+      - "Ablation dan Robustness": level-5-evaluasi/ablation-robustness.md
+      - "Leakage dan Ketidakpastian": level-5-evaluasi/leakage-reproducibility.md
+      - "Tabel dan Laporan": level-5-evaluasi/tabel-laporan-eksperimen.md
   - "Level 6: Deep Learning": level-6-deep-learning/index.md
   - "Level 7: Advanced NLP": level-7-advanced-nlp/index.md
   - Proyek Kebencanaan: proyek-klasifikasi-bencana/index.md

@@ -19,10 +19,10 @@ Seluruh kurikulum memakai satu studi kasus: **klasifikasi teks Twitter/X berbaha
 |---|---|---|
 | 0 | Orientasi NLP | Tersedia |
 | 1 | Fondasi Python untuk NLP | Tersedia |
-| 2 | Fondasi teks dan *preprocessing* | Belum |
-| 3 | Analisis teks eksploratif dan representasi fitur (BoW, TF-IDF) | Belum |
-| 4 | Machine learning untuk klasifikasi teks (Naive Bayes, Logistic Regression, Linear SVM) | Belum |
-| 5 | Evaluasi, analisis kesalahan, dan eksperimen | Belum |
+| 2 | Fondasi teks dan *preprocessing* | Tersedia |
+| 3 | Analisis teks eksploratif dan representasi fitur (BoW, TF-IDF) | Tersedia |
+| 4 | Machine learning untuk klasifikasi teks (Naive Bayes, Logistic Regression, Linear SVM) | Tersedia |
+| 5 | Evaluasi, analisis kesalahan, dan eksperimen | Tersedia |
 | 6 | Deep learning untuk NLP | Belum |
 | 7 | Advanced NLP (Transformer, IndoBERT) dan *deployment* (FastAPI) | Belum |
 
@@ -72,7 +72,26 @@ docs/                           semua konten yang dipublikasikan
   IMPLEMENTATION_PLAN.md        status tahap implementasi
   curriculum/, getting-started/, examples/   sisa halaman template, tidak tampil di navigasi
 examples/                       kode contoh (.py, notebook), disertakan lewat snippets
+  nlp_hub/                      paket kode bersama (preprocessing, fitur, model, evaluasi)
+  disaster-classification/      dataset SINTETIS, pembangkit data, DATA_CARD.md
+  level-N-.../                  skrip tiap halaman dan notebook yang sudah dieksekusi
+  tests/                        unit test (python -m pytest dari folder examples/)
+  check_page_outputs.py         memeriksa blok "Output nyata" terhadap keluaran skrip
+  build_notebooks.py            membangun dan menjalankan notebook
 ```
+
+## Menjalankan contoh kode, tes, dan notebook
+
+```powershell
+cd examples
+python -m pytest                                   # unit test
+python check_page_outputs.py ../docs/level-5-evaluasi   # blok keluaran halaman = keluaran skrip
+python build_notebooks.py 2 3 4 5                  # bangun ulang notebook (opsional)
+```
+
+Dataset di `examples/disaster-classification/` **sintetis**: teks dibangkitkan dari templat dan ditulis tangan, label
+mengikuti definisi operasional di materi, bukan hasil anotasi manusia. Baca `DATA_CARD.md` sebelum menafsirkan skor.
+Folder `examples/**/artefak/` (model tersimpan) tidak ikut git.
 
 ## Menulis atau menambah materi
 
@@ -89,7 +108,7 @@ Referensi komponen (admonition, tab, tabel, kode, matematika, Mermaid) ada di `d
 
 ## Deploy ke GitHub Pages
 
-1. Pastikan `site_url` dan `repo_url` di `mkdocs.yml` menunjuk ke repository ini. Saat ini `site_url` masih berisi nilai bawaan template (`https://topekox.github.io/mkdocs-template/`) dan perlu disesuaikan.
+1. Pastikan `site_url` dan `repo_url` di `mkdocs.yml` menunjuk ke repository ini. Saat ini `site_url` bernilai `https://topekox.github.io/materi-nlp/`; pastikan sesuai dengan nama repository dan akun GitHub Anda.
 2. Jalankan `mkdocs gh-deploy --strict` (build lalu push ke branch `gh-pages`).
 3. Di GitHub: **Settings → Pages → Deploy from a branch → `gh-pages` / root**.
 

@@ -1,0 +1,49 @@
+source_id,text,label,catatan
+H001,"Astaga dapur tetangga meledak, apinya udah ngejalar ke atap. Siapa punya APAR? Jl. Cendana 4",Emergency,
+H002,"air di lorong rumah gue udh sepinggang dan masih nambah, listrik gue matiin. ada yg punya pelampung buat bocil?",Emergency,
+H003,"Bumi goyang kenceng bgt barusan!! plafon kamar jatuh, kaki adek kejepit. ada dokter di sekitar sini??",Emergency,
+H004,"Mohon info: jalur Puncak km 12 baru saja longsor, 2 mobil keseret ke jurang. sudah ada tim yg ke sana?",Emergency,
+H005,"kapal nelayan kami bocor dan miring di sebelah barat dermaga, 6 orang di atas, tolong hubungkan ke Basarnas",Emergency,di luar enam bahaya pada dataset latih
+H006,"pak RT, rumah bu Ningsih ambruk kena angin tadi, beliau ketimpa kayu. tolong ambulans ke gang 3",Emergency,
+H007,"asap putih tebal keluar dari ventilasi pabrik sebelah, mata perih, anak-anak sekolah di depannya batuk2",Emergency,tidak ada permintaan bantuan eksplisit; ancaman kesehatan sedang berlangsung
+H008,"Sungai belakang rumah jebol 10 menit lalu. Kami lari ke atap masjid, ada 30an orang. Sinyal tinggal 1 bar.",Emergency,
+H009,"Banjir bandang!!! jembatan putus, desa kami terisolasi, stok obat diabetes ibu habis",Emergency,
+H010,"Tanah di samping rumah turun sekitar 1 meter sejak subuh dan masih turun, kami mengungsi ke rumah paman, tolong cek BPBD",Emergency,
+H011,"Ada bau gas menyengat di gang kami dan tabung bocor berdesis, jangan ada yang nyalain rokok! hubungi pemadam",Emergency,
+H012,"gunung bunyi dentuman 3x barusan, abu mulai turun di desa kami, mau mengungsi tapi mobil kami cuma muat 5",Emergency,
+H013,"Air laut surut tiba2 lalu balik naik masuk ke warung pantai, semua lari ke bukit sekarang!",Emergency,tsunami tidak ada di dataset latih
+H014,"kebakaran hutan makin dekat ke kampung, api sdh 200 m dari rumah warga. butuh air dan bantuan pemadam!",Emergency,
+H015,"Mohon bantuan, ibu hamil 8 bulan terjebak banjir di perumahan Griya Asri blok C, ketubannya pecah",Emergency,
+H016,"ledakan di bengkel las, 2 orang terbakar parah, kami nunggu ambulans di depan gerbang",Emergency,
+H017,"pohon tumbang nutup jalan sekaligus nimpa mobil, ada org dlm mobil blm bisa keluar. depan SDN 3.",Emergency,
+H018,"Rumah sakit kami kebanjiran, pasien ICU perlu dipindahkan, kami butuh generator dan ambulans",Emergency,
+H019,"gempa barusan kerasa banget, saya di lantai 9, tangga penuh orang panik, ada yang pingsan",Emergency,tidak ada permintaan bantuan eksplisit
+H020,"Angin kenceng ngangkat seng warung sampai nancep ke jalan, pengendara motor jatuh berdarah, tolong",Emergency,
+H021,"arus sungai bawa anak SD yg main di tepi, org2 lagi ngejar, tlg bantu cari ke arah hilir jembatan merah",Emergency,
+H022,"Kami 12 orang terjebak di gua karena air naik cepat setelah hujan deras, baterai senter menipis",Emergency,
+H023,"jalan raya depan pasar amblas, motor masuk lubang, mungkin ada yg tertimbun",Emergency,
+H024,"ada korsleting di gardu depan rumah, percikan api besar dan kabel putus menyentuh genangan air, jauhi area ini dan hubungi PLN",Emergency,
+H025,"Alhamdulillah rumah kami aman semua setelah gempa tadi pagi, cuma gelas pecah. Terima kasih yang sudah menanyakan kabar.",Non-Emergency,"kejadian ada, ancaman sudah tidak ada"
+H026,"Hari ini sekolah anak diliburkan karena prakiraan hujan lebat, semoga tidak terjadi apa-apa.",Non-Emergency,
+H027,"Dulu waktu kecil rumah nenek sering kebanjiran, kenangan banget main perahu kardus di halaman.",Non-Emergency,
+H028,"Rapat RW malam ini bahas kerja bakti bersihin selokan sebelum musim hujan, yang bisa datang jam 8 ya.",Non-Emergency,
+H029,"BNPB merilis laporan tahunan jumlah kejadian bencana, banjir masih mendominasi.",Non-Emergency,
+H030,"tolong bantu RT ya, kita lagi galang dana buat beli pompa air cadangan untuk musim hujan nanti",Non-Emergency,"kata 'tolong' dan topik air, tanpa kejadian"
+H031,"Film dokumenter soal letusan gunung tadi malam bagus banget, sinematografinya keren.",Non-Emergency,
+H032,"Kebakaran di sinetron semalam lebay amat, apinya jelas efek komputer wkwk",Non-Emergency,
+H033,"Saya takut gempa, makanya tiap malam tas siaga sudah disiapkan di dekat pintu.",Non-Emergency,
+H034,Dua tahun lalu longsor di kampung kami menewaskan beberapa tetangga. Hari ini kami ziarah bersama.,Non-Emergency,
+H035,"Info: besok jam 9 akan ada simulasi evakuasi gempa di gedung kantor, mohon semua karyawan ikut.",Non-Emergency,
+H036,"Mahasiswa teknik sipil bikin alat peringatan dini banjir murah, keren banget idenya!",Non-Emergency,
+H037,"Lagi nonton berita banjir di kota lain, sedih sih lihatnya, semoga cepat pulih ya.",Non-Emergency,"ambigu: empati atas kejadian di tempat lain, bukan laporan atau permintaan bantuan"
+H038,Siapa yang tahu kontak tukang service AC yang bisa datang hari ini? tolong ya,Non-Emergency,
+H039,"Hujan deras banget malam ini, enaknya makan mie rebus sambil nonton drama.",Non-Emergency,
+H040,Pemkab menyalurkan bantuan sembako ke warga terdampak banjir bulan lalu.,Non-Emergency,
+H041,Tim SAR menghentikan pencarian korban longsor pada hari ketujuh sesuai prosedur.,Non-Emergency,ambigu: berita; operasi sudah berakhir
+H042,"Tolong dong, ada yang bisa bantu benerin laptop saya, layarnya mati total 😭",Non-Emergency,
+H043,Peringatan dini BMKG: hujan lebat disertai petir berpotensi terjadi di sebagian wilayah sore ini.,Non-Emergency,ambigu: peringatan umum tanpa kejadian spesifik
+H044,"Api unggun di acara pramuka semalam seru banget, nyanyi sampai larut.",Non-Emergency,
+H045,"Debu pembangunan jalan bikin mata perih tiap lewat sini, kapan selesai ya?",Non-Emergency,"opini/keluhan, bukan kejadian darurat"
+H046,"Kapan ya gempa besar yang sering dibahas pakar itu datang? Cuma penasaran, bukan menakut-nakuti.",Non-Emergency,
+H047,"Gempa kecil tadi sore cuma bikin lampu gantung goyang, tidak ada kerusakan. Aman.",Non-Emergency,kejadian baru tetapi tanpa ancaman
+H048,"Banjir rob di pantai utara itu memang masalah tahunan, perlu solusi jangka panjang bukan sekadar tanggul.",Non-Emergency,

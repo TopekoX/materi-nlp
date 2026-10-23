@@ -1,0 +1,575 @@
+source_id,event_id,post_type,template_id,text,label
+S0001,E079,edukasi,umum-edukasi-0,Tips menghadapi banjir: kenali jalur evakuasi dan kumpulkan nomor darurat.,Non-Emergency
+S0002,E070,peringatan,umum-peringatan-0,"Musim pancaroba sudah dekat, waspada gempa ya semuanya. 😂",Non-Emergency
+S0003,E061,laporan,gempa-laporan-1,"Setelah gempa tadi, atap ruko di Gang Flamboyan RT 11 runtuh & ada yang tertimpa. https://contoh.example/11235",Emergency
+S0004,E040,tidak_terkait,tidak_terkait-5,"Konser semalam gila, penonton berteriak sampai getarannya terasa seperti gempa wkwk",Non-Emergency
+S0005,E032,laporan,longsor-laporan-1,"Jalan menuju Kelurahan Bumi Indah tertutup longsor, ada mobil yang terjebak di bawah material.",Emergency
+S0006,E001,laporan,gempa-laporan-2,"Gempa susulan masih terasa, warga Jl. Cempaka RT 09 bertahan di lapangan krn bangunan rusak.",Emergency
+S0007,E057,info_lama,angin kencang-info_lama-0,"Puting beliung di Kelurahan Cibening minggu lalu merusak belasan atap, kini sudah diperbaiki gotong royong.",Non-Emergency
+S0008,E015,tidak_terkait,tidak_terkait-12,"Antrean tiket konser kayak banjir manusia, sabar ya semua. #JagaSesama https://contoh.example/52605",Non-Emergency
+S0009,E063,candaan,umum-candaan-0,"Skripsiku udah kyaak angin kencang, datang tiba-tiba dan susah diatasi wkwk https://contoh.example/32042",Non-Emergency
+S0010,E004,peringatan,umum-peringatan-1,"@bpbd_contoh Imbauan: siapkan tas siaga untuk menghadapi angin kencang, simpan dokumen penting dalam wadah kedap air. 😱",Non-Emergency
+S0011,E022,tidak_terkait,tidak_terkait-7,@relawan_contoh Tolong bantu vote kontes foto kucing saya.,Non-Emergency
+S0012,E002,candaan,umum-candaan-1,"Mantan datang lagi, rasanya kayak angin kencang di hati haha",Non-Emergency
+S0013,E007,laporan,letusan gunung-laporan-2,"Kolom asap setinggi ribuan meter terlihat dari Kelurahan Karang Tengah, wrg mulai panik & mengungsi.",Emergency
+S0014,E020,laporan,gempa-laporan-0,"Gempa barusan terasa sangat kuat di Kelurahan Mekar Sari, tembok rumaaah retak dan warga berlarian keluar. #JagaSesama",Emergency
+S0015,E057,tidak_terkait,tidak_terkait-14,"GUNUNG CUCIAN DI RUMAH SUDAH TINGGI BANGET, TOLONG SEMANGATIN AKU. 🚨",Non-Emergency
+S0016,E015,opini,umum-opini-0,Pemerintah lambat sekali meanngani letusan gunung di kota ini. 😭 https://contoh.example/07764,Non-Emergency
+S0017,E035,bantuan,longsor-bantuan-0,"Tolong, keluarga kami tertimbun longsor di Jl. Dahlia RT 10, butuh alat berat dan tim SAR segera. https://contoh.example/93984",Emergency
+S0018,E021,info_lama,angin kencang-info_lama-1,Pohon tumbang kemarin di Jl. Mawar RT 04 sudah dipotong dan jalan kembali lancar. #Cuaca,Non-Emergency
+S0019,E027,bantuan,kebakaran-bantuan-2,"Butuh bantuan evakuasi, asap tebal di apartemen Kelurahan Cibening, kami terjebak di lantai tiga. #JagaSesama 🚨",Emergency
+S0020,E072,peringatan,umum-peringatan-4,Masyarakat diminta tetap waspada terhadap potensi letusan gunung sepekan ke depan. 😂,Non-Emergency
+S0021,E065,laporan,angin kencang-laporan-1,"POHON BESAR TUMBANG MENIMPA RUMAH DI JL. MELATI RT 09 AKIBAT ANGIN KENCANG, JALAN TERTUTUP.",Emergency
+S0022,E021,peringatan,umum-peringatan-1,"Imbauan: siapkan tas siaga utk menghadapi angin kencang, simpan dokumen penting dalam wadah kedap air. #JagaSesama",Non-Emergency
+S0023,E056,berita,longsor-berita-0,Pemkab merencanakan penanaman pohon di lereng Kelurahan Mekar Sari untuk mencegah longsor.,Non-Emergency
+S0024,E074,laporan,gempa-laporan-3,Listrik padam dan gedung sekolah di Kelurahan Pasir Putih retak parah setelah guncangan barusan. #InfoBencana 😱 https://contoh.example/56998,Emergency
+S0025,E072,laporan,letusan gunung-laporan-2,"Kolom asap setinggi ribuan meter terlihat dari Kelurahan Cibening, warga mulai panik & mengungsi. #kota",Emergency
+S0026,E013,candaan,umum-candaan-0,"Skripsiku udah kayak banjir, datang tiba-tiba dan susah diatasi wkwk 😂",Non-Emergency
+S0027,E054,edukasi,umum-edukasi-4,Materi kuliah hari ini membahas penyebab longsor dan upaya mitigasinya. #JagaSesama,Non-Emergency
+S0028,E053,bantuan,gempa-bantuan-1,"Mohon bantuan tim SAR, tetangga kami trejebak di dalam rumah yang roboh di Jl. Anggrek RT 03.",Emergency
+S0029,E061,edukasi,umum-edukasi-1,Webinar gratis tentang mitigasi gempa akan digelar hari Sabtu pukul 10.00.,Non-Emergency
+S0030,E056,tidak_terkait,tidak_terkait-13,"Tolong jangan spoiler dulu, filmnya belum selesai kutonton.",Non-Emergency
+S0031,E064,opini,umum-opini-5,"Setiap ada letusan gunung yang disalahkan selalu warga, padahal tata ruangnya bermasalah.",Non-Emergency
+S0032,E033,tidak_terkait,tidak_terkait-19,"Kemacetan pagi ini parah, jalanan seperti lautan kendaraan.",Non-Emergency
+S0033,E078,laporan,angin kencang-laporan-1,"@info_siaga_contoh Pohon besar tumbang menimpa rmh di Jl. Cempaka RT 01 akibat angin kencang, jalan tertutup.",Emergency
+S0034,E009,laporan,angin kencang-laporan-0,"Angin puting beliung menerjang Kelurahan Pasir Putih barusan, atap rumah beterbangan. 🌊",Emergency
+S0035,E005,peringatan,umum-peringatan-2,"Hati-hati, wilayah Kelurahan Cibening termasuk rawan letusan gunung. Kenali jalur evakuasi terdekat.",Non-Emergency
+S0036,E068,tidak_terkait,tidak_terkait-10,"Diskusi kelompok tadi panas banget, hampir meledak wkwk 🥺",Non-Emergency
+S0037,E005,tidak_terkait,tidak_terkait-1,@bpbd_contoh Tolong dong rekomendasi laptop murah buat kuliah. #Cuaca,Non-Emergency
+S0038,E009,tidak_terkait,tidak_terkait-12,"ANTREAN TIKET KONSER KAYAK BANJIR MANUSIA, SABAR YA SEMUA.",Non-Emergency
+S0039,E006,bantuan,letusan gunung-bantuan-0,"Tolong, kita butuh masker dan evakuasi di Jl. Dahlia RT 06, abu sangat tebal & banyak anak sesak napas.",Emergency
+S0040,E009,opini,umum-opini-1,Kenapa angin kencang selalu datang setiap tahun tapi solusinya tidak pernah jelas? #kota,Non-Emergency
+S0041,E019,opini,umum-opini-3,@info_siaga_contoh MENURUT SAYA ANGGARAN PENANGANAN ANGIN KENCANG HARUS DINAIKKAN.,Non-Emergency
+S0042,E062,laporan,angin kencang-laporan-2,"Angin kencang masih berlangsung di Jl. Kenanga RT 04, baliho roboh menimpa kendaraan.",Emergency
+S0043,E058,laporan,letusan gunung-laporan-3,Terdengar dentuman keras dari gunung dan kerikil panas jatuh di sekitar Jl. Anggrek RT 04. #Cuaca,Emergency
+S0044,E028,laporan,letusan gunung-laporan-1,"Abu vulkanik menutup jln di Jl. Melati RT 08, jarak pandang tinggal beberapa meter.",Emergency
+S0045,E001,laporan,gempa-laporan-2,"Gempa susulan masih terasa, warga Jl. Cempaka RT 09 bertahan di lapangan karena bangunan rusak.",Emergency
+S0046,E026,info_lama,letusan gunung-info_lama-1,Terima kasih relawan yang membantu membersihkan abu vulkanik di Jl. Dahlia RT 02 kemarin.,Non-Emergency
+S0047,E077,peringatan,umum-peringatan-2,"Hatiii-hati, wilayah Kelurahan Mekar Sari termasuk rawan letusan gunung. Kenali jalur evakuasi terdekat. https://contoh.example/21257",Non-Emergency
+S0048,E049,laporan,banjir-laporan-3,WARGA JL. MAWAR RT 03 MULAI MENGUNGSI KE MUSALA KARENA AIR TERUS NAIK SEJAK TADI. 😂,Emergency
+S0049,E026,tidak_terkait,tidak_terkait-17,@bpbd_contoh Tolong kasih saran warna cat yg cocok buat kamar kecil.,Non-Emergency
+S0050,E052,info_lama,kebakaran-info_lama-0,"Api di gudang Kelurahan Lembah Hijau semalam udah padam, gak ada korban jiwa. #SiagaBencana",Non-Emergency
+S0051,E033,bantuan,gempa-bantuan-2,"Butuh teeeenda dan obat-obatan di lapangan Kelurahan Karang Tengah, banyak warga luka akibat gempa tadi. #JagaSesama",Emergency
+S0052,E037,bantuan,longsor-bantuan-1,"Mohon bantuan evakuasi, wrg Jl. Anggrek RT 02 terisolasi akibat jln tertutup longsor.",Emergency
+S0053,E039,edukasi,umum-edukasi-0,Tips menghadapi banjir: kenali jalur evakuasi dan kuuuumpulkan nomor darurat. 🔥 https://contoh.example/62627,Non-Emergency
+S0054,E026,candaan,umum-candaan-1,"Mantan datang lagi, rasanya kayak letusan gunung di hati haha",Non-Emergency
+S0055,E061,peringatan,umum-peringatan-2,"@relawan_contoh Hati-hati, wilayah Kelurahan Mekar Sari termasuk rawan gempa. Kenali jalur evakuasi terdekat. #JagaSesama 🙏",Non-Emergency
+S0056,E053,peringatan,umum-peringatan-3,"@bpbd_contoh Ingat, jaga lingkungan agar risiko gempa berkurang.",Non-Emergency
+S0057,E024,tidak_terkait,tidak_terkait-5,"Konser semalam gila, penonton berteriak sampai getarannya terasa sepeeeerti gempa wkwk #kota",Non-Emergency
+S0058,E016,laporan,letusan gunung-laporan-0,"Gunung mengeluarkan letusan besar barusan, hujan abu tebal turun di Kelurahan Tanjung Asri. #JagaSesama",Emergency
+S0059,E060,tidak_terkait,tidak_terkait-12,"Antrean tiket konser kayak banjir manusia, sabar ya semua. #SiagaBencana",Non-Emergency
+S0060,E026,tidak_terkait,tidak_terkait-14,"@bpbd_contoh Gunung cucian di rmh udah tinggi banget, tolong semangatin aku. 🚨",Non-Emergency
+S0061,E073,laporan,banjir-laporan-3,wrg Jl. Pahlawan RT 05 mulai mengungsi ke musala krn air terus naik sejak tadi.,Emergency
+S0062,E015,tidak_terkait,tidak_terkait-12,"Antrean tiket konser kayak banjir manusia, sabar ya semua.",Non-Emergency
+S0063,E027,candaan,umum-candaan-3,"Nilai ujianku jatuh kayak kebakaran, hancur semuanya haha #InfoBencana",Non-Emergency
+S0064,E069,laporan,letusan gunung-laporan-3,@relawan_contoh Terdeeeengar dentuman keras dari gunung & kerikil panas jatuh di sekitar Jl. Kenanga RT 11. #InfoBencana,Emergency
+S0065,E044,tidak_terkait,tidak_terkait-2,Api semangat kerja belum padam walau deadline menumpuk.,Non-Emergency
+S0066,E026,edukasi,umum-edukasi-4,Materi kuliah hari ini membahas penyebab letusan gunung dan upaya mitigasinya.,Non-Emergency
+S0067,E055,peringatan,umum-peringatan-0,"@relawan_contoh Musim pancaroba sudah dekat, waspada longsor ya semuanya.",Non-Emergency
+S0068,E062,info_lama,angin kencang-info_lama-0,"Puting beliung di Kelurahan Sidomulyo minggu lalu merusak belasan atap, kini udah diperbaiki gotong royong.",Non-Emergency
+S0069,E075,opini,umum-opini-4,"Kasihan korban gempa, semoga pemerintah lebih serius ke depan.",Non-Emergency
+S0070,E011,tidak_terkait,tidak_terkait-16,"Warung sebelah kampus buka lagiii, nasi goreng enak dan murah. #InfoBencana",Non-Emergency
+S0071,E006,bantuan,letusan gunung-bantuan-0,"Tolong, kami butuh masker & evakuasi di Jl. Dahlia RT 06, abu sangat tebal & banyak anak sesak napas.",Emergency
+S0072,E065,tidak_terkait,tidak_terkait-10,"DISKUSI KELOMPOK TADI PANAS BANGET, HAMPIR MELEDAK WKWK #kota",Non-Emergency
+S0073,E003,info_lama,kebakaran-info_lama-0,"Api di gudang Kelurahan Pasir Putih semalam sudah padam, tidak ada korban jiwa.",Non-Emergency
+S0074,E075,candaan,umum-candaan-1,"Mantan datang lagi, rasanya kayak gempa di hati haha",Non-Emergency
+S0075,E031,tidak_terkait,tidak_terkait-14,"Gunung cucian di rmh udah tinggi banget, tolong semangatin aku. #Cuaca",Non-Emergency
+S0076,E002,bantuan,angin kencang-bantuan-2,"Butuh terpal dan bantuan evakuasi di Kelurahan Karang Tengah, puluhan rumah rusak diterjang angin.",Emergency
+S0077,E067,opini,umum-opini-7,Saya kurang setuju kalau dana mitigasi angin kencang dipotong tahun ini. 😱,Non-Emergency
+S0078,E024,peringatan,umum-peringatan-1,"IMBAUAN: SIAPKAN TAS SIAGA UNTUK MENGHADAPI ANGIN KENCANG, SIMPAN DOKUMEN PENTING DALAM WADAH KEDAP AIR. #JagaSesama",Non-Emergency
+S0079,E076,edukasi,umum-edukasi-0,Tips menghadapi angin kencang: kenali jalur evakuasi dan kumpulkan noooomor darurat.,Non-Emergency
+S0080,E049,tidak_terkait,tidak_terkait-8,"Harga cabai naik lagi, ibu-ibu di pasar mulai kebakaran jenggot. #kota https://contoh.example/48349",Non-Emergency
+S0081,E079,tidak_terkait,tidak_terkait-0,"@relawan_contoh Tolong follow akun saya ya, ada giveaway hari ini! #kota 🌊",Non-Emergency
+S0082,E060,bantuan,kebakaran-bantuan-1,"Mohon kirim mobil pemadam ke Jl. Dahlia RT 05 sekarang, api udah besar. 🚨",Emergency
+S0083,E080,laporan,banjir-laporan-2,"Sungai meluap, jln Jl. Melati RT 12 terendam setinggi dada, motor gak bisa lewat. #kota",Emergency
+S0084,E012,candaan,umum-candaan-0,"Skripsiku udah kayak gempa, datang tiba-tiba dan susah diatasi wkwk",Non-Emergency
+S0085,E015,laporan,letusan gunung-laporan-2,"@bpbd_contoh Kolom asap setinggi ribuan meter terlihat dari Kelurahan Pasir Putih, wrg mulai panik dan mengungsi.",Emergency
+S0086,E004,laporan,angin kencang-laporan-0,"Angin puting beliung menerjang Kelurahan Cibening barusan, atap rumah beterbangan.",Emergency
+S0087,E047,bantuan,gempa-bantuan-0,"Tolong, ada korban tertimpa reruntuhan di Jl. Kenanga RT 11, butuh ambulans sekarang. https://contoh.example/70068",Emergency
+S0088,E055,bantuan,longsor-bantuan-0,"Tolong, keluarga kami tertimbun longsor di Jl. Kenanga RT 03, butuh alat berat dan tim SAR segera.",Emergency
+S0089,E023,tidak_terkait,tidak_terkait-12,"Antrean tiket konser kayak banjir manusia, sabar ya semua. 🙏",Non-Emergency
+S0090,E039,laporan,banjir-laporan-3,Warga Jl. Anggrek RT 01 mulai mengungsi ke musala karena air terus naik sejak tadi. #JagaSesama,Emergency
+S0091,E052,laporan,kebakaran-laporan-2,Terdengar ledakan dan asap tebal dari gudang di Jl. Kenanga RT 11. #kota,Emergency
+S0092,E036,opini,umum-opini-4,"Kasihan korban kebakaran, semoga pemerintah lebih serius ke depan. 🙏",Non-Emergency
+S0093,E010,opini,umum-opini-7,Saya kurang setuju kalau dana mitigasi banjir dipotong tahun ini. 🌊,Non-Emergency
+S0094,E057,laporan,angin kencang-laporan-1,"Pohon besar tumbang menimpa rumah di Gang Flamboyan RT 04 akibat angin kencang, jalan tertutup.",Emergency
+S0095,E003,opini,umum-opini-3,@info_siaga_contoh Menurut saya anggaran penanganan kebakaran harus dinaikkan.,Non-Emergency
+S0096,E043,bantuan,kebakaran-bantuan-0,"tlg hubungi damkar, rumah di Gang Flamboyan RT 08 terbakar & ada anak di dalam! #kota 😂",Emergency
+S0097,E020,edukasi,umum-edukasi-4,Materi kuliah hari ini membahas penyebab gempa dan upaya mitigasinya.,Non-Emergency
+S0098,E006,candaan,umum-candaan-3,"NILAI UJIANKU JAAATUH KAYAK LETUSAN GUNUNG, HANCUR SEMUANYA HAHA",Non-Emergency
+S0099,E068,laporan,letusan gunung-laporan-3,Terdengar dentuman keras dari gunung dan kerikil panas jatuh di skeitar Jl. Mawar RT 06.,Emergency
+S0100,E047,laporan,gempa-laporan-3,Listrik padam dan gedung sekolah di Kelurahan Cibening retak parah setelah guncangan barusan. 😭,Emergency
+S0101,E053,laporan,gempa-laporan-0,"Gempa barusan terasa sangat kuat di Kelurahan Tanjung Asri, tembok rumah retak dan wrg berlarian keluar.",Emergency
+S0102,E010,laporan,banjir-laporan-0,"Air banjir setinggi dada di Jl. Melati RT 08, masih terus naik.",Emergency
+S0103,E050,tidak_terkait,tidak_terkait-18,Lagu baru mereka meledak di tangga lagu minggu ini. #kota,Non-Emergency
+S0104,E054,berita,longsor-berita-1,Peta rawan longsor Kelurahan Mekar Sari diperbarui oleh dinas terkait & dapat diunduh warga. #kota,Non-Emergency
+S0105,E061,tidak_terkait,tidak_terkait-6,"Kopi ini panas banget, lidahku terbakar. #kota",Non-Emergency
+S0106,E025,tidak_terkait,tidak_terkait-7,Tolong bantu vote kontes foto kucing saya. https://contoh.example/68078,Non-Emergency
+S0107,E009,peringatan,umum-peringatan-1,"Imbauan: siapkan tas siaga untuk menghadapi angin kencang, simpan dokumen penting dalam wadah kedap air.",Non-Emergency
+S0108,E024,info_lama,angin kencang-info_lama-1,Pohon tumbang kemarin di Jl. Cempaka RT 03 udah dipotong & jln kembali lancar. #SiagaBencana,Non-Emergency
+S0109,E054,tidak_terkait,tidak_terkait-8,"Harga cabai naik lagi, ibu-ibu diiii pasar mulai kebakaran jenggot.",Non-Emergency
+S0110,E036,tidak_terkait,tidak_terkait-13,"Tolong jangan spoiler dulu, filmnya belum selesai kutonton. #kota 🚨 https://contoh.example/64664",Non-Emergency
+S0111,E076,peringatan,umum-peringatan-3,"Ingat, jaga lingkungan agar risiko angin kencang berkurang.",Non-Emergency
+S0112,E029,bantuan,gempa-bantuan-1,"Mohon bantuan tim SAR, tetangga kami terjebak di dalam rumah yaaang roboh di Jl. Melati RT 02.",Emergency
+S0113,E020,laporan,gempa-laporan-1,"SETELAH GEMPA TADI, ATAP RUKO DI JL. PAHLAWAN RT 06 RUUUNTUH & ADA YG TERTIMPA.",Emergency
+S0114,E061,info_lama,gempa-info_lama-1,"Doakan korban gempa tahun lalu di Kelurahan Mekar Sari ya, hari ini kami mengadakan doa bersama. #JagaSesama",Non-Emergency
+S0115,E069,bantuan,letusan gunung-bantuan-1,Mohon bantuan truk untuk mengangkut wrg lansia Kelurahan Lembah Hijau ke posko pengungsian.,Emergency
+S0116,E058,opini,umum-opini-4,"Kasihan korban letusan gunung, semoga pemerintah lebih seeeerius ke depan.",Non-Emergency
+S0117,E012,laporan,gempa-laporan-0,"Gempa barusan terasa sangat kuat di Kelurahan Ciiibening, tembok rumah retak dan warga berlarian keluar.",Emergency
+S0118,E080,edukasi,umum-edukasi-2,THREAD: SEJARAH BANJIR TERBESAR DI INDONESIA DAN PELAJARAN YG BISA KITA AMBIL.,Non-Emergency
+S0119,E062,opini,umum-opini-2,"Capek lihat berita angiiin kencang terus, kapan ada perbaikan tata kota?",Non-Emergency
+S0120,E056,candaan,umum-candaan-1,"Mantan datang lagi, rasanya kayak longsor di hati haha 🚨",Non-Emergency
+S0121,E038,laporan,kebakaran-laporan-0,"Api membesar di rumah wrg Jl. Dahlia RT 07, asap hitam terlihat dari jauh.",Emergency
+S0122,E046,berita,angin kencang-berita-1,@info_siaga_contoh Hasil kajian menyebut kawasan Kelurahan Lembah Hijau termasuk wilayah yg sering dilalui angin kencang.,Non-Emergency
+S0123,E072,bantuan,letusan gunung-bantuan-0,"Tolong, kami butuh masker dan evakuasi di Jl. Melati RT 06, abu sangat tebal dan banyak anak sesak napas.",Emergency
+S0124,E066,laporan,longsor-laporan-3,"Tanah di belakang rmh kami di Jl. Mawar RT 02 retak dan mulai ambles, hujan blm berhenti. #SiagaBencana 😂",Emergency
+S0125,E068,tidak_terkait,tidak_terkait-7,Tolong bantu vote kontes foto kucing saya. https://contoh.example/83889,Non-Emergency
+S0126,E011,laporan,gempa-laporan-0,"Gempa barusan terasa sangat kuat di Kelurahan Bumi Indah, tembok rumah retak dan warga berlarian keluar. 🔥",Emergency
+S0127,E044,bantuan,banjir-bantuan-1,"Butuh perahu karet segera di Gang Flamboyan RT 09, anak-anak terjebak di lantai dua.",Emergency
+S0128,E079,opini,umum-opini-3,@bpbd_contoh Menurut saya anggaran penanganan banjir harus dinaikkan. https://contoh.example/01549,Non-Emergency
+S0129,E036,laporan,kebakaran-laporan-2,Terdengar ledakan dan asap tebal dari gudang di Jl. Dahlia RT 01.,Emergency
+S0130,E025,berita,kebakaran-berita-1,Pemkot menambah dua unit mobil pemadam untuk wilayah Kelurahan Tanjung Asri.,Non-Emergency
+S0131,E025,info_lama,kebakaran-info_lama-1,"Terima kasih damkar, kebakaran di rumah tetangga Jl. Pahlawan RT 04 kemarin sudah berhasil dipadamkan.",Non-Emergency
+S0132,E064,berita,letusan gunung-berita-1,Pemkab menyiapkan jalur evakuasi permanen untuk warga lereng gunung di Kelurahan Sukamaju. https://contoh.example/57293,Non-Emergency
+S0133,E002,laporan,angin kencang-laporan-0,"@info_siaga_contoh ANGIN PUTIIIING BELIUNG MENERJANG KELURAHAN KARANG TENGAH BARUSAN, ATAP RUMAH BETERBANGAN.",Emergency
+S0134,E045,edukasi,umum-edukasi-3,@bpbd_contoh Ada yg tahu cara membuat tas siaga utk letusan gunung? https://contoh.example/02327,Non-Emergency
+S0135,E054,tidak_terkait,tidak_terkait-12,"@bpbd_contoh Antrean tiket konser kayak banjir manusia, sabar ya semua. #SiagaBencana 🔥",Non-Emergency
+S0136,E052,edukasi,umum-edukasi-0,Tips menghadapi kebakaran: kenali jalur evakuasi & kumpulkan nomor darurat. 🥺,Non-Emergency
+S0137,E027,berita,kebakaran-berita-1,Pemkot menambah dua unit mobil pemadam utk wilayah Kelurahan Cibening. #Cuaca,Non-Emergency
+S0138,E003,tidak_terkait,tidak_terkait-19,"Kemaaaacetan pagi ini parah, jalanan seperti lautan kendaraan. 😂",Non-Emergency
+S0139,E061,berita,gempa-berita-0,"BMKG: gempa magnitudo 4,1 terjadi pukul 08.12, tidak berpotensi tusnami dan tidak ada laporan kerusakan. #JagaSesama",Non-Emergency
+S0140,E059,laporan,kebakaran-laporan-1,"Kebkaaran di pasar Kelurahan Harapan Jaya sedang berlangsung, kios-kios sebelah mulai terbakar. 🌊",Emergency
+S0141,E028,berita,letusan gunung-berita-0,@relawan_contoh BADAN GEOLOGI MEMPERBARUI PETA KAWASAN RAWAN LETUSAN GUNUNG UTK WILAYAH KELURAHAN MEKAR SARI. #InfoBencana,Non-Emergency
+S0142,E027,peringatan,umum-peringatan-1,"Imbauan: siapkan tas siaga untuk menghadapi kebakaran, simpan dokumen penting dalam wadah kedap air. #Cuaca",Non-Emergency
+S0143,E045,info_lama,letusan gunung-info_lama-0,"Abu letusan bulan lalu di Kelurahan Pasir Putih sudah dibersihkan, sekolah kembali buka.",Non-Emergency
+S0144,E025,tidak_terkait,tidak_terkait-3,"Diskon besar-besaran, harga banjir promo di toko kami! #JagaSesama",Non-Emergency
+S0145,E013,laporan,banjir-laporan-0,"Air banjir setinggi daaada di Gang Flamboyan RT 12, masih terus naik. 😭",Emergency
+S0146,E027,edukasi,umum-edukasi-2,Thread: sejarah kebakaran terbesar di Indonesia & pelajaran yg bisa kita ambil.,Non-Emergency
+S0147,E070,bantuan,gempa-bantuan-1,"Mohon bantuan tim SAR, tetangga kami terjebak di dalam rumah yang roboh di Jl. Pahlawan RT 01. https://contoh.example/64649",Emergency
+S0148,E035,peringatan,umum-peringatan-1,"@info_siaga_contoh Imbauan: siapkan tas siaga utk menghadapi longsor, simpan dokumen penting dalam wadah kedap air. 🌊",Non-Emergency
+S0149,E055,candaan,umum-candaan-0,"Skripsiku udah kayak longsor, datang tiba-tiba & susah diatasi wkwk",Non-Emergency
+S0150,E065,edukasi,umum-edukasi-5,@info_siaga_contoh Kenapa sih angin kencang bisa terjadi? Simak penjelasan sederhana ini.,Non-Emergency
+S0151,E061,candaan,umum-candaan-1,"Mantan datang lagi, rasanya kayak gempa di hati haha #InfoBencana",Non-Emergency
+S0152,E056,opini,umum-opini-7,Saya kurang setuju kalau dana mitigasi longsor dipotong tahun ini.,Non-Emergency
+S0153,E052,tidak_terkait,tidak_terkait-1,tlg dong rekomendasi laptop murah buat kuliah.,Non-Emergency
+S0154,E022,candaan,umum-candaan-0,"@bpbd_contoh Skripsiku udah kayak angin kencang, datang tiba-tiba & susah ditaasi wkwk",Non-Emergency
+S0155,E055,berita,longsor-berita-0,@relawan_contoh Pemkab merencanakan penanaman pohon di lereng Kelurahan Lembah Hijau untuk mencegah longsor.,Non-Emergency
+S0156,E063,bantuan,angin kencang-bantuan-0,"TOLONG, POHON TUMBANG MENIMPA RUMAH KAMI DI JL. ANGGREK RT 12, ADA YANG TERJEPIT! https://contoh.example/84508",Emergency
+S0157,E071,tidak_terkait,tidak_terkait-15,"Pukul 08.12 kereta berangkat, jangan sampai ketinggalan ya. 🥺",Non-Emergency
+S0158,E048,tidak_terkait,tidak_terkait-19,"Kemacetan pagi iiiini parah, jalanan seperti lautan kendaraan.",Non-Emergency
+S0159,E039,berita,banjir-berita-1,@relawan_contoh Dinas PU menganggarkan normalisasi sungai di Kelurahan Karang Tengah tahun depan.,Non-Emergency
+S0160,E069,candaan,umum-candaan-2,Tagihan bulan ini bikin dompet kena letusan gunung wkwk,Non-Emergency
+S0161,E039,bantuan,banjir-bantuan-1,"@info_siaga_contoh Butuh perahu karet segera di Jl. Anggrek RT 01, anak-anak terjebak di lantai dua.",Emergency
+S0162,E041,tidak_terkait,tidak_terkait-17,tlg kaaasih saran warna cat yg cocok buat kamar kecil. https://contoh.example/57362,Non-Emergency
+S0163,E011,tidak_terkait,tidak_terkait-17,Tolong kasih saran warna cat yang cocok buat kamar kecil.,Non-Emergency
+S0164,E021,tidak_terkait,tidak_terkait-15,"Pukul 08.12 kereta berangkat, jangan sampai ketinggalan ya.",Non-Emergency
+S0165,E034,bantuan,longsor-bantuan-2,"@bpbd_contoh Butuh relawan dan cangkul di Jl. Mawar RT 08, masih ada yang tertimbun.",Emergency
+S0166,E074,tidak_terkait,tidak_terkait-7,Tolong bantu vote kontes foto kucing saya. #SiagaBencana,Non-Emergency
+S0167,E060,laporan,kebakaran-laporan-2,@info_siaga_contoh Terdengar ledakan dan asap tebal dariiii gudang di Jl. Dahlia RT 05. 🌊,Emergency
+S0168,E016,berita,letusan gunung-berita-0,Badan Geologi memperbarui peta kawasan rawan letusan gunung untuk wilayah Kelurahan Tanjung Asri.,Non-Emergency
+S0169,E070,bantuan,gempa-bantuan-0,"@bpbd_contoh Tolong, ada korban tertimpa reruntuhan di Jl. Pahlawan RT 01, butuh ambulans sekarang.",Emergency
+S0170,E037,edukasi,umum-edukasi-2,Thread: sejarah longsor terbesar di Indonesia dan pelajaran yang bisa kita ambil. #SiagaBencana 🚨 https://contoh.example/63719,Non-Emergency
+S0171,E054,bantuan,longsor-bantuan-0,"Tolong, keluarga kami tertimbun longsor di Jl. Anggrek RT 05, butuh alat berat & tim SAR segera. #SiagaBencana https://contoh.example/63259",Emergency
+S0172,E025,candaan,umum-candaan-2,Tagihan bulan ini bikin dompet kena kebakaran wkwk,Non-Emergency
+S0173,E006,opini,umum-opini-7,Saya kurang setuju kalau dana mitigasi letusan gunung dipotong tahun ini. https://contoh.example/96385,Non-Emergency
+S0174,E080,tidak_terkait,tidak_terkait-8,"Harga cabai naik lagi, ibu-ibu di pasar mulai kebakaran jenggot.",Non-Emergency
+S0175,E056,bantuan,longsor-bantuan-1,"Mohon bantuan evakuasi, warga Jl. Dahlia RT 11 terisolasi akibat jln tertutup longsor. #kota",Emergency
+S0176,E054,peringatan,umum-peringatan-0,"Musim pancaroba sudah dekat, waspada longsor ya semuanya. #JagaSesama",Non-Emergency
+S0177,E007,edukasi,umum-edukasi-2,Thread: sejarah letusan gunung terbesar di Indonesia & pelajaran yg bisa kita ambil.,Non-Emergency
+S0178,E044,edukasi,umum-edukasi-5,KENAPA SIH BANJIR BISA TERJADI? SIMAK PENJELASAN SEDERHAAAANA INI.,Non-Emergency
+S0179,E010,bantuan,banjir-bantuan-2,"Mohon baaantuan evakuasi di Kelurahan Bumi Indah, air hampir sampai atap & listrik padam.",Emergency
+S0180,E063,laporan,angin kencang-laporan-2,"Angin kencang masih berlangsung di Jl. Anggrek RT 12, baliho roboh menimpa kendaraan. #Cuaca",Emergency
+S0181,E051,laporan,banjir-laporan-0,"AIR BANJIR SETINGGI DADA DI JL. PAHLAWAN RT 10, MASIH TERUS NAIK.",Emergency
+S0182,E048,tidak_terkait,tidak_terkait-4,"tlg share ya, kita sedang mencari kos deeeekat kampus. #JagaSesama",Non-Emergency
+S0183,E064,laporan,letusan gunung-laporan-1,"ABU VULKANIK MENUTUP JALAN DI JL. MELATI RT 06, JARAK PANDANG TINGGAL BEBERAPA METER. #SiagaBencana https://contoh.example/78160",Emergency
+S0184,E006,info_lama,letusan gunung-info_lama-0,"Abu letusan bulan lalu di Kelurahan Cibening sudah dibersihkan, sekolah kembali buka. #kota",Non-Emergency
+S0185,E032,tidak_terkait,tidak_terkait-13,"tlg jangan spoiler dulu, filmnya blm selesai kutonton. #InfoBencana",Non-Emergency
+S0186,E056,bantuan,longsor-bantuan-2,"Butuh relawan & cangkul di Jl. Dahlia RT 11, masih ada yg tertimbun. https://contoh.example/29891",Emergency
+S0187,E031,berita,kebakaran-berita-1,Pemkot menambah dua unit mobil pemadam untuk wilayah Kelurahan Harapan Jaya. https://contoh.example/40750,Non-Emergency
+S0188,E010,bantuan,banjir-bantuan-0,"Tolong, air udah masuk ke rumah kiiita di Jl. Melati RT 08, ada dua lansia yg gak bisa jalan.",Emergency
+S0189,E055,laporan,longsor-laporan-2,"Longsor susulan baru saja terjadi di Jl. Kenanga RT 03, beberapa rumah tertimbun.",Emergency
+S0190,E025,laporan,kebakaran-laporan-0,"Api membesar di rumah warga Jl. Pahlawan RT 04, asap hitam terlihat dari jauh.",Emergency
+S0191,E079,laporan,banjir-laporan-2,"Sungai meluap, jalan Jl. Dahlia RT 10 terendam hampir sampai atap, motor tidak bisa lewat. https://contoh.example/22750",Emergency
+S0192,E007,laporan,letusan gunung-laporan-2,"Kolom asap setinggi ribuan meter terlihat dari Kelurahan Karang Tengah, warga mulai panik dan mengungsi. https://contoh.example/20450",Emergency
+S0193,E062,berita,angin kencang-berita-1,Hasil kajain menyebut kawasan Kelurahan Sidomulyo termasuk wilayah yang sering dilalui angin kencang.,Non-Emergency
+S0194,E051,tidak_terkait,tidak_terkait-6,"Kopi ini panas banget, lidahku terbakar.",Non-Emergency
+S0195,E037,info_lama,longsor-info_lama-0,JALAN KELURAHAN SIDOMULYO YANG TERTUTUP LONGSOR BULAN LALU KINI SUDAH DIBUKA KEMBALI. #kota,Non-Emergency
+S0196,E032,bantuan,longsor-bantuan-1,"MOHON BANTUAN EVAKUASI, WRG JL. KENANGA RT 12 TERISOLASI AKIBAT JALAN TERTUTUP LONGSOR.",Emergency
+S0197,E075,tidak_terkait,tidak_terkait-11,Butuh bantuan: ada yang bisa ajarin Python dasar? #Cuaca,Non-Emergency
+S0198,E066,tidak_terkait,tidak_terkait-2,Api semangat kerja belum padam walau deadline menumpuk. https://contoh.example/47446,Non-Emergency
+S0199,E024,bantuan,angin kencang-bantuan-1,"Mohon bantuan, atap rumah kami hilang diterbangkan angin & ada bayi di dalamnya, Jl. Cepmaka RT 03.",Emergency
+S0200,E024,laporan,angin kencang-laporan-2,"Angin kencang masih berlangsung di Jl. Cempaka RT 03, baliho roboh menimpa kendaraan.",Emergency
+S0201,E077,laporan,letusan gunung-laporan-1,"Abu vulkanik menutup jalan di Jl. Melati RT 08, jarak pandang tinggal beberapa meter. #kota",Emergency
+S0202,E008,opini,umum-opini-7,@info_siaga_contoh SAYA KURANG SETUJU KALAU DANA MITIGASI LONGSOR DIPOTONG TAHUN INI.,Non-Emergency
+S0203,E019,info_lama,angin kencang-info_lama-1,Pohon tumbang kemarin di Jl. Mawar RT 05 sudah dipotong dan jalan kembali lancar. #JagaSesama,Non-Emergency
+S0204,E020,berita,gempa-berita-0,"BMKG: gempa magnitudo 4,1 terjadi pukul 08.12, gak berpotensi tsunami dan gak ada laporan kerusakan.",Non-Emergency
+S0205,E075,bantuan,gempa-bantuan-0,"Tolong, ada korban tertimpa reruntuhan di Jl. Anggrek RT 12, butuh ambulans sekarang.",Emergency
+S0206,E008,tidak_terkait,tidak_terkait-7,tlg bantu vote kontes foto kucing saya. #InfoBencana 😂 https://contoh.example/69475,Non-Emergency
+S0207,E078,edukasi,umum-edukasi-3,Ada yg tahu cara membuat tas siaga untuk angin kencang? #JagaSesama,Non-Emergency
+S0208,E015,peringatan,umum-peringatan-2,"Hati-hati, wilayah Kelurahan Pasir Putih termasuk rawan letusan gunung. Kenali jalur evakuasi terdekat. #InfoBencana https://contoh.example/46447",Non-Emergency
+S0209,E044,info_lama,banjir-info_lama-0,"Banjir kemarin di Kelurahan Bumi Indah sudah surut, terima kasih kepada para relawan.",Non-Emergency
+S0210,E064,edukasi,umum-edukasi-3,Ada yang tahu cara membuat tas siaga utk letusan gunung?,Non-Emergency
+S0211,E063,peringatan,umum-peringatan-0,"@info_siaga_contoh Musim pancaroba udah dekat, waspada angin kencang ya semuanya.",Non-Emergency
+S0212,E062,bantuan,angin kencang-bantuan-0,"Tolong, pohon tumbang menimpa rumah kami di Jl. Kenanga RT 04, ada yg terjepit! 😭",Emergency
+S0213,E074,bantuan,gempa-bantuan-0,"Tolong, ada korban tertimpa reruntuhan di Jl. Pahlawan RT 02, butuh ambulans sekarang. https://contoh.example/87476",Emergency
+S0214,E009,info_lama,angin kencang-info_lama-0,"Puting beliung di Kelurahan Pasir Putih minggu lalu merusak belasan atap, kini sudah diperbaiki gotong royong.",Non-Emergency
+S0215,E035,info_lama,longsor-info_lama-1,"Setahun lalu longsor di Kelurahan Karang Tengah, hari ini warga mengenang para korban. #Cuaca",Non-Emergency
+S0216,E049,info_lama,banjir-info_lama-0,"Banjir kemarin di Kelurahan Tanjung Asri sudah surut, terima kasih kepada para relawan.",Non-Emergency
+S0217,E067,bantuan,angin kencang-bantuan-0,"TOLONG, POHON TUMBANG MENIMPAAAA RUMAH KAMI DI JL. CEMPAKA RT 09, ADA YANG TERJEPIT!",Emergency
+S0218,E040,peringatan,umum-peringatan-3,"@info_siaga_contoh Ingat, jaga lingkungan agar risiko letusan gunung berkurang.",Non-Emergency
+S0219,E029,edukasi,umum-edukasi-0,Tips menghadapi gempa: kenali jalur evakuasi & kumpulkan nomor darurat.,Non-Emergency
+S0220,E048,peringatan,umum-peringatan-3,"@relawan_contoh INGAT, JAGA LINGKUNGAN AGAR RISIKO BANJIIIR BERKURANG. 🙏",Non-Emergency
+S0221,E069,peringatan,umum-peringatan-4,Masyarakat diminta tetap waspada terhadap potensi letusan gunung sepekan keeee depan.,Non-Emergency
+S0222,E050,candaan,umum-candaan-2,Tagihan bulan ini bikin dompet kena gempa wkwk,Non-Emergency
+S0223,E054,bantuan,longsor-bantuan-0,"Tolong, keluarga kami tertimbun longsor di Jl. Anggrek RT 05, butuh alat berat dan tim SAR segera.",Emergency
+S0224,E076,berita,angin kencang-berita-0,Pemkot menebang pohon rawan tumbang di sepanjang Gang Flamboyan sebagai langkah pencegahan.,Non-Emergency
+S0225,E074,berita,gempa-berita-1,Pemerintah daerah memperketat aturan bangunan tahan gempa di Kelurahan Pasir Putih. 😂,Non-Emergency
+S0226,E027,tidak_terkait,tidak_terkait-4,"Tolong share ya, kami sedang mencari kos dekat kampus. #Cuaca",Non-Emergency
+S0227,E018,laporan,letusan gunung-laporan-0,"Gunung mengeluarkan letusan besar barusan, hujan abu tebal turun di Kelurahan Tanjung Asri. #InfoBencana",Emergency
+S0228,E080,bantuan,banjir-bantuan-2,"Mohon bantuan evakuasi di Kelurahan Bumi Indah, air setinggi dada dan listrik padam.",Emergency
+S0229,E042,bantuan,angin kencang-bantuan-0,"Tolong, pohon tumbang menimpa rmh kita di Jl. Dahlia RT 09, ada yang terjepit!",Emergency
+S0230,E072,tidak_terkait,tidak_terkait-5,"KONSER SEMALAM GILA, PENONTON BERTERIAK SAMPAI GETARANNYA TERASA SEPERTI GEMPA WKWK",Non-Emergency
+S0231,E036,bantuan,kebakaran-bantuan-1,"Mohon kirim mobil pemadam ke Jl. Dahlia RT 01 sekarang, api udah besar.",Emergency
+S0232,E042,edukasi,umum-edukasi-1,Webinar gratis tentang mitigasi angin kencang akan digelar hari Sabtu pukul 10.00. https://contoh.example/21199,Non-Emergency
+S0233,E026,berita,letusan gunung-berita-1,Pemkab menyiapkan jalur evakuasi permanen untuk warga lereng gunung di Kelurahan Sukamaju.,Non-Emergency
+S0234,E021,berita,angin kencang-berita-0,Pemkot menebang pohon rawan tumbang di sepanjang Jl. Mawar sebagai langkah pencegahan. #JagaSesama,Non-Emergency
+S0235,E077,berita,letusan gunung-berita-1,@info_siaga_contoh Pemkab menyiapkan jalur evakuasi permanen untuk wrg lereng gunung di Kelurahan Mekar Sari. https://contoh.example/31550,Non-Emergency
+S0236,E031,tidak_terkait,tidak_terkait-6,"Kopi ini panas bangte, lidahku terbakar.",Non-Emergency
+S0237,E075,bantuan,gempa-bantuan-0,"TOLONG, ADA KORBAN TERTIMPA RERUNTUHAN DI JL. ANGGREK RT 12, BUTUH AMBULANS SEKARANG. https://contoh.example/44177",Emergency
+S0238,E051,opini,umum-opini-4,"Kasihan korban banjir, semoga pemerintah lebih serius ke depan.",Non-Emergency
+S0239,E054,info_lama,longsor-info_lama-0,Jalan Kelurahan Mekar Sari yg tertutup longsor bulan lalu kini sudah dibuka kembali. https://contoh.example/60698,Non-Emergency
+S0240,E020,opini,umum-opini-5,"Setiap ada gempa yang disalahkan selalu warga, padahal tata ruangnya bermasalah. #SiagaBencana 🔥 https://contoh.example/31244",Non-Emergency
+S0241,E005,laporan,letusan gunung-laporan-3,Terdengar dentuman keras dari gunung dan kerikil panas jatuh di sekitar Jl. Dahlia RT 05. 😭,Emergency
+S0242,E033,berita,gempa-berita-0,"@relawan_contoh BMKG: gempa magnitudo 4,1 terjadi pukul 19.40, tidak berpotensi tsunami dan tidak ada laporan keruuuusakan.",Non-Emergency
+S0243,E039,opini,umum-opini-7,Saya kurang setuju kalau dana mitigasi banjir dipotong tahun ini. #SiagaBencana,Non-Emergency
+S0244,E051,tidak_terkait,tidak_terkait-19,"Kemacetan pagiii ini parah, jalanan seperti lautan kendaraan. #SiagaBencana",Non-Emergency
+S0245,E037,tidak_terkait,tidak_terkait-6,"Kopi ini panas banget, lidahku terbakar. #InfoBencana",Non-Emergency
+S0246,E013,info_lama,banjir-info_lama-0,"Banjir kemarin di Kelurahan Sidomulyo sudah surut, terima kasih kepada para relawan. 🔥",Non-Emergency
+S0247,E048,laporan,banjir-laporan-1,"Banjir masuk ke rumah-rumah warga Kelurahan Lembah Hijau, air sudah setinggi lutut. #Cuaca",Emergency
+S0248,E043,candaan,umum-candaan-1,"@bpbd_contoh Mantan datang lagi, rasanya kayak kebakaran di hati haha",Non-Emergency
+S0249,E052,laporan,kebakaran-laporan-1,"Kebakaran di pasar Kelurahan Lembah Hijau sedang berlangsung, kios-kios sebelah mulai terbakar.",Emergency
+S0250,E040,laporan,letusan gunung-laporan-3,Terdengar dentuman keras dari gunung dan kerikil panas jatuh di sekitar Jl. Pahlawan RT 03. 🔥 https://contoh.example/40893,Emergency
+S0251,E065,tidak_terkait,tidak_terkait-18,LAGU BARU MEREKA MELEDAK DI TANGGA LAGU MINGGU INI. 🥺,Non-Emergency
+S0252,E065,candaan,umum-candaan-0,"Skripsiku udah kayak angin kencang, datang tiba-tiba & susah diatasi wkwk 🚨",Non-Emergency
+S0253,E069,edukasi,umum-edukasi-0,Tips menghadapi letusan gunung: kenali jalur evakuasi dan kumpulkan nomor darurat. 😱,Non-Emergency
+S0254,E030,laporan,letusan gunung-laporan-2,"Kolom asap setinggi ribuan meter terlihat dari Kelurahan Cibening, warga mulai panik dan mengungsi.",Emergency
+S0255,E050,laporan,gempa-laporan-3,Listrik padam & gedung sekolah di Kelurahan Harapan Jaya retak parah setelah guncangan barusan.,Emergency
+S0256,E079,candaan,umum-candaan-4,"Lapar banget, perutku bunyi kayak banjir wkwk 🔥",Non-Emergency
+S0257,E010,info_lama,banjir-info_lama-0,"Banjir kemarin di Kelurahan Bumi Indah udah surut, terima kasih kepada para relawan.",Non-Emergency
+S0258,E071,opini,umum-opini-1,Kenapa longsor selalu datang setiap tahun tapi solusinya gak pernah jelas? #JagaSesama,Non-Emergency
+S0259,E066,laporan,longsor-laporan-2,"Longsor susulan baru saja terjadi di Jl. Mawar RT 02, beberapa rumah tertimbun.",Emergency
+S0260,E047,edukasi,umum-edukasi-2,Thread: sejarah gempa terbesar di Indonesia dan pelajaran yang bisa kita ambil.,Non-Emergency
+S0261,E034,bantuan,longsor-bantuan-0,"Tolong, keluarga kami tertimbun longsor di Jl. Mawar RT 08, butuh alat berat dan tim SAR segera. #Cuaca",Emergency
+S0262,E003,berita,kebakaran-berita-0,Dinas pemadam kebakaran meeenggelar simulasi evakuasi di Kelurahan Pasir Putih hari Sabtu.,Non-Emergency
+S0263,E034,tidak_terkait,tidak_terkait-0,"@bpbd_contoh Tloong follow akun saya ya, ada giveaway hari ini!",Non-Emergency
+S0264,E025,bantuan,kebakaran-bantuan-2,"Butuh bantuan evakuasi, asap tebal di apartemen Kelurahan Tanjung Asri, kami terjebak di lantai tiga.",Emergency
+S0265,E018,peringatan,umum-peringatan-0,"Musim pancaroba udah dekat, waspada letusan gunung ya semuanya.",Non-Emergency
+S0266,E070,opini,umum-opini-7,Saya kurang setuju kalau dana mitigasi gempa dipotong tahun ini.,Non-Emergency
+S0267,E076,info_lama,angin kencang-info_lama-0,"Puting beliung di Kelurahan Karang Tengah minggu lalu merusak belasan atap, kini sudah diperbaiki gotoooong royong. #JagaSesama",Non-Emergency
+S0268,E033,edukasi,umum-edukasi-0,Tips menghadapi gempa: kenali jalur evakuasi dan kumpulkan nomor darruat. #InfoBencana,Non-Emergency
+S0269,E028,tidak_terkait,tidak_terkait-5,"KONSER SEMALAM GILA, PENONTON BERTERIAK SAMPAI GETARAAAANNYA TERASA SEPERTI GEMPA WKWK",Non-Emergency
+S0270,E002,tidak_terkait,tidak_terkait-19,"Kemaectan pagi ini parah, jalanan seperti lautan kendaraan. #SiagaBencana",Non-Emergency
+S0271,E075,berita,gempa-berita-0,"BMKG: gempa magnitudo 4,1 terjadi pukul 06.45, tidak berpotensi tsunami dan tidak ada laporan kerusakan.",Non-Emergency
+S0272,E067,laporan,angin kencang-laporan-3,"ATAP SEKOLAH DI KELURAHAN CIBENING TERBANG TERBAWA ANGIN, MURID-MURID DIEVAKUASI KE RUANG AMAN.",Emergency
+S0273,E036,edukasi,umum-edukasi-3,Ada yang tahu cara membuat tas siaga untuk kebakaran?,Non-Emergency
+S0274,E005,bantuan,letusan gunung-bantuan-0,"TOLONG, KAMI BUTUH MASKER & EVAKUASI DI JL. DAHLIA RT 05, ABU SANGAT TEBAL & BANYAK ANAK SESAK NAPAS.",Emergency
+S0275,E033,info_lama,gempa-info_lama-0,"Sudah seminggu sejak gempa, rmuah warga Kelurahan Karang Tengah masih diperbaiki pelan-pelan.",Non-Emergency
+S0276,E067,tidak_terkait,tidak_terkait-12,"Antrean tiket konser kayak banjir manusia, sabar ya semua. 🚨",Non-Emergency
+S0277,E041,laporan,gempa-laporan-1,"Setelah gempa tadi, atap ruko di Jl. Melati RT 09 runtuh & ada yang tertimpa. 🙏",Emergency
+S0278,E066,opini,umum-opini-1,Kenapa longsor selalu datang setiap tahun tapi solusinya tidak pernah jelas?,Non-Emergency
+S0279,E030,laporan,letusan gunung-laporan-3,Terdengar dentuman keras dari gunung dan kerikil panas jauth di sekitar Jl. Anggrek RT 11. #SiagaBencana https://contoh.example/91803,Emergency
+S0280,E002,opini,umum-opini-0,Pemerintah lambat sekali menangani angin kencang di kota ini.,Non-Emergency
+S0281,E044,laporan,banjir-laporan-0,"Air banjir setinggi lutut di Gang Flamboyan RT 09, masih terus naik. #InfoBencana",Emergency
+S0282,E034,berita,longsor-berita-1,Peta rawan longsor Kelurahan Karang Tengah diperbarui oleh dinas terkait & dapat diunduh warga. 🌊,Non-Emergency
+S0283,E016,tidak_terkait,tidak_terkait-19,"Kemacetan pagi ini parah, jalanan seperti lautan kendaraan. https://contoh.example/49919",Non-Emergency
+S0284,E031,laporan,kebakaran-laporan-3,"API MENJALAR KE ATAP RUMAH TETANGGA DI JL. CEMPAKA RT 09, WARGA BERUSAHA MEMADAMKAN DENGAN EMBER.",Emergency
+S0285,E062,bantuan,angin kencang-bantuan-0,"@relawan_contoh Tolong, pohon tumbang menimpa rmh kami di Jl. Kenanga RT 04, ada yg terjepit!",Emergency
+S0286,E071,laporan,longsor-laporan-0,"Tebing longsor menimpa rumah warga di Jl. Cempaka RT 03, tanah masih bergerak. #JagaSesama",Emergency
+S0287,E080,bantuan,banjir-bantuan-0,"TOLONG, AIR SUDAH MASUK KE RUMAH KAMI DI JL. MELATI RT 12, ADA DUA LANSIA YANG TIDAK BISA JALAN.",Emergency
+S0288,E001,opini,umum-opini-2,"Capek lihat berita geeempa terus, kapan ada perbaikan tata kota? #JagaSesama",Non-Emergency
+S0289,E037,laporan,longsor-laporan-3,"Tanah di belakang rmh kita di Jl. Anggrek RT 02 retak & mulai ambleees, hujan blm berhenti. https://contoh.example/40680",Emergency
+S0290,E037,bantuan,longsor-bantuan-2,"Butuh relawan dan cangkul di Jl. Anggrek RT 02, masih ada yang tertimbun. 🚨",Emergency
+S0291,E078,opini,umum-opini-5,"Setiap ada angiiin kencang yang disalahkan selalu warga, padahal tata ruangnya bermasalah.",Non-Emergency
+S0292,E019,candaan,umum-candaan-1,"MANTAN DATANG LAGI, RASANYA KAYAK ANGIN KENCANG DI HATI HAHA",Non-Emergency
+S0293,E032,candaan,umum-candaan-3,"Nilaaai ujianku jatuh kayak longsor, hancur semuanya haha 🥺",Non-Emergency
+S0294,E059,tidak_terkait,tidak_terkait-14,"@relawan_contoh Gunung cucian di rmh udah tinggi banget, tolong semangatin aku.",Non-Emergency
+S0295,E056,laporan,longsor-laporan-3,"TANAH DI BELAKANG RUMAH KAMI DI JL. DAHLIA RT 11 RETAK DAN MULAI AMBLES, HUJAN BELUM BERHENTI. 😱",Emergency
+S0296,E051,bantuan,banjir-bantuan-1,"Butuh perahu karet segera di Jl. Pahlawan RT 10, anak-anak terjebak di lantai dua.",Emergency
+S0297,E028,edukasi,umum-edukasi-2,Thread: sejarah letusan gunung terbesar di Indonesia & pelajaran yang bisa kita ambil. 😂,Non-Emergency
+S0298,E007,info_lama,letusan gunung-info_lama-1,Terima kasih relawan yang membantu membersihkan abu vulkanik di Jl. Dahlia RT 12 kemarin.,Non-Emergency
+S0299,E070,candaan,umum-candaan-0,"Skripsiku udah kayak gempa, datang tiba-tiba & suuusah diatasi wkwk #Cuaca",Non-Emergency
+S0300,E077,laporan,letusan gunung-laporan-2,"Kolom asap setinggi ribuan meter terlihat dari Kelurahan Mekar Sari, warga mulai panik & mengungsi.",Emergency
+S0301,E042,laporan,angin kencang-laporan-0,"Angin puting beliung menerjang Kelurahan Harapan Jaya barusan, atap rumah beterbangan.",Emergency
+S0302,E012,bantuan,gempa-bantuan-2,"BUTUH TENDA & OBAT-OBATAN DI LAPANGAN KELURAHAN CIBENING, BANYAK WARGA LUKA AKIBAT GEMPA TADI.",Emergency
+S0303,E060,peringatan,umum-peringatan-2,"Hati-hati, wilayaaah Kelurahan Sidomulyo termasuk rawan kebakaran. Kenali jalur evakuasi terdekat.",Non-Emergency
+S0304,E030,peringatan,umum-peringatan-0,"@bpbd_contoh MUSIM PAAAANCAROBA SUDAH DEKAT, WASPADA LETUSAN GUNUNG YA SEMUANYA. https://contoh.example/80157",Non-Emergency
+S0305,E043,opini,umum-opini-5,"Setiap ada kebakaran yang disalahkan selalu warga, padahaaaal tata ruangnya bermasalah. https://contoh.example/51069",Non-Emergency
+S0306,E041,info_lama,gempa-info_lama-0,"Sudah seminggu sejak gempa, rumah warga Kelurahan Lembah Hijau masih diperbaiki pelan-pelan. #Cuaca",Non-Emergency
+S0307,E025,laporan,kebakaran-laporan-1,"Kebakaran di pasar Kelurahan Tanjung Asri sedang berlangsung, kios-kios sebelah mulai terbakar. #InfoBencana",Emergency
+S0308,E072,edukasi,umum-edukasi-1,Webinar gratis tentang mitigasi letusan gunung akan digelar hari Sabtu pukul 10.00. #kota,Non-Emergency
+S0309,E008,candaan,umum-candaan-0,"@bpbd_contoh Skripsiku udah kayak longsor, datang tiba-tiba dan susah diatasi wkwk #InfoBencana",Non-Emergency
+S0310,E068,berita,letusan gunung-berita-0,@bpbd_contoh Badan Geologi memperbarui peta kawasan rawan letusan gunung untuk wilayah Kelurahan Tanjung Asri.,Non-Emergency
+S0311,E076,laporan,angin kencang-laporan-1,"Pohon besar tumbang menimpa rumah di Gang Flamboyan RT 04 akibat angin kencang, jalan tertutup. #kota 🚨",Emergency
+S0312,E067,berita,angin kencang-berita-0,@relawan_contoh Pemkot menebang pohon rawan tumbang di sepanjang Jl. Cempaka sebagai langkah pencegahan. #InfoBencana,Non-Emergency
+S0313,E039,tidak_terkait,tidak_terkait-4,"Tolong share ya, kita sednag mencari kos dekat kampus. #kota 😱",Non-Emergency
+S0314,E041,candaan,umum-candaan-1,"Mantan datang lagi, rasanya kayak gempa di hati haha #SiagaBencana",Non-Emergency
+S0315,E046,candaan,umum-candaan-0,"Skripsiku udah kayak angin kencang, datang tiba-tiba dan susah diatasi wkwk 🥺",Non-Emergency
+S0316,E035,laporan,longsor-laporan-2,"Longsor susulan baruuu saja terjadi di Jl. Dahlia RT 10, beberapa rumah tertimbun.",Emergency
+S0317,E063,bantuan,angin kencang-bantuan-2,"Butuh terpal dan bantuan evakuasi di Kelurahan Harapan Jaya, puluhan rumah rusak diterjang angin. #InfoBencana",Emergency
+S0318,E066,tidak_terkait,tidak_terkait-6,"Kopi ini panas banget, lidahku terbakar. https://contoh.example/37913",Non-Emergency
+S0319,E006,laporan,letusan gunung-laporan-0,"GUNUNG MENGELUARKAN LETUSAN BESAR BARUSAN, HUJAN ABU TEBAL TURUN DI KELURAHAN CIBENING.",Emergency
+S0320,E053,bantuan,gempa-bantuan-2,"Butuh tenda dan obat-obatan di lapangan Kelurahan Tanjung Asri, banyak wrg luka akibat gempa tadi.",Emergency
+S0321,E061,bantuan,gempa-bantuan-2,"Butuh tedna & obat-obatan diiii lapangan Kelurahan Mekar Sari, banyak wrg luka akibat gempa tadi.",Emergency
+S0322,E042,laporan,angin kencang-laporan-0,"Angin puting beliung meenrjang Kelurahan Harapan Jaya barusan, atap rmh beterbangan.",Emergency
+S0323,E077,laporan,letusan gunung-laporan-2,"Kolom asap setinggi ribuan meter terlihat dari Kelurahan Mekar Sari, warga mulai panik & mengungsi.",Emergency
+S0324,E019,peringatan,umum-peringatan-4,Masyarakat diminta tetap waspada terhadap potensi angin kencang sepekan ke depan.,Non-Emergency
+S0325,E053,opini,umum-opini-4,"@relawan_contoh Kasihan korban gempa, semoga pemerintah lebih serius ke depan.",Non-Emergency
+S0326,E012,bantuan,gempa-bantuan-2,"BUTUH TENDA & OBAT-OBATAN DI LAPANGAN KELURAHAN CIBENING, BANYAK WARGA LUKA AKIBAT GEMPA TADI.",Emergency
+S0327,E042,bantuan,angin kencang-bantuan-2,"Butuh terpal dan bantuan evakuasi di Kelurahan Harapan Jaya, puluhan rumah rusak diterjang angin. 😱 https://contoh.example/34986",Emergency
+S0328,E048,opini,umum-opini-6,"Debat soal penanganan banjir makin seru, tapi blm ada tiiiindakan nyata.",Non-Emergency
+S0329,E053,edukasi,umum-edukasi-4,Materi kuliah hari iiini membahas penyebab gempa dan upaya mitigasiyna. #kota,Non-Emergency
+S0330,E008,berita,longsor-berita-0,Pemkab merencanakan penanaman pohon di lereng Kelurahan Pasir Putih untuk mencegah longsor. #SiagaBencana,Non-Emergency
+S0331,E060,candaan,umum-candaan-1,"Mantan datang lagi, rasanya kayak kebakaran di hati haha #kota",Non-Emergency
+S0332,E040,tidak_terkait,tidak_terkait-15,"PUKUL 08.12 KERETA BERANGKAT, JANGAN SAMPAI KETINGGALAN YA. #InfoBencana",Non-Emergency
+S0333,E010,tidak_terkait,tidak_terkait-14,"GUNUNG CUCIAAAAN DI RUMAH UDAH TINGGI BANGET, TOLONG SEMANGATIN AKU.",Non-Emergency
+S0334,E022,peringatan,umum-peringatan-2,"@info_siaga_contoh Hati-hati, wilayah Kelurahan Pasir Putih termasuk rawan angin kencang. Kenaaali jalur evakuasi terdekat. #Cuaca",Non-Emergency
+S0335,E016,tidak_terkait,tidak_terkait-17,@relawan_contoh tlg kasih saran warna cat yg cocok buat kamar kecil. #InfoBencana,Non-Emergency
+S0336,E036,tidak_terkait,tidak_terkait-10,"Diskusiiii kelompok tadi panas banget, hampir meledak wkwk #SiagaBencana",Non-Emergency
+S0337,E031,opini,umum-opini-1,Kenapa kebakaran selaluuu datang setiap tahun tapi solusinya tidak pernah jelas?,Non-Emergency
+S0338,E073,tidak_terkait,tidak_terkait-6,"Kopi ini panas banget, lidahku teeerbakar. #SiagaBencana",Non-Emergency
+S0339,E071,edukasi,umum-edukasi-0,Tips menghadaaaapi longsor: kenali jalur evakuasi dan kumpulkan nomor darurat.,Non-Emergency
+S0340,E005,bantuan,letusan gunung-bantuan-0,"Tolong, kami butuh masker dan evakuasi di Jl. Dahlia RT 05, abu sangat tebal dan banyak anak sesak napas. https://contoh.example/40506",Emergency
+S0341,E007,laporan,letusan gunung-laporan-2,"Kolom asap setinggi ribuan meter terlihat dari Kelurahan Karang Tengah, wrg mulai panik & mengungsi.",Emergency
+S0342,E073,laporan,banjir-laporan-0,"Air banjir setinggi dada di Jl. Pahlawan RT 05, masih terus naik.",Emergency
+S0343,E022,bantuan,angin kencang-bantuan-1,"Mohon bantuan, atap rumah kami hilang diterbangkan angin dan ada bayi di dalamnya, Jl. Anggrek RT 06.",Emergency
+S0344,E011,info_lama,gempa-info_lama-1,"Doakan korban gempa tahun lalu di Kelurahan Bumi Indaaah ya, hari ini kami mengadakan doa bersama. https://contoh.example/22026",Non-Emergency
+S0345,E043,tidak_terkait,tidak_terkait-17,@relawan_contoh Tolong kasih saran warna cat yang cocok buat kamar kecil. #InfoBencana 😂,Non-Emergency
+S0346,E040,edukasi,umum-edukasi-2,Thread: sejarah letsuan gunung terbesar di Indonesia dan pelajaran yang bisa kita ambil.,Non-Emergency
+S0347,E028,laporan,letusan gunung-laporan-1,"Abu vulkanik menutup jln di Jl. Melati RT 08, jarak pandang tinggal beberapa meter. 🌊",Emergency
+S0348,E059,berita,kebakaran-berita-0,Dinas pemadam kebakaran menggelar simulasi evakuasi di Kelurahan Harapan Jaya hari Sabtu. https://contoh.example/55809,Non-Emergency
+S0349,E001,edukasi,umum-edukasi-0,@info_siaga_contoh Tips menghadapi gempa: kenali jalur evakuasi & kumpulkan nomor darurat. #kota,Non-Emergency
+S0350,E002,bantuan,angin kencang-bantuan-2,"@relawan_contoh Butuh terpal dan bantuan evakuasi di Kelurahan Karang Tengah, puluhan rumah rusak diterjang angin.",Emergency
+S0351,E013,tidak_terkait,tidak_terkait-14,"Gunung cucian di rumah sudah tinggi banget, tolong semangatin aku. #SiagaBencana",Non-Emergency
+S0352,E030,tidak_terkait,tidak_terkait-18,Lagu baru merekaaaa meledak di tangga lagu minggu ini.,Non-Emergency
+S0353,E073,edukasi,umum-edukasi-1,Webinar gratis tentang mitigasi banjir akan digelar hari Sabtu pukul 10.00.,Non-Emergency
+S0354,E022,bantuan,angin kencang-bantuan-1,"Mohon bantuan, atap rumah kami hilang diterbangkan angin dan ada bayi di dalamnya, Jl. Anggrek RT 06. #InfoBencana",Emergency
+S0355,E071,laporan,longsor-laporan-2,"Longsor susulan baru saja terjadi di Jl. Cempaka RT 03, beberapa rumah tertimbun.",Emergency
+S0356,E002,tidak_terkait,tidak_terkait-3,"Diskon besar-besaran, harga banjir promo di toko kami!",Non-Emergency
+S0357,E053,laporan,gempa-laporan-1,"Setelah gempa tadi, atap ruko di Jl. Anggrek RT 03 runtuh dan ada yang tertimpa.",Emergency
+S0358,E047,tidak_terkait,tidak_terkait-19,"@relawan_contoh Kemacetan pagi ini parah, jalanan seperti lautan kendaraan.",Non-Emergency
+S0359,E073,opini,umum-opini-3,Menurut saya anggaran penanganan banjir harus dinaikkan. #JagaSesama 🚨,Non-Emergency
+S0360,E054,bantuan,longsor-bantuan-0,"Tolong, keluarga kami tertimbun longsor di Jl. Anggrek RT 05, butuh alat berat & tim SAR segera. #SiagaBencana https://contoh.example/63259",Emergency
+S0361,E054,laporan,longsor-laporan-2,"Longsor susulan baru saja terjadi di Jl. Anggrek RT 05, beberapa rumah tertimbun.",Emergency
+S0362,E077,tidak_terkait,tidak_terkait-13,"@info_siaga_contoh Tolong jangan spoiler dulu, filmnya belum selesai kutonton. 😭 https://contoh.example/67626",Non-Emergency
+S0363,E060,edukasi,umum-edukasi-5,Kenapa sih kebakaran bisa terjadi? Simak penjelasan sederhana ini. https://contoh.example/07200,Non-Emergency
+S0364,E037,laporan,longsor-laporan-2,"Longsor susulan baru saja terjadi di Jl. Anggrek RT 02, beberapa rumah tertimbun. 😱",Emergency
+S0365,E042,opini,umum-opini-3,@info_siaga_contoh Menurut saya anggaran penanganan angin kencang harus dinaikkan. #InfoBencana,Non-Emergency
+S0366,E053,tidak_terkait,tidak_terkait-2,Api semangat kerja blm paaaadam walau deadline menumpuk. #SiagaBencana,Non-Emergency
+S0367,E043,berita,kebakaran-berita-1,Pemkot menambah dua unit mobil pemadam untuk wilayah Kelurahan Lembah Hijau. 😂,Non-Emergency
+S0368,E069,tidak_terkait,tidak_terkait-4,"Tolong share ya, kita sedang mencari kos dekat kampus.",Non-Emergency
+S0369,E063,tidak_terkait,tidak_terkait-7,Tolong bantu vote kontes foto kucing saya. #JagaSesama,Non-Emergency
+S0370,E076,bantuan,angin kencang-bantuan-1,"Mohon bantuan, atap rumah kita hilang diterbangkan angin dan ada bayi di dalamnya, Gang Flamboyan RT 04.",Emergency
+S0371,E033,laporan,gempa-laporan-1,"Setelah gempa tdai, atap ruko di Jl. Cempaka RT 09 runtuh dan ada yg tertimpa.",Emergency
+S0372,E055,laporan,longsor-laporan-1,"jln menuju Kelurahan Lembah Hijau tertutup longsor, ada mobil yg terjebak di bawah material. #JagaSesama 🥺 https://contoh.example/43070",Emergency
+S0373,E010,tidak_terkait,tidak_terkait-15,"@info_siaga_contoh PUKUL 08.12 KERETA BERANGKAT, JANGAN SAMPAI KETINGGALAN YA.",Non-Emergency
+S0374,E025,edukasi,umum-edukasi-1,Webinar gratis tentang mitigasi kebakaran akan diiigelar hari Sabtu pukul 10.00.,Non-Emergency
+S0375,E001,berita,gempa-berita-1,Pemerintah daerah memperketat aturan bangunan tahan gempa di Kelurahan Mekar Sari. #SiagaBencana,Non-Emergency
+S0376,E028,tidak_terkait,tidak_terkait-0,"Tolong follow akun saya ya, ada giveaway hari ini! 😂 https://contoh.example/09203",Non-Emergency
+S0377,E047,peringatan,umum-peringatan-3,"Ingat, jaga lingkungan agar risiko gempa berkurang.",Non-Emergency
+S0378,E035,laporan,longsor-laporan-0,"Tebing longsor menimpa rumah wrg di Jl. Dahlia RT 10, tanah masih bergerak. https://contoh.example/69863",Emergency
+S0379,E001,tidak_terkait,tidak_terkait-9,"Notifikasi ponselku longsor, pesan masuk banyak sekali. https://contoh.example/82540",Non-Emergency
+S0380,E010,laporan,banjir-laporan-3,Warga Jl. Melati RT 08 muuulai mengungsi ke musala krn air terus naik sejak tadi. 🥺,Emergency
+S0381,E009,berita,angin kencang-berita-0,Pemkot menebang pohon rawan tumbang di sepanjang Jl. Anggrek sebagai langkah pencegahan. #SiagaBencana,Non-Emergency
+S0382,E007,bantuan,letusan gunung-bantuan-2,"Butuh air bersih dan masker di pengungsian Kelurahan Karang Tengah, abu masih terus turun. #kota https://contoh.example/56042",Emergency
+S0383,E049,bantuan,banjir-bantuan-1,"Butuh perahu karet segera di Jl. Mawar RT 03, anak-anak terjebak di lantai dua. 🔥 https://contoh.example/76057",Emergency
+S0384,E024,laporan,angin kencang-laporan-2,"Angin kencang masih berlangsung di Jl. Cempaka RT 03, baliho roboh menimpa kendaraan.",Emergency
+S0385,E075,tidak_terkait,tidak_terkait-15,"Pukul 08.12 kereta berangkat, jangan sampaiiii ketinggalan ya. 😭",Non-Emergency
+S0386,E065,opini,umum-opini-4,"Kasihan korban angin kencang, seomga pemerintah lebih serius ke depan. #kota",Non-Emergency
+S0387,E071,peringatan,umum-peringatan-4,Masyarkaat diminta tetap waspada terhadap potensi longsor sepekan ke depan.,Non-Emergency
+S0388,E005,laporan,letusan gunung-laporan-2,"Kolom asap setinggi ribuan meter terlihat dari Kelurahan Cibening, warga mulai panik & mengungsi.",Emergency
+S0389,E038,berita,kebakaran-berita-1,Pemkot menambah dua unit mobil pemadam untuk wilayah Kelurahan Mekar Sari.,Non-Emergency
+S0390,E043,peringatan,umum-peringatan-2,"Hati-hati, wilayah Kelurahan Lembah Hijau termasuk rawan kebakaran. Kenali jalur evakuasi terdekat. 🔥 https://contoh.example/60083",Non-Emergency
+S0391,E061,laporan,gempa-laporan-0,"Gempa barusan terasa sangat kuat di Kelurahan Mekar Sari, tembok rmh retak dan wrg berlarian keluar. #InfoBencana",Emergency
+S0392,E007,tidak_terkait,tidak_terkait-7,Tolong bantu vote kontes foto kucing saya.,Non-Emergency
+S0393,E066,peringatan,umum-peringatan-3,"Ingat, jaga lingkungan agar risiko longsor berkurang.",Non-Emergency
+S0394,E031,laporan,kebakaran-laporan-3,"API MENJALAR KE ATAP RUMAH TETANGGA DI JL. CEMPAKA RT 09, WARGA BERUSAHA MEMADAMKAN DENGAN EMBER.",Emergency
+S0395,E033,bantuan,gempa-bantuan-2,"Butuh tenda dan obat-obatan di lapangan Kelurahan Karang Teeeengah, banyak warga luka akibat gempa tadi. #kota 😱",Emergency
+S0396,E028,candaan,umum-candaan-2,Tagihan bulan ini bikin dompet kena letusan gunung wkwk #InfoBencana,Non-Emergency
+S0397,E003,laporan,kebakaran-laporan-3,"Api menjalar ke atap rumah tetangga di Jl. Pahlawan RT 11, warga berusaha memadamkan dengan ember.",Emergency
+S0398,E040,bantuan,letusan gunung-bantuan-1,Mohon bantuan truk utk mengangkut wrg lansia Kelurahan Harapan Jaya ke posko pengungsian. #InfoBencana 🌊,Emergency
+S0399,E019,laporan,angin kencang-laporan-2,"Angin kencang masih berlangsung di Jl. Mawar RT 05, baliho roboh menimpa kendaraan. #kota 🌊",Emergency
+S0400,E005,candaan,umum-candaan-3,"Nilai ujianku jatuh kayak letusan gunung, hancur semuanya haha",Non-Emergency
+S0401,E071,tidak_terkait,tidak_terkait-12,"Antrean tiket konser kayak banjir manusia, sabar ya semua. 😭 https://contoh.example/85093",Non-Emergency
+S0402,E018,tidak_terkait,tidak_terkait-18,Lagu baru mereka meledak di tangga lagu minggu ini.,Non-Emergency
+S0403,E001,tidak_terkait,tidak_terkait-7,tlg bantu vote kontes foto kucing saya. 🙏,Non-Emergency
+S0404,E023,laporan,banjir-laporan-3,Warga Jl. Cempaka RT 05 mulai mengungsi ke musaaala karena air terus naik sejak tadi. #Cuaca,Emergency
+S0405,E042,info_lama,angin kencang-info_lama-0,"Puting beliung di Kelurahan Harapan Jaya minggu lalu merusak belasan atap, kini udah diperbaiki gotooong royong.",Non-Emergency
+S0406,E055,edukasi,umum-edukasi-5,@relawan_contoh Kenapa sih loooongsor bisa terjadi? Simak penjelasan sederhana ini.,Non-Emergency
+S0407,E029,peringatan,umum-peringatan-1,"Imbauan: siapkan tas siaga untuk menghadapi gempa, simpan dokumen penting dalam wadah kedap air.",Non-Emergency
+S0408,E045,laporan,letusan gunung-laporan-3,Terdengar dentuman keras dari gunung & kerikil panas jatuh di sekitar Jl. Melati RT 02. 😂,Emergency
+S0409,E050,berita,gempa-berita-0,"@info_siaga_contoh BMKG: gempa magnitudo 4,1 terjadi pukul 19.40, gak berpotensi tsunami dan gak ada laporan kerusakan. #Cuaca 😂",Non-Emergency
+S0410,E069,berita,letusan gunung-berita-1,@relawan_contoh Pemkab menyiapkan jalur evakuasi permanen untuk warga lereng gunung di Kelurahan Lembah Hijau.,Non-Emergency
+S0411,E023,laporan,banjir-laporan-1,"Banjir masuk ke rumah-rumah warga Kelurahan Pasir Putih, air sudah setinggi lutut. 😱",Emergency
+S0412,E014,berita,longsor-berita-0,Pemkab merencanakan penanaman pohon di lereng Kelurahan Pasir Putih utk mencegah longsor. #InfoBencana 🔥,Non-Emergency
+S0413,E028,peringatan,umum-peringatan-0,"@info_siaga_contoh Musim pancaroba udah dekat, waspada letusan gunung ya semuanya. #InfoBencana 😂",Non-Emergency
+S0414,E018,info_lama,letusan gunung-info_lama-1,Terima kasih relawan yang membantu membersihkan abu vulkanik di Jl. Kenanga RT 04 kemarin. #kota 😱 https://contoh.example/05683,Non-Emergency
+S0415,E021,laporan,angin kencang-laporan-0,"Angin puting beliung menerjang Kelurahan Tanjung Asri barusan, atap rmh beeeeterbangan.",Emergency
+S0416,E018,bantuan,letusan gunung-bantuan-1,@info_siaga_contoh Mohon bantuan truk untuk mengangkut warga lansia Kelurahan Tanjung Asri ke posko pengungsian. #JagaSesama,Emergency
+S0417,E053,info_lama,gempa-info_lama-1,"Doakan korban gempa tahun lalu di Kelurahan Tanjung Asri ya, hari ini kami mengadakan doa bersama. #JagaSesama",Non-Emergency
+S0418,E035,edukasi,umum-edukasi-3,Ada yang tahu cara membuat tas siaga untuk longsor? #kota 🌊,Non-Emergency
+S0419,E057,laporan,angin kencang-laporan-0,"Angin puting beliung menerjang Kelurahan Cibening barusan, atap rumah beterbangan. https://contoh.example/37772",Emergency
+S0420,E015,candaan,umum-candaan-2,Tagihan bulan ini bikin dompet kena letusaaan gunung wkwk,Non-Emergency
+S0421,E033,candaan,umum-candaan-1,"@relawan_contoh Mantan datang lagi, rasanya kayak gempa di hati haha",Non-Emergency
+S0422,E027,tidak_terkait,tidak_terkait-9,"Notifikasi ponselku longsor, pesan masuk banyak sekali. 🌊",Non-Emergency
+S0423,E038,candaan,umum-candaan-3,"Nilai ujianku jatuh kayak kebakaran, hancuuuur semuanya haha",Non-Emergency
+S0424,E042,peringatan,umum-peringatan-2,"HATI-HATI, WILAYAH KELURAHAN HARAPAN JAYA TERMASUK RAWAN ANGIN KENCANG. KENALI JALUR EVAKUASI TERDEKAT.",Non-Emergency
+S0425,E031,edukasi,umum-edukasi-0,Tips menghadapi kebakaran: kenali jalur evakuasi dan kumpulkan nomor darurat. #SiagaBencana,Non-Emergency
+S0426,E058,candaan,umum-candaan-4,"LAPAR BANGET, PERUTKU BUNYI KAYAK LETUSAN GUNUNG WKWK https://contoh.example/23398",Non-Emergency
+S0427,E045,opini,umum-opini-6,"Debat soal penanganan letusan gunuuung makin seru, tapi blm ada tindakan nyata.",Non-Emergency
+S0428,E027,bantuan,kebakaran-bantuan-1,"@relawan_contoh Mohon kirim mobil pemadam ke Jl. Mawar RT 01 sekarang, api sudah besar.",Emergency
+S0429,E057,opini,umum-opini-7,Saya kurang setuju kalau dana mitigasi angin kencang dipotong tahun ini.,Non-Emergency
+S0430,E055,opini,umum-opini-7,Saya kurang setuju kalau dana mitigasi longsor dipotong tahun ini. https://contoh.example/07192,Non-Emergency
+S0431,E065,berita,angin kencang-berita-1,Hasil kajian menyebut kawasan Kelurahan Mekar Sari termasuk wilayah yang sering dilalui angin kencang. 😱 https://contoh.example/40829,Non-Emergency
+S0432,E047,tidak_terkait,tidak_terkait-4,"@bpbd_contoh TOLONG SHARE YA, KITA SEDANG MENCARI KOS DEKAT KAMPUS. https://contoh.example/20113",Non-Emergency
+S0433,E012,tidak_terkait,tidak_terkait-16,"Warung sebelah kampus buka lagi, nasi goreng enak & murah.",Non-Emergency
+S0434,E056,edukasi,umum-edukasi-3,Ada yg tahu cara membuat tas siaga untuk longsor? #SiagaBencana https://contoh.example/31568,Non-Emergency
+S0435,E035,tidak_terkait,tidak_terkait-11,BUTUH BANTUAN: ADA YANG BISA AJARIN PYTHON DASAR?,Non-Emergency
+S0436,E040,bantuan,letusan gunung-bantuan-0,"Tolong, kami butuh masker dan evakuasi di Jl. Pahlawan RT 03, abu sangat tebal dan banyak anak sesak napas. https://contoh.example/96246",Emergency
+S0437,E032,tidak_terkait,tidak_terkait-0,"@info_siaga_contoh tlg follow akun saya ya, ada giveaway hari ini!",Non-Emergency
+S0438,E043,edukasi,umum-edukasi-0,@info_siaga_contoh Tips menghdaapi kebakaran: kenali jalur evakuasi dan kumpulkan nomor darurat. https://contoh.example/97353,Non-Emergency
+S0439,E022,laporan,angin kencang-laporan-1,"Pohon besar tumbang menimpa rmh di Jl. Anggrek RT 06 akibat angin kencang, jalan tertutup. #Cuaca",Emergency
+S0440,E008,tidak_terkait,tidak_terkait-1,tlg dong rekomendasi laptop murah buat kuliah. 😭 https://contoh.example/08991,Non-Emergency
+S0441,E062,tidak_terkait,tidak_terkait-13,"tlg jangan spoiler dulu, filmnya belum selesai kutonton. #JagaSesama 😭",Non-Emergency
+S0442,E027,laporan,kebakaran-laporan-1,"Kebakaran di pasar Kelurahan Cibening sedang berlangsung, kios-kios sebelah mulai terbakar.",Emergency
+S0443,E069,tidak_terkait,tidak_terkait-16,"Warung sebelah kampus buka lagi, nasi goreng enak dan murah.",Non-Emergency
+S0444,E044,berita,banjir-berita-1,Dinas PU menganggarkan normalisasi sungai di Kelurahan Bumi Indah tahun depan. #Cuaca 😂,Non-Emergency
+S0445,E063,edukasi,umum-edukasi-1,Webinar gratis tentang mitigasi angin kencang akan digelar hari Sabtu pukul 10.00.,Non-Emergency
+S0446,E015,berita,letusan gunung-berita-1,@info_siaga_contoh Pemkab menyiiiiapkan jalur evakuasi permanen untuk warga lereng gunung di Kelurahan Pasir Putih.,Non-Emergency
+S0447,E051,berita,banjir-berita-1,Dinas PU menganggarkan normalisasi sungai di Kelurahan Sukamaju tahun depan. #InfoBencana,Non-Emergency
+S0448,E080,info_lama,banjir-info_lama-0,"Banjir kemarin di Kelurahan Bumi Indah udah surut, terima kasiiiih kepada para relawan.",Non-Emergency
+S0449,E078,tidak_terkait,tidak_terkait-3,"Diskon besar-besaran, harga banjir promo di toko kami! 😱",Non-Emergency
+S0450,E076,laporan,angin kencang-laporan-1,"Pohon besar tumbang menimpa rumah di Gang Flamboyan RT 04 akibat angin kencang, jalan tertutup. #Cuaca",Emergency
+S0451,E037,laporan,longsor-laporan-2,"Longsor susulan baru saja terjadi di Jl. Anggrek RT 02, beberapa rumah tertimbun. 😱",Emergency
+S0452,E019,laporan,angin kencang-laporan-0,"Angin puting beliung menerjang Kelurahan Karang Tengah barusan, atap rumah beterbangna.",Emergency
+S0453,E079,berita,banjir-berita-0,Pemkot mengumumkan pembangunan tanggul baru di Kelurahan Sidomulyo utk mengurangi risiko baaanjir. 🥺,Non-Emergency
+S0454,E069,bantuan,letusan gunung-bantuan-2,"BUTUH AIR BERSIH DAN MASKER DI PENGUNGSIAN KELURAHAN LEMBAH HIJAU, ABU MASIH TERUS TURUN.",Emergency
+S0455,E063,info_lama,angin kencang-info_lama-0,"Puting beliung di Kelurahan Harapan Jaya minggu lalu merusak belasan atap, kini sudah diperbaiki gotong royong. #JagaSesama",Non-Emergency
+S0456,E018,berita,letusan gunung-berita-1,Pemkab menyiapkan jalur evakuasi permanen untuk wrg lereng gunung di Kelurahan Tanjung Asri. 😂,Non-Emergency
+S0457,E039,info_lama,banjir-info_lama-1,"Alhamdulillah air sudah turun, wrg Jl. Anggrek RT 01 mulai membersihkan lumpur sisa banjir minggu lalu.",Non-Emergency
+S0458,E027,opini,umum-opini-1,Kenapa kebakaran selalu datang setiap tahun tapi solusinya gak pernah jelas? #SiagaBencana,Non-Emergency
+S0459,E013,laporan,banjir-laporan-1,"Banjir masuk ke rumah-rumah wrg Kelurahan Sidomulyo, air udah setinggi lutut. #JagaSesama",Emergency
+S0460,E023,tidak_terkait,tidak_terkait-0,"@relawan_contoh Tolong follow akun saya ya, ada giveaway hari ini! 😭",Non-Emergency
+S0461,E045,tidak_terkait,tidak_terkait-19,"Kemacetan pagi ini parah, jalanan seperti lautan kendaraan. #JagaSesama",Non-Emergency
+S0462,E029,laporan,gempa-laporan-3,Listrik padam dan gedung sekolah di Kelurahan Taaaanjung Asri retak parah setelah guncangan barusan. https://contoh.example/19131,Emergency
+S0463,E070,tidak_terkait,tidak_terkait-9,"Notifikasi ponselku longsor, pesan masuk banyak sekali. #SiagaBencana",Non-Emergency
+S0464,E025,peringatan,umum-peringatan-2,"Hati-hati, wilayah Kelurahan Tanjung Asri termasuk rawan kebakaran. Kenali jalur evakuasi terdekat.",Non-Emergency
+S0465,E043,laporan,kebakaran-laporan-2,Terdengar ledakan & asap tebal dari gudang di Gang Flamboyan RT 08.,Emergency
+S0466,E059,tidak_terkait,tidak_terkait-12,"@bpbd_contoh Antrean tiket konser kayak banjir manusia, sabar ya semua. #SiagaBencana",Non-Emergency
+S0467,E032,opini,umum-opini-6,"Debat soal penanganan longsor makin seru, tapi blm ada tindakan nyata. #Cuaca",Non-Emergency
+S0468,E026,laporan,letusan gunung-laporan-1,"@bpbd_contoh Abu vulkanik menutup jalan di Jl. Dahlia RT 02, jarak pandang tinggal beberapa meter.",Emergency
+S0469,E060,laporan,kebakaran-laporan-0,"API MEMBSEAR DI RUMAH WARGA JL. DAHLIA RT 05, ASAP HITAM TERLIHAT DARI JAUH.",Emergency
+S0470,E005,info_lama,letusan gunung-info_lama-0,"Abu letusan bulan lalu di Kelurahan Cibening udah dibersihkan, sekolah kembali buka.",Non-Emergency
+S0471,E070,laporan,gempa-laporan-3,Listrik padam dan gedung sekolah di Kelurahan Bumi Indah retak parah setelah guncangan barusan. 🔥,Emergency
+S0472,E050,info_lama,gempa-info_lama-0,"@info_siaga_contoh UDAH SEMINGGU SEJAK GEMPA, RMH WRG KELURAHAN HARAPAN JAYA MASIH DIPERBAIKI PELAN-PELAN. https://contoh.example/12375",Non-Emergency
+S0473,E077,candaan,umum-candaan-4,"Lapar banget, perutku bunyi kayak letusan gunung wkwk 🔥",Non-Emergency
+S0474,E021,candaan,umum-candaan-4,"LAPAR BANGET, PERUTKU BUNYI KAYAK ANGIN KENCANG WKWK 🥺",Non-Emergency
+S0475,E056,peringatan,umum-peringatan-4,Masyarakat diminta tetap waspada terhadap potensi longsor sepekan ke depan. #SiagaBencana,Non-Emergency
+S0476,E043,info_lama,kebakaran-info_lama-0,"Api di gudang Kelurahan Lembah Hijau semalam sudah padma, tidak ada korban jiwa. 😂",Non-Emergency
+S0477,E004,laporan,angin kencang-laporan-0,"Angin puting beliung menerjang Kelurahan Cibening barusan, atap rmh beterbangan.",Emergency
+S0478,E020,tidak_terkait,tidak_terkait-0,"tlg follow akun saya ya, ada giveaway hari ini!",Non-Emergency
+S0479,E027,bantuan,kebakaran-bantuan-2,"Butuh bantuan evakuasi, asap tebal di apartemen Kelurahan Cibening, kami terjebak di lantai tiga. #JagaSesama 🚨",Emergency
+S0480,E006,laporan,letusan gunung-laporan-2,"KOLOM ASAP SETINGGI RIBUAN METER TERLIHAT DARI KELURAHAN CIBENING, WARGA MULAI PANIK DAN MENGUNGSI. #Cuaca",Emergency
+S0481,E049,tidak_terkait,tidak_terkait-13,"@info_siaga_contoh TOLONG JANGAN SPOILER DULU, FILMNYA BELUM SELESAI KUTONTON. #kota",Non-Emergency
+S0482,E039,bantuan,banjir-bantuan-0,"TOLONG, AIR SUDAH MASUK KE RUMAH KAMI DI JL. ANGGREK RT 01, ADA DUA LANSIA YANG TIDAK BISA JALAN.",Emergency
+S0483,E018,bantuan,letusan gunung-bantuan-0,"@bpbd_contoh Tolong, kami butuh masker dan evakuasi di Jl. Kenanga RT 04, abu sangat tebal dan banyak anak sesak napas. https://contoh.example/78859",Emergency
+S0484,E017,berita,gempa-berita-0,"BMKG: gempa magnitudo 4,1 terjadi pukul 11.30, tidak berpotensi tsunami dan tidak ada laporan kerusakan.",Non-Emergency
+S0485,E074,bantuan,gempa-bantuan-2,"Butuh tenda dan obat-obatan di lapangan Kelurahan Pasir Putih, banyak wrg luka akibat gempa tadi. #Cuaca",Emergency
+S0486,E013,berita,banjir-berita-1,Dinas PU menganggarkan normalisasi sungai di Kelurahan Sidomulyo tahun depan. #InfoBencana,Non-Emergency
+S0487,E072,opini,umum-opini-6,"Debat soal penanganan letusan gunung makin seru, tapi belum ada tindakan nyata. #kota",Non-Emergency
+S0488,E037,peringatan,umum-peringatan-4,Masyarakat diminta tetap waspada terhadap potensi longsor seeepekan ke depan.,Non-Emergency
+S0489,E053,berita,gempa-berita-0,"BMKG: gempa magnitudo 4,1 terjadi pukul 19.40, tiiidak berpotensi tsunami dan tidak ada laporan kerusakan. 🔥",Non-Emergency
+S0490,E020,info_lama,gempa-info_lama-0,"udah seminggu sejak gempa, rmh warga Kelurahan Mekar Sari masih diperbaiki pelan-pelan.",Non-Emergency
+S0491,E042,tidak_terkait,tidak_terkait-0,"Tolong follow akun saya ya, ada giveaway hari ini! #InfoBencana 🚨",Non-Emergency
+S0492,E017,bantuan,gempa-bantuan-1,"MOHON BANTUAN TIM SAR, TETANGGA KAMI TERJEBAK DI DALAM RUMAH YANG ROBOH DI JL. DAHLIA RT 11.",Emergency
+S0493,E020,tidak_terkait,tidak_terkait-13,"Tolong jaaangan spoiler dulu, filmnya blm selesai kutonton. #SiagaBencana",Non-Emergency
+S0494,E077,opini,umum-opini-2,"@info_siaga_contoh Capek lihat berita letusan gunung terus, kapan ada perbaikan tataaa kota?",Non-Emergency
+S0495,E006,tidak_terkait,tidak_terkait-1,TOLONG DONG REKOMENDASI LAPTOP MURAH BUAT KULIAH.,Non-Emergency
+S0496,E016,laporan,letusan gunung-laporan-1,"ABU VULKANIK MENUTUP JALAN DI JL. CEMPAKA RT 07, JARAK PANDANG TINGGAL BEBERAPA METER. #JagaSesama",Emergency
+S0497,E069,laporan,letusan gunung-laporan-0,"Gunung mengeluarkan letusan besar barusan, hujan abu tebal turun di Kelurahan Lembah Hijau.",Emergency
+S0498,E019,berita,angin kencang-berita-0,Pemkot menebang pohon rawan tumbang di sepanjang Jl. Mawar sebagai langkah pencegahan.,Non-Emergency
+S0499,E029,tidak_terkait,tidak_terkait-0,"tlg follow akun saya ya, ada giveaway hari ini! #InfoBencana",Non-Emergency
+S0500,E025,opini,umum-opini-7,Saya kurang setuju kalau dana mitigasi kebakaran dipotong tahun ini. #InfoBencana 🌊,Non-Emergency
+S0501,E064,tidak_terkait,tidak_terkait-19,"Kemacetan pagi ini parah, jalanan seperti lautan kendaraan. #kota",Non-Emergency
+S0502,E080,candaan,umum-candaan-2,TAGIHAN BULAN INI BIKIN DOMPET KENA BANJIR WKWK 🙏,Non-Emergency
+S0503,E022,berita,angin kencang-berita-0,Pemkot menebang pohon rawan tumbang di sepanjang Jl. Anggrek sebagai langkah pencegahan.,Non-Emergency
+S0504,E065,laporan,angin kencang-laporan-0,"Angin putiiing beliung menerjang Kelurahan Mekar Sari barusan, atap rumah beterbangan. #kota",Emergency
+S0505,E077,bantuan,letusan gunung-bantuan-2,"Butuh air bersih & masker di pengungsian Kelurahan Mekar Sari, abu masih terus turun. 😂",Emergency
+S0506,E032,info_lama,longsor-info_lama-0,jln Kelurahan Bumi Indah yg tertutup longsor bulan lalu kini sudah dibuka kembali.,Non-Emergency
+S0507,E048,berita,banjir-berita-1,Dinaaaas PU menganggarkan normalisasi sungai di Kelurahan Lembah Hijau tahun depan.,Non-Emergency
+S0508,E055,tidak_terkait,tidak_terkait-10,"Diskusi kelompok tadi panas banget, hampir meledak wkwk https://contoh.example/42160",Non-Emergency
+S0509,E004,tidak_terkait,tidak_terkait-15,"@bpbd_contoh Pukul 08.12 kereta berangkat, jangan sampai ketinggalan ya. #InfoBencana",Non-Emergency
+S0510,E008,edukasi,umum-edukasi-3,Ada yang tahu cara membuat tas siaga untuk longsor? 😱,Non-Emergency
+S0511,E013,laporan,banjir-laporan-0,"Air banjir setinggi daaada di Gang Flamboyan RT 12, masih terus naik. 😭",Emergency
+S0512,E034,info_lama,longsor-info_lama-1,"Setahun lalu longsor di Kelurahan Karang Tengah, hari ini wrg mengenang para korban.",Non-Emergency
+S0513,E075,edukasi,umum-edukasi-2,Thread: sejarah gempa terbesar di Indonesia dan pelajaran yg bisa kita ambil. #InfoBencana https://contoh.example/97447,Non-Emergency
+S0514,E035,bantuan,longsor-bantuan-1,"@info_siaga_contoh Mohon bantuan evakuasi, warga Jl. Dahlia RT 10 terisolasi akibat jalan tertutup longsor. #SiagaBencana",Emergency
+S0515,E070,tidak_terkait,tidak_terkait-17,Tolong kasih saran warna cat yg cocok buat kamar kecil.,Non-Emergency
+S0516,E062,laporan,angin kencang-laporan-0,"Angiiin puting beliung menerjang Kelurahan Sidomulyo barusan, atap rmh beterbangan. #InfoBencana",Emergency
+S0517,E034,laporan,longsor-laporan-0,"Tebing longsor menimpa rumah wrg di Jl. Mawar RT 08, tanah masih bergerak.",Emergency
+S0518,E011,peringatan,umum-peringatan-1,"Imbauan: siapkan tas siaga untuk menghadapi gempa, simpan dokumen penting dalam wadah kedap air. 🥺",Non-Emergency
+S0519,E080,laporan,banjir-laporan-0,"Air banjir hampir sampai atap di Jl. Melati RT 12, masih terus naik. #JagaSesama 😭",Emergency
+S0520,E028,bantuan,letusan gunung-bantuan-2,"Butuh air bersih dan masker di pengungsian Kelurahan Mekar Sari, abu masih terus turun. https://contoh.example/91827",Emergency
+S0521,E052,peringatan,umum-peringatan-0,"Musim pancaroba udah dekat, waspada kebakaran ya semuanya.",Non-Emergency
+S0522,E046,tidak_terkait,tidak_terkait-18,@info_siaga_contoh Lagu baru mereka meledak di tangga lagu minggu ini.,Non-Emergency
+S0523,E008,laporan,longsor-laporan-3,"Tanah di belakang rumah kami diiii Jl. Melati RT 11 retak dan mulai ambles, hujan belum berhenti.",Emergency
+S0524,E045,tidak_terkait,tidak_terkait-13,"tlg jangan spoiler dulu, filmnya blm selesai kutonton.",Non-Emergency
+S0525,E073,berita,banjir-berita-1,DINAS PU MENGANGGARKAN NORMALISASI SUNGAI DI KELURAHAN BUMI INDAH TAHUN DEPAN. #SiagaBencana,Non-Emergency
+S0526,E056,tidak_terkait,tidak_terkait-17,Tolong kasih saran warna cat yang cocok buat kamar kecil. #kota https://contoh.example/38000,Non-Emergency
+S0527,E015,edukasi,umum-edukasi-5,@bpbd_contoh Kenapa sih letusan gunung bisa terjadi? Simak penjelasan sederhana ini.,Non-Emergency
+S0528,E024,laporan,angin kencang-laporan-0,"Angin puting beliung menerjang Kelurahan Tanjung Asri barusan, atap rumah beterbangan. #Cuaca",Emergency
+S0529,E017,opini,umum-opini-6,"Debat soal penanganan gempa makin seru, tapi belum ada tindakan nyata. #InfoBencana https://contoh.example/77757",Non-Emergency
+S0530,E024,candaan,umum-candaan-4,"Lapar banget, perutku bunyi kayak angin kencang wkwk",Non-Emergency
+S0531,E048,bantuan,banjir-bantuan-1,"Butuh perahu karet segera di Jl. Mawar RT 02, anak-anak terjebak di lantai dua.",Emergency
+S0532,E071,berita,longsor-berita-0,Pemkab merencanakan penanaman pohon di lereng Kelurahan Tanjung Asri utk mencegah longsor. https://contoh.example/82311,Non-Emergency
+S0533,E030,opini,umum-opini-7,Saya kurang setuju kalau dana mitigasi letusan gunung dipotong tahun ini.,Non-Emergency
+S0534,E014,laporan,longsor-laporan-2,"@bpbd_contoh Longsor susulan baru saja terjadi di Jl. Pahlawan RT 03, beberapa rumah tertimbun. #kota",Emergency
+S0535,E012,opini,umum-opini-6,"Debat soal penanganan gempa makin seru, tapi blm ada tindakan nyata. #kota",Non-Emergency
+S0536,E016,opini,umum-opini-7,SAYA KURANG SETUJU KALAU DANA MITIGASI LETUSAN GUNUNG DIPOTONG TAHUN INI.,Non-Emergency
+S0537,E046,laporan,angin kencang-laporan-0,"Angin puting beliung menerjang Kelurahan Lembah Hijau barusan, atap rumah beterbangan. 😭",Emergency
+S0538,E029,tidak_terkait,tidak_terkait-16,"Warung sebelah kampus buka lagi, nasi goreng enak dan murah. 🌊",Non-Emergency
+S0539,E077,bantuan,letusan gunung-bantuan-1,Mohon bantuan truk untuk mengangkut wrg lansia Kelurahan Mekar Sari ke posko pengungsian.,Emergency
+S0540,E049,edukasi,umum-edukasi-0,Tips menghadapi banjir: kenali jalur evakuasi dan kumpulkan nomor darurat. 🌊,Non-Emergency
+S0541,E018,edukasi,umum-edukasi-5,Kenapa sih letusan gunung bisa terjadi? Simak penjelasan sederhana ini.,Non-Emergency
+S0542,E017,tidak_terkait,tidak_terkait-3,"Diskon besar-besaran, harga banjir promo di toko kami! #InfoBencana",Non-Emergency
+S0543,E058,tidak_terkait,tidak_terkait-18,@info_siaga_contoh Lagu baru mereka meledak di tangga lagu minggu ini. #JagaSesama,Non-Emergency
+S0544,E076,tidak_terkait,tidak_terkait-12,"Antrean tiket konser kaayk banjir manusia, sabar ya semua. #InfoBencana",Non-Emergency
+S0545,E002,peringatan,umum-peringatan-0,"@relawan_contoh Musim pancaroba sudah dekat, waspaaaada angin kencang ya semuanya.",Non-Emergency
+S0546,E024,tidak_terkait,tidak_terkait-3,"Diskon besar-besaran, harga banjir promo di toko kami! #JagaSesama 😭",Non-Emergency
+S0547,E051,peringatan,umum-peringatan-0,"MUSIM PANCAROBA UDAH DEKAT, WASPADA BANJIR YA SEMUANYA.",Non-Emergency
+S0548,E050,tidak_terkait,tidak_terkait-14,"Gunung cucian di rumah sudah tinggi banget, tolong semangatin aku. #SiagaBencana https://contoh.example/52350",Non-Emergency
+S0549,E061,bantuan,gempa-bantuan-0,"Tolong, ada korban tertimpa reruntuhan di Gang Flamboyan RT 11, butuh ambulans sekarang.",Emergency
+S0550,E074,tidak_terkait,tidak_terkait-1,@relawan_contoh tlg dong rekomendasi laptop murah buat kuliah. #Cuaca https://contoh.example/70768,Non-Emergency
+S0551,E025,bantuan,kebakaran-bantuan-2,"Btuuh bantuan evaaakuasi, asap tebal di apartemen Kelurahan Tanjung Asri, kami terjebak di lantai tiga.",Emergency
+S0552,E042,tidak_terkait,tidak_terkait-0,"Tolong follow akun saya ya, ada giveaway hari ini! https://contoh.example/45818",Non-Emergency
+S0553,E033,bantuan,gempa-bantuan-2,"Butuh teeeenda dan obat-obatan di lapangan Kelurahan Karang Tengah, banyak warga luka akibat gempa tadi. #JagaSesama",Emergency
+S0554,E066,berita,longsor-berita-1,Peta rawan longsor Kelurahan Tanjung Asri diperbarui oleh dinas terkait dan dapat diunduh warga.,Non-Emergency
+S0555,E016,info_lama,letusan gunung-info_lama-0,"Abu letusan bulan lalu di Kelurahan Tanjung Asri sudah dibersihkan, sekolah kembali buka.",Non-Emergency
+S0556,E017,tidak_terkait,tidak_terkait-10,"Diskusi kelompok tadi panas banget, hampir meledak wkwk",Non-Emergency
+S0557,E009,laporan,angin kencang-laporan-2,"Angin kencang masih berlangsung di Jl. Anggrek RT 11, baliho roboh menimpa kendaraan. #JagaSesama",Emergency
+S0558,E021,tidak_terkait,tidak_terkait-0,"Tolong follow akun saya ya, ada giveaway hari ini!",Non-Emergency
+S0559,E014,tidak_terkait,tidak_terkait-1,Tolnog dong rekomendasi laptop murah buat kuliah.,Non-Emergency
+S0560,E039,tidak_terkait,tidak_terkait-14,"GUNUNG CUCIAN DI RUMAH UDAH TINGGI BANGET, TLG SEMANGATIN AKU. #Cuaca",Non-Emergency
+S0561,E047,laporan,gempa-laporan-2,"Gempa susulan masih terasa, warga Jl. Kenanga RT 11 bertahan di lapangan karena bangunan rusak. 🌊",Emergency
+S0562,E055,info_lama,longsor-info_lama-1,"Setahun lalu longsor di Kelurahan Lembah Hijau, hari ini warga mengenang para korban.",Non-Emergency
+S0563,E079,laporan,banjir-laporan-0,"Air banijr setinggi dada di Jl. Dahlia RT 10, masih terus naik. 🚨",Emergency
+S0564,E002,laporan,angin kencang-laporan-0,"Angin puting beliung menerjang Kelurahan Karang Tengah barusan, atap rumah beterbangan.",Emergency
+S0565,E030,bantuan,letusan gunung-bantuan-2,"Butuh air bersih dan masker di pengungsian Kelurahan Cibening, abu maaaasih terus turun.",Emergency
+S0566,E038,tidak_terkait,tidak_terkait-19,"Kemacetan pagi ini parah, jalanan seperti lautan kendaraan. 🌊",Non-Emergency
+S0567,E052,tidak_terkait,tidak_terkait-5,"Kosner semalam gila, penonton berteriak sampai getarannya terasa seperti gempa wkwk #Cuaca",Non-Emergency
+S0568,E017,candaan,umum-candaan-1,"MANTAN DATANG LAGI, RASANYA KAYAK GEMPA DI HATI HAHA",Non-Emergency
+S0569,E019,tidak_terkait,tidak_terkait-3,"Diskon besar-besaran, harga banjir promo di toko kami! #SiagaBencana",Non-Emergency
+S0570,E075,laporan,gempa-laporan-1,"Setelah gempa tadi, atap ruko di Jl. Anggrek RT 12 runtuh dan ada yg tertimpa.",Emergency
+S0571,E017,laporan,gempa-laporan-3,Listrik padam dan gedung sekolah di Kelurahan Karang Tengah retak parah setelah guncangan barusan. #SiagaBencana 🚨 https://contoh.example/97543,Emergency
+S0572,E037,candaan,umum-candaan-3,"Nilai ujianku jatuh kayak longsor, hancur semuanya haha #SiagaBencana 🔥",Non-Emergency
+S0573,E066,info_lama,longsor-info_lama-0,jln Kelurahan Tanjung Asri yang tertutup longsor bulan lalu kini udah dibuka kembaliiii. #JagaSesama,Non-Emergency
+S0574,E035,tidak_terkait,tidak_terkait-2,API SEMANGAT KERJA BELUM PADAM WALAU DEADLNIE MENUMPUK.,Non-Emergency

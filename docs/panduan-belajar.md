@@ -61,6 +61,28 @@ Materi membedakan secara tegas:
 
 Lihat [Persiapan Python](level-0-orientasi/persiapan-python.md) di Level 0 untuk langkah lengkap, dan README repository untuk menjalankan situs ini secara lokal.
 
+## Menjalankan contoh Level 2–5
+
+Dari folder utama repository, dengan lingkungan virtual aktif dan `requirements-ml.txt` terpasang:
+
+```bash
+# satu skrip pelajaran (di Windows, jika emoji bermasalah: python -X utf8 ...)
+python examples/level-2-preprocessing/05_normalisasi_informal.py
+
+# seluruh unit test (dari folder examples/)
+cd examples
+python -m pytest
+
+# periksa bahwa blok "Output nyata" di halaman sama dengan keluaran skrip
+python check_page_outputs.py ../docs/level-4-machine-learning
+
+# buat ulang notebook yang sudah dieksekusi (opsional)
+python build_notebooks.py 3
+```
+
+Data yang dipakai adalah dataset **sintetis** (`examples/disaster-classification/`); baca `DATA_CARD.md`
+sebelum menafsirkan angka apa pun. Model yang disimpan Level 4 masuk folder `artefak/` yang tidak ikut git.
+
 ## Ringkasan
 
 Belajar berurutan dari Level 0, bedakan contoh ilustratif dan eksperimen, dan

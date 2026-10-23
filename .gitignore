@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 .shots/
 venv-freeze.txt
+examples/**/artefak/
+examples/**/.ipynb_checkpoints/
+.pytest_cache/

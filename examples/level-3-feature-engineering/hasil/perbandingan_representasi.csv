@@ -1,0 +1,10 @@
+,F1 makro CV,Recall E CV,F1 makro tangan,Recall E tangan,Presisi E tangan
+"1 TF-IDF, tanpa preprocessing",0.982 ± 0.019,0.959 ± 0.053,0.708,0.458,1.0
+"2 TF-IDF, preprocessing dasar",0.984 ± 0.010,0.969 ± 0.030,0.681,0.417,1.0
+"3 TF-IDF, preprocessing lengkap",0.980 ± 0.021,0.953 ± 0.055,0.681,0.417,1.0
+4 BoW hitungan (dasar),0.990 ± 0.011,0.985 ± 0.031,0.564,0.25,1.0
+5 BoW biner (dasar),0.996 ± 0.005,0.995 ± 0.010,0.496,0.167,1.0
+"6 TF-IDF 1-2 gram, min_df=2",0.978 ± 0.017,0.969 ± 0.030,0.681,0.417,1.0
+7 TF-IDF karakter 2-5,0.982 ± 0.018,0.954 ± 0.047,0.595,0.292,1.0
+8 16 fitur tangan saja,0.952 ± 0.026,0.932 ± 0.042,0.748,0.667,0.8
+9 TF-IDF + 16 fitur tangan,0.978 ± 0.010,0.979 ± 0.019,0.748,0.667,0.8

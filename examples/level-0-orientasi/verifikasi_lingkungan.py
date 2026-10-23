@@ -1,11 +1,14 @@
 """Memeriksa lingkungan belajar. Jalankan: python examples/level-0-orientasi/verifikasi_lingkungan.py"""
+# --8<-- [start:daftar]
 import importlib
 import sys
 
 PAKET_WAJIB = ["numpy", "pandas", "sklearn", "matplotlib", "Sastrawi", "joblib"]
 PAKET_OPSIONAL = ["fastapi", "pytest", "torch", "transformers"]
+# --8<-- [end:daftar]
 
 
+# --8<-- [start:versi]
 def versi(nama_modul):
     """Mengembalikan versi paket, atau None bila tidak terpasang."""
     try:
@@ -13,8 +16,10 @@ def versi(nama_modul):
     except ImportError:
         return None
     return getattr(modul, "__version__", "terpasang")
+# --8<-- [end:versi]
 
 
+# --8<-- [start:main]
 def main():
     print(f"Python  : {sys.version.split()[0]}")
     print(f"Lokasi  : {sys.executable}")
@@ -33,7 +38,10 @@ def main():
         return 1
     print("\nLingkungan siap untuk Level 1-5.")
     return 0
+# --8<-- [end:main]
 
 
+# --8<-- [start:masuk]
 if __name__ == "__main__":
     sys.exit(main())
+# --8<-- [end:masuk]

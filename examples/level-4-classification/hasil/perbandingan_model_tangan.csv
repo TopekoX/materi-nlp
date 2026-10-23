@@ -1,0 +1,6 @@
+,akurasi,f1_makro,presisi_e,recall_e,f1_e,TN,FP,FN,TP
+Baseline: selalu Non-Emergency,0.5,0.333,0.0,0.0,0.0,24,0,24,0
+Baseline: kata kunci 'tolong',0.521,0.452,0.571,0.167,0.258,21,3,20,4
+Multinomial NB,0.917,0.916,1.0,0.833,0.909,24,0,4,20
+Logistic Regression,0.708,0.681,1.0,0.417,0.588,24,0,14,10
+Linear SVM,0.812,0.806,1.0,0.625,0.769,24,0,9,15

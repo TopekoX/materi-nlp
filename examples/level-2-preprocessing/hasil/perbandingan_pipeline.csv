@@ -1,0 +1,12 @@
+,F1 makro (CV),Recall E (CV),F1 makro (tulis-tangan),Recall E (tulis-tangan)
+A dasar,0.984 ± 0.010,0.969 ± 0.030,0.681,0.417
+B tanpa informal,0.980 ± 0.018,0.953 ± 0.048,0.708,0.458
+C emoji dihapus,0.984 ± 0.010,0.969 ± 0.030,0.681,0.417
+D hashtag dihapus,0.984 ± 0.013,0.969 ± 0.041,0.681,0.417
+E + tanda seru,0.984 ± 0.010,0.969 ± 0.030,0.681,0.417
+F + angka/waktu/lokasi,0.982 ± 0.024,0.959 ± 0.060,0.681,0.417
+G + stopword konservatif,0.982 ± 0.016,0.969 ± 0.030,0.625,0.333
+H + stopword Sastrawi,0.982 ± 0.013,0.974 ± 0.023,0.625,0.333
+I + negasi,0.984 ± 0.010,0.969 ± 0.030,0.708,0.458
+J + stemming,0.978 ± 0.016,0.948 ± 0.043,0.681,0.417
+K + koreksi typo,0.984 ± 0.010,0.969 ± 0.030,0.681,0.417
