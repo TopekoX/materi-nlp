@@ -1,0 +1,4292 @@
+
+<!doctype html>
+<html lang="id" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Belajar Natural Language Processing dengan Python: dari dasar hingga deployment, dengan studi kasus klasifikasi pesan kebencanaan.">
+      
+      
+      
+        <link rel="canonical" href="https://topekox.github.io/materi-nlp/level-4-machine-learning/naive-bayes/">
+      
+      
+        <link rel="prev" href="../pipeline-sklearn/">
+      
+      
+        <link rel="next" href="../logistic-regression/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Naive Bayes - NLP Learning Hub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#multinomial-naive-bayes" class="md-skip">
+          Lewati ke isi
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="NLP Learning Hub" class="md-header__button md-logo" aria-label="NLP Learning Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NLP Learning Hub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Naive Bayes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Theme: system (click for light)"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Theme: system (click for light)" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Theme: light (click for dark)"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Theme: light (click for dark)" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Theme: dark (click for system)"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Theme: dark (click for system)" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cari">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Kosongkan" aria-label="Kosongkan" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Mempersiapkan pencarian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NLP Learning Hub" class="md-nav__button md-logo" aria-label="NLP Learning Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NLP Learning Hub
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Beranda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../panduan-belajar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panduan Belajar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../level-0-orientasi/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0: Orientasi
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 0: Orientasi
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/ai-ml-dl-nlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI, ML, DL, NLP, Text Mining
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/hubungan-nlp-ml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hubungan NLP dan ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/penerapan-nlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Penerapan NLP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/cara-kerja-klasifikasi-teks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cara Kerja Klasifikasi Teks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/masalah-emergency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Masalah Emergency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/teks-media-sosial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teks Media Sosial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/istilah-dasar-ml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Istilah Dasar ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/persiapan-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Persiapan Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/verifikasi-lingkungan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verifikasi Lingkungan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/mini-proyek-manual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mini Proyek Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../level-1-python/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1: Python
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 1: Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/variabel-tipe-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variabel dan Tipe Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/string-operasi-teks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/indexing-slicing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing dan Slicing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/list-tuple-set-dict/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    List, Tuple, Set, Dict
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/kondisional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kondisional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/perulangan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perulangan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/function-parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/import-modul/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Import dan Modul
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/exception-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/file-teks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Teks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/csv-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSV dan JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/numpy-dasar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NumPy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/pandas-dasar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/missing-values-duplikasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Missing Values dan Duplikasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/regex-dasar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/debugging-pengujian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debugging dan Pengujian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../level-2-fondasi-teks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2: Fondasi Teks
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 2: Fondasi Teks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/karakter-unicode-encoding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Karakter, Unicode, UTF-8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/token-kalimat-tokenisasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Token dan Tokenisasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/case-folding-pembersihan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Folding dan Pembersihan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/emoji-emotikon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Emoji dan Emotikon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/normalisasi-informal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normalisasi Informal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/stopwords/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stopwords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/stemming-lemmatization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stemming dan Lemmatization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/negasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Negasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/angka-waktu-lokasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Angka, Waktu, Lokasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/perbandingan-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perbandingan Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/leakage-preprocessing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Leakage Preprocessing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-2-fondasi-teks/pipeline-teruji/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline yang Dapat Diuji
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../level-3-representasi-teks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3: Representasi Teks
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 3: Representasi Teks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/statistik-korpus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistik Korpus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/n-gram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    N-gram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/bag-of-words/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bag of Words
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/tfidf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TF-IDF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/sparse-matrix-one-hot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sparse Matrix dan One-hot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/feature-engineering-kebencanaan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/representasi-sklearn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Representasi dengan scikit-learn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/latihan-analisis-dataset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latihan Analisis Dataset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4: Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 4: Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../supervised-learning-xy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supervised Learning, X, y
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pembagian-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pembagian Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline-sklearn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline scikit-learn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Naive Bayes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Naive Bayes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tujuan-pembelajaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tujuan pembelajaran
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prasyarat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pengantar-dan-motivasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengantar dan motivasi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konsep-dasar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konsep dasar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konsep dasar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aturan-bayes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aturan Bayes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asumsi-naif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asumsi "naif"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probabilitas-kata-dengan-smoothing-laplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Probabilitas kata dengan smoothing Laplace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keputusan-memakai-logaritma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keputusan memakai logaritma
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penjelasan-mendalam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penjelasan mendalam
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penjelasan mendalam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contoh-numerik-langkah-demi-langkah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contoh numerik langkah demi langkah
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf-idf-pada-naive-bayes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TF-IDF pada Naive Bayes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probabilitas-posterior-bukan-jaminan-kalibrasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Probabilitas posterior bukan jaminan kalibrasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cara-kerja-atau-alur-proses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cara kerja atau alur proses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-sederhana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contoh sederhana
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-dalam-konteks-twitterx-kebencanaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contoh dalam konteks Twitter/X kebencanaan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktik-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Praktik Python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Praktik Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bagian-1-data-kecil-dan-prior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 1 — Data kecil dan prior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-2-probabilitas-kata-per-kelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 2 — Probabilitas kata per kelas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-3-prediksi-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 3 — Prediksi manual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-4-mencocokkan-dengan-scikit-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 4 — Mencocokkan dengan scikit-learn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-5-kata-berpengaruh-pada-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 5 — Kata berpengaruh pada dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-6-pengaruh-alpha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 6 — Pengaruh alpha
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skrip-terpadu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skrip terpadu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kesalahan-umum-dan-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kesalahan umum dan debugging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kelebihan-dan-keterbatasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kelebihan dan keterbatasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latihan-bertahap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Latihan bertahap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kunci-jawaban-dan-pembahasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kunci jawaban dan pembahasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kuis-singkat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kuis singkat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ringkasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ringkasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glosarium-istilah-baru" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glosarium istilah baru
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referensi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referensi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materi-berikutnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materi berikutnya
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logistic-regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logistic Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linear-svm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linear SVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perbandingan-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perbandingan Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tuning-cross-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tuning dan Cross-validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serialisasi-prediksi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simpan Model dan Prediksi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kesalahan-umum-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kesalahan Umum Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../level-5-evaluasi/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 5: Evaluasi
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 5: Evaluasi
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/confusion-matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confusion Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/metrik-klasifikasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrik Klasifikasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/class-imbalance-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class Imbalance dan Baseline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/threshold-pr-roc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threshold, PR, ROC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/error-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/ablation-robustness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ablation dan Robustness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/leakage-reproducibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Leakage dan Ketidakpastian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/tabel-laporan-eksperimen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabel dan Laporan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-6-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 6: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-7-advanced-nlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 7: Advanced NLP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyek-klasifikasi-bencana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proyek Kebencanaan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../latihan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latihan dan Kuis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glosarium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glosarium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../referensi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referensi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../lampiran/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lampiran
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lampiran
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IMPLEMENTATION_PLAN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rencana Implementasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lampiran/audit-verifikasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit dan Verifikasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tujuan-pembelajaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tujuan pembelajaran
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prasyarat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pengantar-dan-motivasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengantar dan motivasi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konsep-dasar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konsep dasar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konsep dasar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aturan-bayes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aturan Bayes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asumsi-naif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asumsi "naif"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probabilitas-kata-dengan-smoothing-laplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Probabilitas kata dengan smoothing Laplace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keputusan-memakai-logaritma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keputusan memakai logaritma
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penjelasan-mendalam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penjelasan mendalam
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penjelasan mendalam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contoh-numerik-langkah-demi-langkah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contoh numerik langkah demi langkah
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf-idf-pada-naive-bayes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TF-IDF pada Naive Bayes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probabilitas-posterior-bukan-jaminan-kalibrasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Probabilitas posterior bukan jaminan kalibrasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cara-kerja-atau-alur-proses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cara kerja atau alur proses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-sederhana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contoh sederhana
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-dalam-konteks-twitterx-kebencanaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contoh dalam konteks Twitter/X kebencanaan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktik-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Praktik Python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Praktik Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bagian-1-data-kecil-dan-prior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 1 — Data kecil dan prior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-2-probabilitas-kata-per-kelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 2 — Probabilitas kata per kelas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-3-prediksi-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 3 — Prediksi manual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-4-mencocokkan-dengan-scikit-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 4 — Mencocokkan dengan scikit-learn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-5-kata-berpengaruh-pada-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 5 — Kata berpengaruh pada dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-6-pengaruh-alpha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 6 — Pengaruh alpha
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skrip-terpadu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skrip terpadu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kesalahan-umum-dan-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kesalahan umum dan debugging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kelebihan-dan-keterbatasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kelebihan dan keterbatasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latihan-bertahap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Latihan bertahap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kunci-jawaban-dan-pembahasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kunci jawaban dan pembahasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kuis-singkat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kuis singkat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ringkasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ringkasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glosarium-istilah-baru" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glosarium istilah baru
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referensi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referensi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materi-berikutnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materi berikutnya
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigasi" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Beranda
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Level 4: Machine Learning
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="multinomial-naive-bayes">Multinomial Naive Bayes<a class="headerlink" href="#multinomial-naive-bayes" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Info materi</p>
+<p><strong>Tingkat kesulitan:</strong> Menengah (dengan matematika dasar). <strong>Estimasi waktu:</strong> 120 menit.
+<strong>Jenis kode:</strong> snippet edukatif dan eksperimen kecil (<code>examples/level-4-classification/04_naive_bayes.py</code>). Perhitungan manual dicocokkan dengan scikit-learn.</p>
+</div>
+<h2 id="tujuan-pembelajaran">Tujuan pembelajaran<a class="headerlink" href="#tujuan-pembelajaran" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Menjelaskan aturan Bayes dan asumsi "naif" independensi kata.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Menghitung prior, probabilitas kata per kelas dengan smoothing Laplace, dan posterior dari contoh kecil.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Menjelaskan mengapa perhitungan memakai logaritma.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Menafsirkan parameter <code>alpha</code> dan kata paling berpengaruh per kelas.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Menyebut keterbatasan Naive Bayes pada teks Emergency.</li>
+</ul>
+<h2 id="prasyarat">Prasyarat<a class="headerlink" href="#prasyarat" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../pipeline-sklearn/">Pipeline</a> dan <a href="../../level-3-representasi-teks/tfidf/">TF-IDF</a>.</li>
+<li>Konsep probabilitas dasar: peluang dan peluang bersyarat. Notasi dijelaskan di bawah.</li>
+</ul>
+<h2 id="pengantar-dan-motivasi">Pengantar dan motivasi<a class="headerlink" href="#pengantar-dan-motivasi" title="Permanent link">&para;</a></h2>
+<p>Pikirkan seorang petugas piket yang sudah melihat ribuan laporan. Ketika
+membaca "tolong air naik", ia berpikir: <em>kata "tolong" dan "air" lebih sering
+muncul di laporan darurat daripada di berita biasa, jadi ini kemungkinan
+darurat.</em> Naive Bayes mengerjakan hal yang sama secara hitungan: untuk tiap
+kelas, ia menjumlahkan "seberapa mungkin kelas itu mengeluarkan kata-kata ini".
+Ia sederhana, cepat, dan sering menjadi baseline kuat untuk teks.</p>
+<h2 id="konsep-dasar">Konsep dasar<a class="headerlink" href="#konsep-dasar" title="Permanent link">&para;</a></h2>
+<h3 id="aturan-bayes">Aturan Bayes<a class="headerlink" href="#aturan-bayes" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+P(c \mid d) = \frac{P(d \mid c)\,P(c)}{P(d)}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(c\)</span>: kelas (Emergency atau Non-Emergency); <span class="arithmatex">\(d\)</span>: dokumen (teks).</li>
+<li><span class="arithmatex">\(P(c \mid d)\)</span>: <strong>posterior</strong>, peluang kelas <span class="arithmatex">\(c\)</span> setelah melihat dokumen <span class="arithmatex">\(d\)</span> (yang ingin kita ketahui).</li>
+<li><span class="arithmatex">\(P(c)\)</span>: <strong>prior</strong>, peluang kelas sebelum melihat dokumen (proporsi di data latih).</li>
+<li><span class="arithmatex">\(P(d \mid c)\)</span>: <strong>likelihood</strong>, seberapa mungkin kelas <span class="arithmatex">\(c\)</span> menghasilkan dokumen ini.</li>
+<li><span class="arithmatex">\(P(d)\)</span>: sama untuk semua kelas sehingga diabaikan ketika hanya membandingkan.</li>
+</ul>
+<h3 id="asumsi-naif">Asumsi "naif"<a class="headerlink" href="#asumsi-naif" title="Permanent link">&para;</a></h3>
+<p>Dokumen terdiri dari kata <span class="arithmatex">\(t_1, \dots, t_n\)</span>. Likelihood dihitung dengan
+<strong>mengandaikan kata-kata saling bebas</strong> bila kelasnya diketahui:</p>
+<div class="arithmatex">\[
+P(d \mid c) \approx \prod_{t \in d} P(t \mid c)^{n_t(d)}
+\]</div>
+<p><span class="arithmatex">\(n_t(d)\)</span> adalah berapa kali kata <span class="arithmatex">\(t\)</span> muncul di <span class="arithmatex">\(d\)</span>; <span class="arithmatex">\(\prod\)</span> berarti "kalikan semua". Asumsi
+ini jelas tidak benar (kata <code>air</code> dan <code>naik</code> saling berkaitan), tetapi untuk klasifikasi
+sering tetap bekerja baik (McCallum dan Nigam, 1998, membandingkan dua variasi
+model Naive Bayes untuk teks).</p>
+<h3 id="probabilitas-kata-dengan-smoothing-laplace">Probabilitas kata dengan smoothing Laplace<a class="headerlink" href="#probabilitas-kata-dengan-smoothing-laplace" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+P(t \mid c) = \frac{N_{tc} + \alpha}{N_c + \alpha V}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(N_{tc}\)</span>: total kemunculan kata <span class="arithmatex">\(t\)</span> pada seluruh dokumen kelas <span class="arithmatex">\(c\)</span>.</li>
+<li><span class="arithmatex">\(N_c\)</span>: total semua kata pada kelas <span class="arithmatex">\(c\)</span>.</li>
+<li><span class="arithmatex">\(V\)</span>: ukuran kosakata.</li>
+<li><span class="arithmatex">\(\alpha\)</span> (<code>alpha</code>): konstanta smoothing. <span class="arithmatex">\(\alpha = 1\)</span> disebut <em>Laplace smoothing</em> ("tambah satu").</li>
+</ul>
+<p><strong>Mengapa perlu <span class="arithmatex">\(\alpha\)</span>?</strong> Tanpa smoothing, kata yang tidak pernah muncul pada satu
+kelas mendapat peluang 0, dan karena kita <strong>mengalikan</strong> peluang, seluruh produk menjadi
+0: satu kata asing meniadakan kelas itu. Smoothing memberi sedikit peluang
+pada setiap kata.</p>
+<h3 id="keputusan-memakai-logaritma">Keputusan memakai logaritma<a class="headerlink" href="#keputusan-memakai-logaritma" title="Permanent link">&para;</a></h3>
+<p>Mengalikan banyak peluang kecil menghasilkan angka yang terlalu kecil untuk
+komputer (<em>underflow</em>). Karena logaritma mengubah perkalian menjadi penjumlahan:</p>
+<div class="arithmatex">\[
+\log P(c \mid d) \;\propto\; \log P(c) + \sum_{t} n_t(d)\,\log P(t \mid c)
+\]</div>
+<p>Kelas dengan skor log terbesar yang dipilih.</p>
+<h2 id="penjelasan-mendalam">Penjelasan mendalam<a class="headerlink" href="#penjelasan-mendalam" title="Permanent link">&para;</a></h2>
+<h3 id="contoh-numerik-langkah-demi-langkah">Contoh numerik langkah demi langkah<a class="headerlink" href="#contoh-numerik-langkah-demi-langkah" title="Permanent link">&para;</a></h3>
+<p>Empat dokumen latih:</p>
+<table>
+<thead>
+<tr>
+<th>Dokumen</th>
+<th>Kelas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tolong air masuk rumah</td>
+<td>Emergency</td>
+</tr>
+<tr>
+<td>air naik tolong evakuasi</td>
+<td>Emergency</td>
+</tr>
+<tr>
+<td>webinar mitigasi banjir</td>
+<td>Non-Emergency</td>
+</tr>
+<tr>
+<td>tips siaga banjir gratis</td>
+<td>Non-Emergency</td>
+</tr>
+</tbody>
+</table>
+<p>Kosakata <span class="arithmatex">\(V = 12\)</span>. Prior kedua kelas <span class="arithmatex">\(= 0{,}5\)</span>. Total kata Non-Emergency <span class="arithmatex">\(N = 7\)</span> dan
+Emergency <span class="arithmatex">\(N = 8\)</span>. Dengan <span class="arithmatex">\(\alpha = 1\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(P(\text{tolong} \mid \text{Emergency}) = (2 + 1)/(8 + 12) = 0{,}15\)</span></li>
+<li><span class="arithmatex">\(P(\text{tolong} \mid \text{Non-Emergency}) = (0 + 1)/(7 + 12) = 0{,}0526\)</span></li>
+</ul>
+<p>Kata <code>tolong</code> memiliki peluang hampir tiga kali lebih besar pada Emergency.
+Bagian 2 mencetak angka ini beserta <code>banjir</code> dan <code>air</code>.</p>
+<h3 id="tf-idf-pada-naive-bayes">TF-IDF pada Naive Bayes<a class="headerlink" href="#tf-idf-pada-naive-bayes" title="Permanent link">&para;</a></h3>
+<p>Secara teori, Multinomial NB bekerja pada hitungan. Pada praktik, TF-IDF sering
+dipakai sebagai masukan, dengan "hitungan" berupa bobot TF-IDF. Ini tidak
+sesuai persis dengan asumsi multinomial, tetapi bekerja baik. Pipeline pada Level 4
+memakai TF-IDF agar ketiga algoritma menerima fitur yang sama.</p>
+<h3 id="probabilitas-posterior-bukan-jaminan-kalibrasi">Probabilitas posterior bukan jaminan kalibrasi<a class="headerlink" href="#probabilitas-posterior-bukan-jaminan-kalibrasi" title="Permanent link">&para;</a></h3>
+<p>Karena asumsi independensi, Naive Bayes cenderung memberi probabilitas yang
+terlalu ekstrem (mendekati 0 atau 1). Gunakan peringkat/keputusannya, bukan
+angka probabilitas, sebagai ukuran keyakinan nyata (kalibrasi dibahas di Level 5 dan 7).</p>
+<h2 id="cara-kerja-atau-alur-proses">Cara kerja atau alur proses<a class="headerlink" href="#cara-kerja-atau-alur-proses" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    L["data latih"] --&gt; P["prior P(c)&lt;br/&gt;proporsi kelas"]
+    L --&gt; K["P(t|c)&lt;br/&gt;dari hitungan + alpha"]
+    D["dokumen baru"] --&gt; S["skor tiap kelas:&lt;br/&gt;log P(c) + sum n_t log P(t|c)"]
+    P --&gt; S
+    K --&gt; S
+    S --&gt; H["kelas dengan skor terbesar"]</code></pre>
+<h2 id="contoh-sederhana">Contoh sederhana<a class="headerlink" href="#contoh-sederhana" title="Permanent link">&para;</a></h2>
+<p>Dokumen "tolong banjir air". Dengan angka di atas, <code>tolong</code> dan <code>air</code> condong ke
+Emergency, <code>banjir</code> condong ke Non-Emergency; total skor menentukan. Bagian 3 menghitungnya.</p>
+<h2 id="contoh-dalam-konteks-twitterx-kebencanaan">Contoh dalam konteks Twitter/X kebencanaan<a class="headerlink" href="#contoh-dalam-konteks-twitterx-kebencanaan" title="Permanent link">&para;</a></h2>
+<p>Pada teks sintetis, kata yang paling condong ke Emergency (setelah dilatih pada data
+latih) mencakup <code>barusan</code>, <code>butuh</code>, <code>menimpa</code>, dan kata alamat seperti <code>rt</code>; kata yang
+condong ke Non-Emergency mencakup <code>ini</code>, <code>ya</code>, <code>saya</code>, <code>kayak</code>. Sebagian cocok dengan
+intuisi kita, sebagian merupakan artefak templat (Bagian 5).</p>
+<h2 id="praktik-python">Praktik Python<a class="headerlink" href="#praktik-python" title="Permanent link">&para;</a></h2>
+<p>Berkas: <code>examples/level-4-classification/04_naive_bayes.py</code>.</p>
+<h3 id="bagian-1-data-kecil-dan-prior">Bagian 1 — Data kecil dan prior<a class="headerlink" href="#bagian-1-data-kecil-dan-prior" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><span class="filename">Bagian 1</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">dokumen</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"tolong air masuk rumah"</span><span class="p">,</span> <span class="s2">"air naik tolong evakuasi"</span><span class="p">,</span> <span class="s2">"webinar mitigasi banjir"</span><span class="p">,</span> <span class="s2">"tips siaga banjir gratis"</span><span class="p">]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># 1 = Emergency, 0 = Non-Emergency</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">cv</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">X</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dokumen</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">kata</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">V</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">kata</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"kosakata (V ="</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="s2">"):"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">kata</span><span class="p">))</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">prior</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">label</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"prior P(c):"</span><span class="p">,</span> <span class="n">prior</span><span class="p">)</span>
+</span></code></pre></div>
+<p><code>CountVectorizer</code> menghasilkan matriks hitungan <code>X</code>; <code>V</code> adalah ukuran kosakata; <code>prior</code> dihitung sebagai proporsi tiap kelas di <code>label</code>.</p>
+<div class="language-text highlight"><span class="filename">Output nyata</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>kosakata (V = 12 ): ['air', 'banjir', 'evakuasi', 'gratis', 'masuk', 'mitigasi', 'naik', 'rumah', 'siaga', 'tips', 'tolong', 'webinar']
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>prior P(c): [0.5 0.5]
+</span></code></pre></div>
+<h3 id="bagian-2-probabilitas-kata-per-kelas">Bagian 2 — Probabilitas kata per kelas<a class="headerlink" href="#bagian-2-probabilitas-kata-per-kelas" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><span class="filename">Bagian 2</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">hitung</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">[</span><span class="n">label</span> <span class="o">==</span> <span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>       <span class="c1"># N_tc: kemunculan kata t di kelas c</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">total</span> <span class="o">=</span> <span class="n">hitung</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>                                          <span class="c1"># N_c: total token di kelas c</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">P_kata</span> <span class="o">=</span> <span class="p">(</span><span class="n">hitung</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">total</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">V</span><span class="p">)</span>             <span class="c1"># P(t|c) dengan smoothing Laplace</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"total token per kelas:"</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"tolong"</span><span class="p">,</span> <span class="s2">"banjir"</span><span class="p">,</span> <span class="s2">"air"</span><span class="p">]:</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">j</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">kata</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"P(</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">|Non-Emergency)=</span><span class="si">{</span><span class="n">P_kata</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">  P(</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">|Emergency)=</span><span class="si">{</span><span class="n">P_kata</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+<ul>
+<li><code>hitung</code> adalah <span class="arithmatex">\(N_{tc}\)</span>: jumlah kolom <code>X</code> pada baris kelas <span class="arithmatex">\(c\)</span>.</li>
+<li><code>total</code> adalah <span class="arithmatex">\(N_c\)</span>.</li>
+<li><code>P_kata = (hitung + alpha) / (total[:, None] + alpha * V)</code> adalah rumus smoothing; <code>[:, None]</code> mengubah vektor menjadi kolom agar dapat dibagi per baris.</li>
+</ul>
+<div class="language-text highlight"><span class="filename">Output nyata</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>total token per kelas: [7 8]
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>P(tolong|Non-Emergency)=0.0526  P(tolong|Emergency)=0.1500
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>P(banjir|Non-Emergency)=0.1579  P(banjir|Emergency)=0.0500
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>P(air|Non-Emergency)=0.0526  P(air|Emergency)=0.1500
+</span></code></pre></div>
+<p>Interpretasi: sesuai perhitungan manual (0,15 dan 0,0526). <code>banjir</code> condong ke Non-Emergency
+(0,1579 vs 0,05), <code>air</code> dan <code>tolong</code> condong ke Emergency.</p>
+<h3 id="bagian-3-prediksi-manual">Bagian 3 — Prediksi manual<a class="headerlink" href="#bagian-3-prediksi-manual" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><span class="filename">Bagian 3</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">baru</span> <span class="o">=</span> <span class="s2">"tolong banjir air"</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">x</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">baru</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">log_pasca</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">P_kata</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>         <span class="c1"># log P(c) + sum_t n_t log P(t|c)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">pasca</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_pasca</span> <span class="o">-</span> <span class="n">log_pasca</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">pasca</span> <span class="o">/=</span> <span class="n">pasca</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>                                                 <span class="c1"># ubah ke probabilitas yang jumlahnya 1</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"log skor [Non-E, E]:"</span><span class="p">,</span> <span class="n">log_pasca</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"P(c|dokumen) [Non-E, E]:"</span><span class="p">,</span> <span class="n">pasca</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</span></code></pre></div>
+<p><code>x</code> adalah vektor hitungan dokumen baru. <code>log_pasca = log(prior) + sum(x * log(P_kata))</code> adalah rumus log di atas. Skor lalu diubah ke probabilitas dengan mengurangi nilai maksimum sebelum <code>exp</code> (agar stabil), dan dibagi jumlahnya agar total 1.</p>
+<div class="language-text highlight"><span class="filename">Output nyata</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>log skor [Non-E, E]: [-8.4279 -7.4831]
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>P(c|dokumen) [Non-E, E]: [0.2799 0.7201]
+</span></code></pre></div>
+<p>Interpretasi: skor log Emergency (−7,48) lebih besar daripada Non-Emergency (−8,43),
+sehingga prediksinya Emergency dengan probabilitas 0,72.</p>
+<h3 id="bagian-4-mencocokkan-dengan-scikit-learn">Bagian 4 — Mencocokkan dengan scikit-learn<a class="headerlink" href="#bagian-4-mencocokkan-dengan-scikit-learn" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><span class="filename">Bagian 4</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">nb</span> <span class="o">=</span> <span class="n">MultinomialNB</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"probabilitas sklearn  :"</span><span class="p">,</span> <span class="n">nb</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"sama dengan manual    :"</span><span class="p">,</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">nb</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pasca</span><span class="p">)))</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">Output nyata</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>probabilitas sklearn  : [0.2799 0.7201]
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sama dengan manual    : True
+</span></code></pre></div>
+<p>Interpretasi: <code>MultinomialNB(alpha=1.0)</code> menghasilkan probabilitas yang sama dengan
+perhitungan manual. Kita memahami apa yang pustaka lakukan.</p>
+<h3 id="bagian-5-kata-berpengaruh-pada-dataset">Bagian 5 — Kata berpengaruh pada dataset<a class="headerlink" href="#bagian-5-kata-berpengaruh-pada-dataset" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><span class="filename">Bagian 5</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">muat_dataset</span><span class="p">()</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">latih</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">uji</span> <span class="o">=</span> <span class="n">bagi_latih_val_uji</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">buat_pipeline</span><span class="p">(</span><span class="s2">"nb"</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">latih</span><span class="p">[</span><span class="s2">"text"</span><span class="p">],</span> <span class="n">kodekan_label</span><span class="p">(</span><span class="n">latih</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]))</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">nama</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s2">"tfidf"</span><span class="p">]</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">selisih</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">feature_log_prob_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">feature_log_prob_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">urut</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">selisih</span><span class="p">)</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"condong Non-Emergency:"</span><span class="p">,</span> <span class="p">[</span><span class="n">nama</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">urut</span><span class="p">[:</span><span class="mi">6</span><span class="p">]])</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"condong Emergency    :"</span><span class="p">,</span> <span class="p">[</span><span class="n">nama</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">urut</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="mi">6</span><span class="p">]])</span>
+</span></code></pre></div>
+<p><code>feature_log_prob_</code> adalah <span class="arithmatex">\(\log P(t \mid c)\)</span> tiap kelas. Selisih (Emergency − Non-Emergency) yang besar berarti kata itu lebih khas Emergency. <code>np.argsort</code> mengurutkan kata menurut selisih.</p>
+<div class="language-text highlight"><span class="filename">Output nyata</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>condong Non-Emergency: ['ini', 'ya', 'saya', 'kayak', 'siaga', 'hari']
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>condong Emergency    : ['barusan', 'butuh', 'rt', 'menimpa', 'beterbangan', 'menerjang']
+</span></code></pre></div>
+<p>Interpretasi: kata penanda Emergency (<code>barusan</code>, <code>butuh</code>, <code>menimpa</code>, <code>menerjang</code>) sesuai
+definisi (kejadian berlangsung, kebutuhan, kejadian). <code>rt</code> dan <code>beterbangan</code> kemungkinan
+besar artefak templat. Kata Non-Emergency (<code>ini</code>, <code>ya</code>, <code>saya</code>, <code>kayak</code>) khas percakapan atau opini.
+Ini model yang dilatih pada data latih (≈ 60%), bukan pada seluruh data.</p>
+<h3 id="bagian-6-pengaruh-alpha">Bagian 6 — Pengaruh <code>alpha</code><a class="headerlink" href="#bagian-6-pengaruh-alpha" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><span class="filename">Bagian 6</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">y_val</span> <span class="o">=</span> <span class="n">kodekan_label</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="s2">"label"</span><span class="p">])</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]:</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">m</span> <span class="o">=</span> <span class="n">buat_pipeline</span><span class="p">(</span><span class="s2">"nb"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">latih</span><span class="p">[</span><span class="s2">"text"</span><span class="p">],</span> <span class="n">kodekan_label</span><span class="p">(</span><span class="n">latih</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]))</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"alpha=</span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> F1 makro validasi = </span><span class="si">{</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]),</span><span class="w"> </span><span class="n">average</span><span class="o">=</span><span class="s1">'macro'</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">Output nyata</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>alpha=0.01  F1 makro validasi = 0.991
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>alpha=0.1   F1 makro validasi = 0.991
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>alpha=0.5   F1 makro validasi = 0.981
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>alpha=1.0   F1 makro validasi = 0.981
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>alpha=2.0   F1 makro validasi = 0.991
+</span></code></pre></div>
+<p>Interpretasi: F1 makro validasi berkisar 0,981–0,991 pada lima nilai <code>alpha</code>. Data validasi hanya
+117 teks, sehingga selisih 0,01 setara dengan satu atau dua teks. Kita tidak dapat menyimpulkan <code>alpha</code>
+yang terbaik dari tabel ini; itu pekerjaan validasi silang di halaman
+<a href="../tuning-cross-validation/">Tuning</a>.</p>
+<h3 id="skrip-terpadu">Skrip terpadu<a class="headerlink" href="#skrip-terpadu" title="Permanent link">&para;</a></h3>
+<p>Naive Bayes siap pakai: <code>buat_pipeline("nb", alpha=...)</code> di <code>examples/nlp_hub/modeling.py</code>.</p>
+<h2 id="kesalahan-umum-dan-debugging">Kesalahan umum dan debugging<a class="headerlink" href="#kesalahan-umum-dan-debugging" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Perbaikan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ValueError: Negative values in data passed to MultinomialNB</code></td>
+<td>Fitur bernilai negatif (mis. hasil <code>StandardScaler</code>)</td>
+<td>Pakai fitur nonnegatif (hitungan/TF-IDF)</td>
+</tr>
+<tr>
+<td>Probabilitas selalu mendekati 0 atau 1</td>
+<td>Asumsi independensi, teks panjang</td>
+<td>Jangan menganggapnya terkalibrasi</td>
+</tr>
+<tr>
+<td>Semua prediksi satu kelas</td>
+<td><code>alpha</code> besar dengan data kecil, atau prior sangat tidak seimbang</td>
+<td>Periksa prior dan <code>alpha</code>; lihat confusion matrix</td>
+</tr>
+<tr>
+<td>Skor <code>alpha</code> dipilih dari satu validasi</td>
+<td>Bagian kecil, noise</td>
+<td>Validasi silang</td>
+</tr>
+<tr>
+<td>Kata penanda dikira "sebab"</td>
+<td>Korelasi bukan sebab</td>
+<td>Baca sebagai pola di data, bukan penjelasan</td>
+</tr>
+</tbody>
+</table>
+<h2 id="kelebihan-dan-keterbatasan">Kelebihan dan keterbatasan<a class="headerlink" href="#kelebihan-dan-keterbatasan" title="Permanent link">&para;</a></h2>
+<p><strong>Kelebihan:</strong> sangat cepat dilatih, sedikit parameter, baik pada data kecil, mudah ditafsirkan (peluang kata per kelas).
+<strong>Keterbatasan:</strong> asumsi independensi tidak realistis; probabilitas tidak terkalibrasi; tidak
+menangkap urutan atau negasi (kecuali lewat fitur n-gram); rentan pada artefak data (kata templat).</p>
+<h2 id="latihan-bertahap">Latihan bertahap<a class="headerlink" href="#latihan-bertahap" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Konseptual.</strong> Mengapa smoothing diperlukan?</li>
+<li><strong>Menghitung.</strong> Hitung <span class="arithmatex">\(P(\text{banjir} \mid \text{Emergency})\)</span> pada contoh kecil dengan <span class="arithmatex">\(\alpha = 1\)</span> (banjir muncul 0 kali pada kelas Emergency; <span class="arithmatex">\(N=8\)</span>, <span class="arithmatex">\(V=12\)</span>).</li>
+<li><strong>Membaca kode.</strong> Mengapa kode mengurangi nilai maksimum sebelum <code>np.exp</code>?</li>
+<li><strong>Debugging.</strong> Anda memberi <code>MultinomialNB</code> fitur hasil <code>StandardScaler</code> dan mendapat galat nilai negatif. Mengapa?</li>
+<li><strong>Mini-proyek.</strong> Ubah <code>alpha</code> menjadi 100 pada Bagian 6 dan jelaskan apa yang terjadi pada prediksi, dengan mengamati confusion matrix atau recall Emergency.</li>
+</ol>
+<h2 id="kunci-jawaban-dan-pembahasan">Kunci jawaban dan pembahasan<a class="headerlink" href="#kunci-jawaban-dan-pembahasan" title="Permanent link">&para;</a></h2>
+<details class="success">
+<summary>Jawaban 1</summary>
+<p>Tanpa smoothing, kata yang tidak pernah muncul pada satu kelas mendapat peluang 0 dan membuat seluruh produk kelas itu 0. Smoothing menjamin setiap kata punya peluang kecil positif.</p>
+</details>
+<details class="success">
+<summary>Jawaban 2</summary>
+<p><span class="arithmatex">\((0 + 1)/(8 + 12) = 1/20 = 0{,}05\)</span>. Sesuai keluaran Bagian 2 (<code>P(banjir|Emergency)=0.0500</code>).</p>
+</details>
+<details class="success">
+<summary>Jawaban 3</summary>
+<p>Agar eksponen terbesar menjadi 0 (<span class="arithmatex">\(e^0=1\)</span>) dan nilai lain berada pada rentang yang dapat dihitung tanpa <em>underflow</em>. Hasil normalisasi akhir tidak berubah karena faktor yang sama dibagi habis.</p>
+</details>
+<details class="success">
+<summary>Jawaban 4</summary>
+<p><code>StandardScaler</code> menghasilkan nilai negatif (karena mengurangi rata-rata), sedangkan Multinomial NB mensyaratkan hitungan/bobot nonnegatif. Gunakan fitur TF-IDF/hitungan, atau <code>MinMaxScaler</code>, atau model lain.</p>
+</details>
+<details class="success">
+<summary>Jawaban 5</summary>
+<p>Tidak dijawab dari halaman ini; jalankan sendiri. Dugaan yang dapat diuji: <code>alpha</code> yang sangat besar menjadikan semua <span class="arithmatex">\(P(t \mid c)\)</span> mendekati sama (<span class="arithmatex">\(1/V\)</span>), sehingga model hanya mengandalkan prior dan cenderung memprediksi kelas mayoritas (Non-Emergency); recall Emergency turun.</p>
+</details>
+<h2 id="kuis-singkat">Kuis singkat<a class="headerlink" href="#kuis-singkat" title="Permanent link">&para;</a></h2>
+<p><strong>1.</strong> Apa arti "naif" pada Naive Bayes?</p>
+<details class="success">
+<summary>Jawaban</summary>
+<p>Mengasumsikan kata-kata saling bebas jika kelasnya diketahui.</p>
+</details>
+<p><strong>2.</strong> Apa fungsi <code>alpha</code>?</p>
+<details class="success">
+<summary>Jawaban</summary>
+<p>Konstanta smoothing agar kata yang tidak pernah muncul pada suatu kelas tidak mendapat peluang 0.</p>
+</details>
+<p><strong>3.</strong> Mengapa memakai logaritma?</p>
+<details class="success">
+<summary>Jawaban</summary>
+<p>Mengubah perkalian peluang kecil menjadi penjumlahan, mencegah underflow.</p>
+</details>
+<h2 id="ringkasan">Ringkasan<a class="headerlink" href="#ringkasan" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Naive Bayes: posterior ∝ prior × produk peluang kata per kelas, dengan asumsi kata saling bebas.</li>
+<li>Smoothing Laplace: <span class="arithmatex">\(P(t \mid c) = (N_{tc}+\alpha)/(N_c+\alpha V)\)</span>.</li>
+<li>Perhitungan manual (0,2799 / 0,7201) sama dengan <code>MultinomialNB</code>.</li>
+<li><code>alpha</code> 0,01–2 menghasilkan F1 makro validasi 0,981–0,991: selisih sebesar noise.</li>
+</ul>
+<h2 id="glosarium-istilah-baru">Glosarium istilah baru<a class="headerlink" href="#glosarium-istilah-baru" title="Permanent link">&para;</a></h2>
+<dl>
+<dt>Aturan Bayes</dt>
+<dd>Rumus yang menghubungkan peluang kelas setelah dan sebelum melihat data.</dd>
+<dt>Prior / posterior / likelihood</dt>
+<dd>Peluang kelas sebelum data / sesudah data / peluang data bila kelasnya diketahui.</dd>
+<dt>Smoothing Laplace</dt>
+<dd>Penambahan konstanta agar tidak ada peluang nol.</dd>
+<dt>Underflow</dt>
+<dd>Angka terlalu kecil untuk direpresentasikan komputer.</dd>
+<dt>Kalibrasi</dt>
+<dd>Kesesuaian antara probabilitas yang dikeluarkan model dan frekuensi kebenaran sebenarnya.</dd>
+</dl>
+<h2 id="referensi">Referensi<a class="headerlink" href="#referensi" title="Permanent link">&para;</a></h2>
+<ul>
+<li>McCallum, A., &amp; Nigam, K. (1998). A comparison of event models for Naive Bayes text classification. <em>AAAI-98 Workshop on Learning for Text Categorization</em>, 41–48 (makalah akademik; membandingkan model Bernoulli dan multinomial).</li>
+<li>Pang, B., Lee, L., &amp; Vaithyanathan, S. (2002). Thumbs up? Sentiment classification using machine learning techniques. <em>Proceedings of EMNLP 2002</em>, 79–86. <a href="https://aclanthology.org/W02-1011/">https://aclanthology.org/W02-1011/</a> (makalah akademik; memakai Naive Bayes dengan add-one smoothing pada bagian 5.1).</li>
+<li>Manning, C. D., Raghavan, P., &amp; Schütze, H. (2008). <em>Introduction to Information Retrieval</em>. Cambridge University Press, bab <em>Text classification and Naive Bayes</em> (buku; tautan daring tidak dapat diakses saat pemeriksaan, jadi tidak dicantumkan).</li>
+<li>Dokumentasi scikit-learn, <em>Naive Bayes</em>: <a href="https://scikit-learn.org/stable/modules/naive_bayes.html">https://scikit-learn.org/stable/modules/naive_bayes.html</a> (dokumentasi resmi).</li>
+</ul>
+<h2 id="materi-berikutnya">Materi berikutnya<a class="headerlink" href="#materi-berikutnya" title="Permanent link">&para;</a></h2>
+<p><a href="../logistic-regression/">Logistic Regression</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../pipeline-sklearn/" class="md-footer__link md-footer__link--prev" aria-label="Sebelumnya: Pipeline scikit-learn">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sebelumnya
+              </span>
+              <div class="md-ellipsis">
+                Pipeline scikit-learn
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../logistic-regression/" class="md-footer__link md-footer__link--next" aria-label="Selanjutnya: Logistic Regression">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Selanjutnya
+              </span>
+              <div class="md-ellipsis">
+                Logistic Regression
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes", "navigation.path", "navigation.footer", "navigation.top", "navigation.tracking", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Tersalin ke clipboard", "clipboard.copy": "Salin ke clipboard", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tidak ada dokumen yang sesuai", "search.result.one": "1 dokumen ditemukan", "search.result.other": "# dokumen ditemukan", "search.result.placeholder": "Ketik untuk mulai pencarian", "search.result.term.missing": "Tidak ada", "select.version": "Pilih versi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/vendor/mermaid/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid-config.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

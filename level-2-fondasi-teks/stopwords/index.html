@@ -1,0 +1,4174 @@
+
+<!doctype html>
+<html lang="id" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Belajar Natural Language Processing dengan Python: dari dasar hingga deployment, dengan studi kasus klasifikasi pesan kebencanaan.">
+      
+      
+      
+        <link rel="canonical" href="https://topekox.github.io/materi-nlp/level-2-fondasi-teks/stopwords/">
+      
+      
+        <link rel="prev" href="../normalisasi-informal/">
+      
+      
+        <link rel="next" href="../stemming-lemmatization/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Stopwords - NLP Learning Hub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#stopwords-dan-keterbatasannya" class="md-skip">
+          Lewati ke isi
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="NLP Learning Hub" class="md-header__button md-logo" aria-label="NLP Learning Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NLP Learning Hub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Stopwords
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Theme: system (click for light)"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Theme: system (click for light)" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Theme: light (click for dark)"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Theme: light (click for dark)" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Theme: dark (click for system)"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Theme: dark (click for system)" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cari">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Kosongkan" aria-label="Kosongkan" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Mempersiapkan pencarian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NLP Learning Hub" class="md-nav__button md-logo" aria-label="NLP Learning Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NLP Learning Hub
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Beranda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../panduan-belajar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panduan Belajar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../level-0-orientasi/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0: Orientasi
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 0: Orientasi
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/ai-ml-dl-nlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI, ML, DL, NLP, Text Mining
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/hubungan-nlp-ml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hubungan NLP dan ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/penerapan-nlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Penerapan NLP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/cara-kerja-klasifikasi-teks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cara Kerja Klasifikasi Teks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/masalah-emergency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Masalah Emergency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/teks-media-sosial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teks Media Sosial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/istilah-dasar-ml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Istilah Dasar ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/persiapan-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Persiapan Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/verifikasi-lingkungan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verifikasi Lingkungan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-0-orientasi/mini-proyek-manual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mini Proyek Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../level-1-python/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1: Python
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 1: Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/variabel-tipe-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variabel dan Tipe Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/string-operasi-teks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/indexing-slicing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexing dan Slicing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/list-tuple-set-dict/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    List, Tuple, Set, Dict
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/kondisional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kondisional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/perulangan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perulangan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/function-parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/import-modul/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Import dan Modul
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/exception-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/file-teks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Teks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/csv-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSV dan JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/numpy-dasar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NumPy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/pandas-dasar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/missing-values-duplikasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Missing Values dan Duplikasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/regex-dasar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-1-python/debugging-pengujian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debugging dan Pengujian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2: Fondasi Teks
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 2: Fondasi Teks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../karakter-unicode-encoding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Karakter, Unicode, UTF-8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../token-kalimat-tokenisasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Token dan Tokenisasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case-folding-pembersihan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Folding dan Pembersihan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../emoji-emotikon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Emoji dan Emotikon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../normalisasi-informal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normalisasi Informal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stopwords
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stopwords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tujuan-pembelajaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tujuan pembelajaran
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prasyarat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pengantar-dan-motivasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengantar dan motivasi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konsep-dasar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konsep dasar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penjelasan-mendalam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penjelasan mendalam
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penjelasan mendalam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengapa-kata-umum-dibuang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengapa kata umum dibuang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengapa-itu-tidak-selalu-benar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengapa itu tidak selalu benar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daftar-bawaan-sastrawi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daftar bawaan Sastrawi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negasi-dan-permintaan-tidak-boleh-hilang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Negasi dan permintaan tidak boleh hilang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daftar-konservatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daftar konservatif
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cara-kerja-atau-alur-proses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cara kerja atau alur proses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-sederhana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contoh sederhana
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-dalam-konteks-twitterx-kebencanaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contoh dalam konteks Twitter/X kebencanaan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktik-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Praktik Python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Praktik Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bagian-1-isi-daftar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 1 — Isi daftar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-2-dampak-pada-makna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 2 — Dampak pada makna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-3-kata-paling-sering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 3 — Kata paling sering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-4-sebaran-per-kelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 4 — Sebaran per kelas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skrip-terpadu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skrip terpadu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kesalahan-umum-dan-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kesalahan umum dan debugging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kelebihan-dan-keterbatasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kelebihan dan keterbatasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latihan-bertahap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Latihan bertahap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kunci-jawaban-dan-pembahasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kunci jawaban dan pembahasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kuis-singkat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kuis singkat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ringkasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ringkasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glosarium-istilah-baru" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glosarium istilah baru
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referensi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referensi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materi-berikutnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materi berikutnya
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stemming-lemmatization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stemming dan Lemmatization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../negasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Negasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../angka-waktu-lokasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Angka, Waktu, Lokasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perbandingan-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perbandingan Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../leakage-preprocessing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Leakage Preprocessing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline-teruji/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline yang Dapat Diuji
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../level-3-representasi-teks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3: Representasi Teks
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 3: Representasi Teks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/statistik-korpus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistik Korpus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/n-gram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    N-gram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/bag-of-words/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bag of Words
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/tfidf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TF-IDF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/sparse-matrix-one-hot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sparse Matrix dan One-hot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/feature-engineering-kebencanaan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/representasi-sklearn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Representasi dengan scikit-learn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-3-representasi-teks/latihan-analisis-dataset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latihan Analisis Dataset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../level-4-machine-learning/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4: Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 4: Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-4-machine-learning/supervised-learning-xy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supervised Learning, X, y
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-4-machine-learning/pembagian-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pembagian Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-4-machine-learning/pipeline-sklearn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline scikit-learn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-4-machine-learning/naive-bayes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Naive Bayes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-4-machine-learning/logistic-regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logistic Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-4-machine-learning/linear-svm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linear SVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-4-machine-learning/perbandingan-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perbandingan Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-4-machine-learning/tuning-cross-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tuning dan Cross-validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-4-machine-learning/serialisasi-prediksi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simpan Model dan Prediksi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-4-machine-learning/kesalahan-umum-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kesalahan Umum Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../level-5-evaluasi/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 5: Evaluasi
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 5: Evaluasi
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/confusion-matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Confusion Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/metrik-klasifikasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrik Klasifikasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/class-imbalance-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class Imbalance dan Baseline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/threshold-pr-roc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threshold, PR, ROC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/error-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/ablation-robustness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ablation dan Robustness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/leakage-reproducibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Leakage dan Ketidakpastian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-5-evaluasi/tabel-laporan-eksperimen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabel dan Laporan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-6-deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 6: Deep Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../level-7-advanced-nlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 7: Advanced NLP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyek-klasifikasi-bencana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proyek Kebencanaan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../latihan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latihan dan Kuis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glosarium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glosarium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../referensi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referensi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../lampiran/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lampiran
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lampiran
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IMPLEMENTATION_PLAN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rencana Implementasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lampiran/audit-verifikasi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit dan Verifikasi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tujuan-pembelajaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tujuan pembelajaran
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prasyarat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pengantar-dan-motivasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengantar dan motivasi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konsep-dasar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konsep dasar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penjelasan-mendalam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penjelasan mendalam
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penjelasan mendalam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengapa-kata-umum-dibuang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengapa kata umum dibuang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengapa-itu-tidak-selalu-benar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengapa itu tidak selalu benar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daftar-bawaan-sastrawi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daftar bawaan Sastrawi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negasi-dan-permintaan-tidak-boleh-hilang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Negasi dan permintaan tidak boleh hilang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daftar-konservatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daftar konservatif
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cara-kerja-atau-alur-proses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cara kerja atau alur proses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-sederhana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contoh sederhana
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contoh-dalam-konteks-twitterx-kebencanaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contoh dalam konteks Twitter/X kebencanaan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktik-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Praktik Python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Praktik Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bagian-1-isi-daftar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 1 — Isi daftar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-2-dampak-pada-makna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 2 — Dampak pada makna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-3-kata-paling-sering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 3 — Kata paling sering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagian-4-sebaran-per-kelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bagian 4 — Sebaran per kelas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skrip-terpadu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skrip terpadu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kesalahan-umum-dan-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kesalahan umum dan debugging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kelebihan-dan-keterbatasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kelebihan dan keterbatasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latihan-bertahap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Latihan bertahap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kunci-jawaban-dan-pembahasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kunci jawaban dan pembahasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kuis-singkat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kuis singkat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ringkasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ringkasan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glosarium-istilah-baru" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glosarium istilah baru
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referensi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referensi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materi-berikutnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materi berikutnya
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigasi" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Beranda
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Level 2: Fondasi Teks
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="stopwords-dan-keterbatasannya">Stopwords dan Keterbatasannya<a class="headerlink" href="#stopwords-dan-keterbatasannya" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Info materi</p>
+<p><strong>Tingkat kesulitan:</strong> Pemula–menengah. <strong>Estimasi waktu:</strong> 60–90 menit.
+<strong>Jenis kode:</strong> snippet edukatif (<code>examples/level-2-preprocessing/06_stopwords.py</code>).</p>
+</div>
+<h2 id="tujuan-pembelajaran">Tujuan pembelajaran<a class="headerlink" href="#tujuan-pembelajaran" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Menjelaskan apa itu stopword dan alasan tradisional membuangnya.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Menunjukkan bahwa daftar stopword bawaan dapat membuang kata yang menentukan label.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Menyusun daftar stopword konservatif untuk tugas Emergency/Non-Emergency.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Memeriksa frekuensi kata per kelas sebelum membuangnya.</li>
+</ul>
+<h2 id="prasyarat">Prasyarat<a class="headerlink" href="#prasyarat" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../token-kalimat-tokenisasi/">Token, Kalimat, dan Tokenisasi Kata</a>.</li>
+<li><a href="../normalisasi-informal/">Normalisasi Bahasa Informal</a>.</li>
+</ul>
+<h2 id="pengantar-dan-motivasi">Pengantar dan motivasi<a class="headerlink" href="#pengantar-dan-motivasi" title="Permanent link">&para;</a></h2>
+<p><em>Stopword</em> adalah kata yang sangat sering muncul dan dianggap tidak membawa
+makna topik: <code>yang</code>, <code>di</code>, <code>dan</code>, <code>itu</code>. Anggapan tradisional: membuangnya
+mengurangi kosakata dan fokus pada kata isi. Anggapan itu muncul dari
+pencarian dokumen (mencari topik), bukan dari klasifikasi tingkat urgensi,
+tempat kata kecil seperti <code>tidak</code>, <code>belum</code>, dan <code>tolong</code> justru menentukan.</p>
+<h2 id="konsep-dasar">Konsep dasar<a class="headerlink" href="#konsep-dasar" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Istilah</th>
+<th>Arti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stopword</strong></td>
+<td>Kata umum yang dibuang saat preprocessing</td>
+</tr>
+<tr>
+<td><strong>Daftar stopword</strong></td>
+<td>Himpunan kata yang dibuang; bisa bawaan pustaka atau buatan sendiri</td>
+</tr>
+<tr>
+<td><strong>Stopword konservatif</strong></td>
+<td>Daftar pendek yang hanya berisi kata fungsi yang aman dibuang</td>
+</tr>
+</tbody>
+</table>
+<h2 id="penjelasan-mendalam">Penjelasan mendalam<a class="headerlink" href="#penjelasan-mendalam" title="Permanent link">&para;</a></h2>
+<h3 id="mengapa-kata-umum-dibuang">Mengapa kata umum dibuang<a class="headerlink" href="#mengapa-kata-umum-dibuang" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Mengurangi dimensi fitur.</li>
+<li>Kata umum muncul di hampir semua dokumen sehingga kurang membedakan kelas.</li>
+</ol>
+<h3 id="mengapa-itu-tidak-selalu-benar">Mengapa itu tidak selalu benar<a class="headerlink" href="#mengapa-itu-tidak-selalu-benar" title="Permanent link">&para;</a></h3>
+<p>Argumen kedua hanya berlaku bila kata itu muncul dengan <strong>proporsi yang sama</strong>
+di semua kelas. Anda tidak boleh mengandalkan asumsi; periksa. Bagian 4 di
+bawah menunjukkan bahwa pada dataset sintetis ini <code>di</code> muncul pada 148 dari
+191 teks Emergency (77%) tetapi hanya 103 dari 373 teks Non-Emergency (28%).
+Penyebabnya adalah templat kalimat laporan yang menyebut lokasi ("... di
+Jl. Melati ..."). Ini artefak data sintetis, tetapi mengajarkan prinsip yang
+benar: sebuah kata fungsi dapat membawa sinyal kelas.</p>
+<h3 id="daftar-bawaan-sastrawi">Daftar bawaan Sastrawi<a class="headerlink" href="#daftar-bawaan-sastrawi" title="Permanent link">&para;</a></h3>
+<p>Sastrawi menyediakan daftar bahasa Indonesia (123 kata unik pada versi 1.0.1
+yang dipakai). Daftar itu dirancang untuk pencarian dan dokumen umum.
+Pada pengujian, daftar itu memuat <code>tidak</code>, <code>belum</code>, <code>tolong</code>, <code>kami</code>, <code>ada</code>,
+<code>masih</code>, dan <code>sudah</code>.</p>
+<h3 id="negasi-dan-permintaan-tidak-boleh-hilang">Negasi dan permintaan tidak boleh hilang<a class="headerlink" href="#negasi-dan-permintaan-tidak-boleh-hilang" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Ada korban jiwa</code> dan <code>Tidak ada korban jiwa</code> bermakna berlawanan. Jika <code>tidak</code> dan <code>ada</code> dibuang, keduanya identik.</li>
+<li><code>tolong</code> adalah salah satu penanda permintaan bantuan yang paling jelas.</li>
+<li><code>kami</code> (kata ganti orang pertama jamak) sering menandai laporan dari pelaku langsung ("rumah kami terendam").</li>
+</ul>
+<h3 id="daftar-konservatif">Daftar konservatif<a class="headerlink" href="#daftar-konservatif" title="Permanent link">&para;</a></h3>
+<p>Daftar di <code>nlp_hub/kamus.py</code> (<code>STOPWORDS_KONSERVATIF</code>, 29 kata) hanya memuat kata
+fungsi seperti <code>yang</code>, <code>di</code>, <code>ke</code>, <code>dari</code>, <code>dan</code>, <code>atau</code>, dan partikel
+percakapan (<code>sih</code>, <code>dong</code>, <code>deh</code>). Ia sengaja tidak memuat negasi, kata
+permintaan, kata ganti orang, dan kata keterangan waktu/keadaan.</p>
+<div class="admonition warning">
+<p class="admonition-title">Namun <code>di</code> ada di daftar konservatif</p>
+<p>Perhatikan paradoksnya: <code>di</code> termasuk daftar konservatif tetapi pada data
+ini cukup informatif. Daftar "konservatif" bukan jaminan aman; ia hanya
+lebih aman daripada daftar bawaan. Satu-satunya cara memutuskan adalah
+eksperimen, yang kita lakukan di halaman
+<a href="../perbandingan-pipeline/">Perbandingan Pipeline</a>.</p>
+</div>
+<h2 id="cara-kerja-atau-alur-proses">Cara kerja atau alur proses<a class="headerlink" href="#cara-kerja-atau-alur-proses" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    A["Token"] --&gt; B{"Ada di daftar&lt;br/&gt;stopword?"}
+    B -- "ya" --&gt; C["buang"]
+    B -- "tidak" --&gt; D["pertahankan"]</code></pre>
+<p>Stopword dihapus <strong>setelah</strong> tokenisasi dan normalisasi (agar <code>yg</code> sudah menjadi
+<code>yang</code> sebelum dicocokkan), dan <strong>sebelum</strong> stemming.</p>
+<h2 id="contoh-sederhana">Contoh sederhana<a class="headerlink" href="#contoh-sederhana" title="Permanent link">&para;</a></h2>
+<p><code>"tolong air yang tidak surut di rumah"</code> dengan daftar konservatif menjadi
+<code>"tolong air tidak surut rumah"</code>; dengan daftar bawaan Sastrawi menjadi
+<code>"air surut rumah"</code>, dan makna "tidak surut" berubah menjadi "surut".</p>
+<h2 id="contoh-dalam-konteks-twitterx-kebencanaan">Contoh dalam konteks Twitter/X kebencanaan<a class="headerlink" href="#contoh-dalam-konteks-twitterx-kebencanaan" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Teks (sintetis)</th>
+<th>Daftar Sastrawi</th>
+<th>Daftar konservatif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ada korban jiwa</code></td>
+<td><code>korban jiwa</code></td>
+<td><code>ada korban jiwa</code></td>
+</tr>
+<tr>
+<td><code>Tidak ada korban jiwa</code></td>
+<td><code>korban jiwa</code></td>
+<td><code>tidak ada korban jiwa</code></td>
+</tr>
+</tbody>
+</table>
+<p>Pada daftar Sastrawi, dua teks yang bermakna berlawanan menjadi identik.</p>
+<h2 id="praktik-python">Praktik Python<a class="headerlink" href="#praktik-python" title="Permanent link">&para;</a></h2>
+<p>Berkas: <code>examples/level-2-preprocessing/06_stopwords.py</code>.</p>
+<h3 id="bagian-1-isi-daftar">Bagian 1 — Isi daftar<a class="headerlink" href="#bagian-1-isi-daftar" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><span class="filename">Bagian 1</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">sastrawi</span> <span class="o">=</span> <span class="n">stopwords_sastrawi</span><span class="p">()</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sastrawi</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">STOPWORDS_KONSERVATIF</span><span class="p">))</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">penting</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"tidak"</span><span class="p">,</span> <span class="s2">"belum"</span><span class="p">,</span> <span class="s2">"bukan"</span><span class="p">,</span> <span class="s2">"jangan"</span><span class="p">,</span> <span class="s2">"tolong"</span><span class="p">,</span> <span class="s2">"mohon"</span><span class="p">,</span> <span class="s2">"butuh"</span><span class="p">,</span> <span class="s2">"kami"</span><span class="p">,</span> <span class="s2">"ada"</span><span class="p">,</span> <span class="s2">"masih"</span><span class="p">,</span> <span class="s2">"sudah"</span><span class="p">,</span> <span class="s2">"segera"</span><span class="p">]</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"di Sastrawi  :"</span><span class="p">,</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">penting</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">sastrawi</span><span class="p">])</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"di konservatif:"</span><span class="p">,</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">penting</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">STOPWORDS_KONSERVATIF</span><span class="p">])</span>
+</span></code></pre></div>
+<p><code>stopwords_sastrawi()</code> mengembalikan <code>frozenset</code> (himpunan yang tidak dapat diubah). <code>[k for k in penting if k in sastrawi]</code> menyaring kata penting yang ada di daftar.</p>
+<div class="language-text highlight"><span class="filename">Output nyata</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>123 29
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>di Sastrawi  : ['tidak', 'belum', 'tolong', 'kami', 'ada', 'masih', 'sudah']
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>di konservatif: []
+</span></code></pre></div>
+<p>Interpretasi: tujuh dari dua belas kata penting ada di daftar Sastrawi; tidak
+satu pun ada di daftar konservatif.</p>
+<h3 id="bagian-2-dampak-pada-makna">Bagian 2 — Dampak pada makna<a class="headerlink" href="#bagian-2-dampak-pada-makna" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><span class="filename">Bagian 2</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">k_sastrawi</span> <span class="o">=</span> <span class="n">KonfigurasiPraproses</span><span class="p">(</span><span class="n">stopword</span><span class="o">=</span><span class="s2">"sastrawi"</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">k_konservatif</span> <span class="o">=</span> <span class="n">KonfigurasiPraproses</span><span class="p">(</span><span class="n">stopword</span><span class="o">=</span><span class="s2">"konservatif"</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">for</span> <span class="n">teks</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"Tolong, air belum surut dan listrik tidak ada"</span><span class="p">,</span> <span class="s2">"Ada korban jiwa"</span><span class="p">,</span> <span class="s2">"Tidak ada korban jiwa"</span><span class="p">]:</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">teks</span><span class="p">))</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"  sastrawi   :"</span><span class="p">,</span> <span class="n">praproses</span><span class="p">(</span><span class="n">teks</span><span class="p">,</span> <span class="n">k_sastrawi</span><span class="p">))</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"  konservatif:"</span><span class="p">,</span> <span class="n">praproses</span><span class="p">(</span><span class="n">teks</span><span class="p">,</span> <span class="n">k_konservatif</span><span class="p">))</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">Output nyata</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>'Tolong, air belum surut dan listrik tidak ada'
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  sastrawi   : air surut listrik
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  konservatif: tolong air belum surut listrik tidak ada
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>'Ada korban jiwa'
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  sastrawi   : korban jiwa
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  konservatif: ada korban jiwa
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>'Tidak ada korban jiwa'
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  sastrawi   : korban jiwa
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  konservatif: tidak ada korban jiwa
+</span></code></pre></div>
+<p>Interpretasi: dengan Sastrawi, kalimat pertama kehilangan <code>tolong</code>, <code>belum</code>,
+<code>tidak</code>; makna "air belum surut" menjadi "air surut". Teks kedua dan ketiga
+menjadi sama persis. <strong>Cara memeriksa:</strong> bandingkan hasil untuk pasangan teks yang
+maknanya berlawanan. Jika hasilnya identik, ada informasi penting yang hilang.</p>
+<h3 id="bagian-3-kata-paling-sering">Bagian 3 — Kata paling sering<a class="headerlink" href="#bagian-3-kata-paling-sering" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><span class="filename">Bagian 3</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">muat_dataset</span><span class="p">()</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">token_per_dok</span> <span class="o">=</span> <span class="p">[</span><span class="nb">set</span><span class="p">(</span><span class="n">praproses_token</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">"text"</span><span class="p">]]</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">df_kata</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">k</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">token_per_dok</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">for</span> <span class="n">kata</span><span class="p">,</span> <span class="n">jumlah</span> <span class="ow">in</span> <span class="n">df_kata</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">kata</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">jumlah</span><span class="si">:</span><span class="s2">4</span><span class="si">}</span><span class="s2"> dokumen  sastrawi=</span><span class="si">{</span><span class="n">kata</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">sastrawi</span><span class="si">}</span><span class="s2">  konservatif=</span><span class="si">{</span><span class="n">kata</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">STOPWORDS_KONSERVATIF</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+<p><code>set(praproses_token(t))</code> menghitung kata unik per dokumen; <code>Counter</code> menghitung jumlah dokumen yang memuat tiap kata (<em>document frequency</em>). <code>most_common(12)</code> mengambil dua belas teratas.</p>
+<div class="language-text highlight"><span class="filename">Output nyata</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>di          251 dokumen  sastrawi=True  konservatif=True
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>kelurahan   148 dokumen  sastrawi=False  konservatif=False
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>jalan       131 dokumen  sastrawi=False  konservatif=False
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>rt          128 dokumen  sastrawi=False  konservatif=False
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>dan         127 dokumen  sastrawi=True  konservatif=True
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>tok_url      80 dokumen  sastrawi=False  konservatif=False
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>tok_mention   79 dokumen  sastrawi=False  konservatif=False
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>tolong       77 dokumen  sastrawi=True  konservatif=False
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>rumah        77 dokumen  sastrawi=False  konservatif=False
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>bencana      73 dokumen  sastrawi=False  konservatif=False
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>ada          72 dokumen  sastrawi=True  konservatif=False
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>gempa        70 dokumen  sastrawi=False  konservatif=False
+</span></code></pre></div>
+<p>Interpretasi: kata paling sering di data ini bukan hanya kata fungsi. <code>kelurahan</code>,
+<code>jalan</code>, dan <code>rt</code> sering muncul karena templat alamat. Frekuensi tinggi saja
+bukan alasan membuang kata. Pendekatan "buang kata paling sering" (stopword
+berbasis data) akan membuang <code>kelurahan</code> dan <code>jalan</code>, apakah itu diinginkan
+perlu diuji.</p>
+<h3 id="bagian-4-sebaran-per-kelas">Bagian 4 — Sebaran per kelas<a class="headerlink" href="#bagian-4-sebaran-per-kelas" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><span class="filename">Bagian 4</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">emergency</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Emergency"</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">for</span> <span class="n">kata</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"tolong"</span><span class="p">,</span> <span class="s2">"yang"</span><span class="p">,</span> <span class="s2">"di"</span><span class="p">,</span> <span class="s2">"tidak"</span><span class="p">,</span> <span class="s2">"air"</span><span class="p">]:</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">ada</span> <span class="o">=</span> <span class="p">[</span><span class="n">kata</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">token_per_dok</span><span class="p">]</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">e</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span> <span class="ow">and</span> <span class="n">m</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ada</span><span class="p">,</span> <span class="n">emergency</span><span class="p">))</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">m</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ada</span><span class="p">,</span> <span class="n">emergency</span><span class="p">))</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">kata</span><span class="si">:</span><span class="s2">8</span><span class="si">}</span><span class="s2"> Emergency=</span><span class="si">{</span><span class="n">e</span><span class="si">:</span><span class="s2">3</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">emergency</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">  Non-Emergency=</span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s2">3</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="p">(</span><span class="o">~</span><span class="n">emergency</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Untuk tiap kata, <code>zip</code> menjumlahkan dokumen Emergency (<code>e</code>) dan Non-Emergency (<code>n</code>) yang memuatnya.</p>
+<div class="language-text highlight"><span class="filename">Output nyata</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tolong   Emergency= 27/191  Non-Emergency= 50/373
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>yang     Emergency= 23/191  Non-Emergency= 38/373
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>di       Emergency=148/191  Non-Emergency=103/373
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>tidak    Emergency=  5/191  Non-Emergency= 15/373
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>air      Emergency= 25/191  Non-Emergency=  9/373
+</span></code></pre></div>
+<p>Interpretasi (hanya untuk dataset sintetis ini):</p>
+<ul>
+<li><code>tolong</code>: 14% pada Emergency dan 13% pada Non-Emergency. Hampir sama, karena dataset memuat banyak teks Non-Emergency berisi "tolong" (pancingan seperti "Tolong follow akun saya"). Ini sesuai pesan CLAUDE.md: kata kunci bukan definisi.</li>
+<li><code>di</code>: 77% versus 28%. Kata fungsi yang sangat membedakan kelas.</li>
+<li><code>air</code>: 13% versus 2%. Kata isi yang membedakan.</li>
+</ul>
+<p>Angka ini berasal dari data sintetis yang dibuat dengan templat dan tidak
+boleh digeneralisasi.</p>
+<h3 id="skrip-terpadu">Skrip terpadu<a class="headerlink" href="#skrip-terpadu" title="Permanent link">&para;</a></h3>
+<p>Fungsi <code>hapus_stopword</code> dan <code>stopwords_sastrawi</code> ada di
+<code>examples/nlp_hub/preprocessing.py</code>, dan opsi <code>stopword="sastrawi"</code> atau
+<code>True</code> pada <code>KonfigurasiPraproses</code>. Tes yang menjaga perilaku ini:
+<code>test_stopword_sastrawi_memuat_kata_yang_berbahaya_untuk_tugas_ini</code>.</p>
+<h2 id="kesalahan-umum-dan-debugging">Kesalahan umum dan debugging<a class="headerlink" href="#kesalahan-umum-dan-debugging" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Perbaikan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Teks bermakna berlawanan menjadi identik</td>
+<td>Negasi ikut dibuang</td>
+<td>Keluarkan negasi dari daftar</td>
+</tr>
+<tr>
+<td>Recall Emergency turun setelah stopword dibuang</td>
+<td>Kata seperti <code>tolong</code>, <code>kami</code> ikut dibuang</td>
+<td>Bandingkan kata yang dibuang per kelas</td>
+</tr>
+<tr>
+<td>Daftar stopword dari bahasa Inggris dipakai pada teks Indonesia</td>
+<td>Salah pilih daftar</td>
+<td>Pakai daftar bahasa yang tepat</td>
+</tr>
+<tr>
+<td>Stopword dibuang sebelum normalisasi</td>
+<td><code>yg</code> tidak cocok dengan <code>yang</code></td>
+<td>Normalisasi dahulu</td>
+</tr>
+<tr>
+<td>Daftar disusun dari frekuensi <strong>seluruh</strong> data, termasuk uji</td>
+<td>Kebocoran data</td>
+<td>Hitung frekuensi hanya pada data latih</td>
+</tr>
+</tbody>
+</table>
+<h2 id="kelebihan-dan-keterbatasan">Kelebihan dan keterbatasan<a class="headerlink" href="#kelebihan-dan-keterbatasan" title="Permanent link">&para;</a></h2>
+<p><strong>Kelebihan:</strong> mengurangi dimensi; mempercepat latihan; mudah dipahami.
+<strong>Keterbatasan:</strong> keputusan "kata ini tidak penting" bergantung tugas; daftar
+bawaan dibuat untuk tujuan lain; pada pengklasifikasi modern berbasis
+transformer, stopword biasanya dibiarkan karena konteks dipelajari model.</p>
+<h2 id="latihan-bertahap">Latihan bertahap<a class="headerlink" href="#latihan-bertahap" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Konseptual.</strong> Mengapa <code>tidak</code> berbahaya jika dibuang pada tugas Emergency/Non-Emergency?</li>
+<li><strong>Membaca kode.</strong> Dari dua belas kata di variabel <code>penting</code>, berapa yang ada di daftar Sastrawi?</li>
+<li><strong>Membaca kode.</strong> Hasil <code>praproses("Tidak ada korban jiwa", KonfigurasiPraproses(stopword="sastrawi"))</code>?</li>
+<li><strong>Pemrograman kecil.</strong> Tulis <code>kata_terbuang(teks, stopwords)</code> yang mengembalikan daftar token yang akan dibuang. Uji pada <code>"Tolong, air belum surut dan listrik tidak ada"</code> dengan daftar Sastrawi.</li>
+<li><strong>Tantangan.</strong> Anda ingin menyusun stopword dari kata yang paling sering. Jelaskan dua risiko, termasuk satu risiko kebocoran data.</li>
+</ol>
+<h2 id="kunci-jawaban-dan-pembahasan">Kunci jawaban dan pembahasan<a class="headerlink" href="#kunci-jawaban-dan-pembahasan" title="Permanent link">&para;</a></h2>
+<details class="success">
+<summary>Jawaban 1</summary>
+<p><code>tidak</code> membalik makna ("tidak ada korban" versus "ada korban"). Membuangnya membuat kedua kalimat tampak sama bagi model, padahal labelnya bisa berbeda.</p>
+</details>
+<details class="success">
+<summary>Jawaban 2</summary>
+<p>7: <code>tidak</code>, <code>belum</code>, <code>tolong</code>, <code>kami</code>, <code>ada</code>, <code>masih</code>, <code>sudah</code> (sesuai output Bagian 1).</p>
+</details>
+<details class="success">
+<summary>Jawaban 3</summary>
+<p><code>korban jiwa</code>. <code>tidak</code> dan <code>ada</code> keduanya ada di daftar Sastrawi, sehingga hasilnya sama dengan <code>Ada korban jiwa</code>.</p>
+</details>
+<details class="success">
+<summary>Jawaban 4</summary>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">nlp_hub.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">praproses_token</span><span class="p">,</span> <span class="n">stopwords_sastrawi</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">kata_terbuang</span><span class="p">(</span><span class="n">teks</span><span class="p">,</span> <span class="n">stopwords</span><span class="p">):</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">praproses_token</span><span class="p">(</span><span class="n">teks</span><span class="p">)</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">]</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">kata_terbuang</span><span class="p">(</span><span class="s2">"Tolong, air belum surut dan listrik tidak ada"</span><span class="p">,</span> <span class="n">stopwords_sastrawi</span><span class="p">()))</span>
+</span></code></pre></div>
+Hasil yang dijalankan: <code>['tolong', 'belum', 'dan', 'tidak', 'ada']</code>. Pembahasan: mencetak kata yang dibuang adalah cara cepat mengaudit daftar stopword.</p>
+</details>
+<details class="success">
+<summary>Jawaban 5</summary>
+<p>Risiko 1: kata yang sering belum tentu tidak informatif (di data ini <code>di</code> dan <code>kelurahan</code> sering dan berkaitan dengan kelas). Risiko 2 (kebocoran): bila frekuensi dihitung dari seluruh data termasuk data uji, daftar stopword mengandung informasi data uji. Hitung hanya dari data latih, dan lakukan di dalam pipeline (lihat <a href="../leakage-preprocessing/">Data Leakage akibat Preprocessing</a>).</p>
+</details>
+<h2 id="kuis-singkat">Kuis singkat<a class="headerlink" href="#kuis-singkat" title="Permanent link">&para;</a></h2>
+<p><strong>1.</strong> Apakah semua stopword aman dibuang?</p>
+<details class="success">
+<summary>Jawaban</summary>
+<p>Tidak. Kata seperti <code>tidak</code>, <code>belum</code>, dan <code>tolong</code> ada di daftar bawaan Sastrawi tetapi penting untuk tugas ini.</p>
+</details>
+<p><strong>2.</strong> Mengapa stopword dibuang setelah normalisasi?</p>
+<details class="success">
+<summary>Jawaban</summary>
+<p>Agar bentuk informal (<code>yg</code>) sudah menjadi bentuk baku (<code>yang</code>) saat dicocokkan dengan daftar.</p>
+</details>
+<p><strong>3.</strong> Bolehkah daftar stopword dihitung dari seluruh dataset?</p>
+<details class="success">
+<summary>Jawaban</summary>
+<p>Tidak jika menyertakan data uji; itu kebocoran. Hitung dari data latih saja.</p>
+</details>
+<h2 id="ringkasan">Ringkasan<a class="headerlink" href="#ringkasan" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Stopword adalah kata umum yang sering dibuang, tetapi manfaatnya bergantung tugas.</li>
+<li>Daftar bawaan Sastrawi (123 kata unik) memuat <code>tidak</code>, <code>belum</code>, <code>tolong</code>, dan <code>kami</code>.</li>
+<li>Membuang negasi dapat membuat dua teks berlawanan tampak identik.</li>
+<li>Periksa sebaran kata per kelas sebelum membuangnya.</li>
+</ul>
+<h2 id="glosarium-istilah-baru">Glosarium istilah baru<a class="headerlink" href="#glosarium-istilah-baru" title="Permanent link">&para;</a></h2>
+<dl>
+<dt>Stopword</dt>
+<dd>Kata yang sangat sering muncul dan dibuang pada tahap preprocessing.</dd>
+<dt>Document frequency (DF)</dt>
+<dd>Jumlah dokumen yang memuat suatu kata minimal sekali.</dd>
+<dt>Frozenset</dt>
+<dd>Himpunan Python yang tidak dapat diubah setelah dibuat.</dd>
+</dl>
+<h2 id="referensi">Referensi<a class="headerlink" href="#referensi" title="Permanent link">&para;</a></h2>
+<ul>
+<li>PySastrawi (port Python dari Sastrawi, lisensi MIT): <a href="https://github.com/har07/PySastrawi">https://github.com/har07/PySastrawi</a> (kode dan dokumentasi pustaka).</li>
+<li>Dokumentasi Python, <code>collections.Counter</code>: <a href="https://docs.python.org/3/library/collections.html#collections.Counter">https://docs.python.org/3/library/collections.html#collections.Counter</a>.</li>
+</ul>
+<h2 id="materi-berikutnya">Materi berikutnya<a class="headerlink" href="#materi-berikutnya" title="Permanent link">&para;</a></h2>
+<p><a href="../stemming-lemmatization/">Stemming dan Lemmatization</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../normalisasi-informal/" class="md-footer__link md-footer__link--prev" aria-label="Sebelumnya: Normalisasi Informal">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sebelumnya
+              </span>
+              <div class="md-ellipsis">
+                Normalisasi Informal
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../stemming-lemmatization/" class="md-footer__link md-footer__link--next" aria-label="Selanjutnya: Stemming dan Lemmatization">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Selanjutnya
+              </span>
+              <div class="md-ellipsis">
+                Stemming dan Lemmatization
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes", "navigation.path", "navigation.footer", "navigation.top", "navigation.tracking", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Tersalin ke clipboard", "clipboard.copy": "Salin ke clipboard", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tidak ada dokumen yang sesuai", "search.result.one": "1 dokumen ditemukan", "search.result.other": "# dokumen ditemukan", "search.result.placeholder": "Ketik untuk mulai pencarian", "search.result.term.missing": "Tidak ada", "select.version": "Pilih versi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/vendor/mermaid/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid-config.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
