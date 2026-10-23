@@ -53,3 +53,18 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Diagram Mermaid lebar: gulir horizontal alih-alih mengecilkan teks (lihat javascripts/mermaid-config.js). */
+.md-typeset .mermaid {
+  overflow-x: auto;
+}
+
+/* Rumus inline yang panjang tidak boleh melebarkan halaman di layar sempit: gulir di dalam rumus itu sendiri.
+   Hanya rumus inline (span); rumus display (div) tetap terpusat. Rumus pendek tampil seperti biasa. */
+.md-typeset span.arithmatex {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: bottom;
+}

@@ -69,6 +69,26 @@
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
+         <loc>https://topekox.github.io/materi-nlp/latihan/level-0-1/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/latihan/level-2-3/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/latihan/level-4-5/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/latihan/level-6-7/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/latihan/proyek/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
          <loc>https://topekox.github.io/materi-nlp/level-0-orientasi/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
@@ -353,11 +373,107 @@
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
+         <loc>https://topekox.github.io/materi-nlp/level-6-deep-learning/attention-transformer/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-6-deep-learning/embedding-kata/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-6-deep-learning/fine-tuning-transfer-learning/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-6-deep-learning/ml-klasik-vs-dl-komputasi/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-6-deep-learning/neural-network-dasar/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-6-deep-learning/overfitting-evaluasi-dl/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-6-deep-learning/rnn-lstm-gru/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-6-deep-learning/tokenizer-bert-indobert/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
          <loc>https://topekox.github.io/materi-nlp/level-7-advanced-nlp/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
+         <loc>https://topekox.github.io/materi-nlp/level-7-advanced-nlp/arsitektur-pipeline/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-7-advanced-nlp/bias-robustness-ood/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-7-advanced-nlp/fastapi-batch-riwayat-tes/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-7-advanced-nlp/fastapi-dasar/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-7-advanced-nlp/interpretabilitas/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-7-advanced-nlp/kalibrasi-threshold/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-7-advanced-nlp/keamanan-model-card-roadmap/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/level-7-advanced-nlp/pemantauan-drift/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
          <loc>https://topekox.github.io/materi-nlp/proyek-klasifikasi-bencana/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/proyek-klasifikasi-bencana/tahap-a-definisi-masalah/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/proyek-klasifikasi-bencana/tahap-b-dataset/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/proyek-klasifikasi-bencana/tahap-c-eda/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/proyek-klasifikasi-bencana/tahap-d-preprocessing/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/proyek-klasifikasi-bencana/tahap-e-modeling/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/proyek-klasifikasi-bencana/tahap-f-evaluasi/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/proyek-klasifikasi-bencana/tahap-g-advanced-modeling/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://topekox.github.io/materi-nlp/proyek-klasifikasi-bencana/tahap-h-deployment/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
 </urlset>
