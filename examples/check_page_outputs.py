@@ -6,6 +6,7 @@ Untuk setiap halaman di folder yang diberikan:
   3. untuk tiap blok kode berjudul `Output nyata` (persis), pastikan blok itu adalah
      potongan BERURUTAN dan UTUH dari keluaran salah satu skrip (spasi di ujung baris diabaikan).
 
+Modul `nlp_hub/` (bukan skrip) dan skrip di folder `berat/` (PyTorch/Transformers) tidak pernah dijalankan oleh pemeriksa ini.
 Blok dengan judul lain (mis. `Output nyata: tes gagal`) tidak diperiksa.
 Menjalankan dari folder examples/:
 
@@ -19,7 +20,8 @@ from pathlib import Path
 
 RAIS = Path(__file__).resolve().parent
 POLA_SNIPPET = re.compile(r'--8<--\s+"([^":]+\.py)(?::[^"]*)?"')
-POLA_BLOK = re.compile(r'```text title="Output nyata"\n(.*?)```', re.S)
+# Blok boleh berada di dalam admonition/tab (menjorok); indentasi dibuang sebelum dibandingkan.
+POLA_BLOK = re.compile(r'^([ \t]*)```text title="Output nyata"\n(.*?)^\1```', re.S | re.M)
 
 
 def jalankan(skrip):
@@ -44,15 +46,15 @@ def periksa(folder):
     cache = {}
     for md in sorted(Path(folder).glob("*.md")):
         teks = md.read_text(encoding="utf-8")
-        blok = POLA_BLOK.findall(teks)
+        blok = [(i, isi) for i, isi in POLA_BLOK.findall(teks)]
         if not blok:
             continue
-        skrip = sorted(s for s in set(POLA_SNIPPET.findall(teks)) if not s.startswith("tests/"))
+        skrip = sorted(s for s in set(POLA_SNIPPET.findall(teks)) if not s.startswith(("tests/", "nlp_hub/")) and "/berat/" not in s)
         for s in skrip:
             if s not in cache:
                 cache[s] = jalankan(s)
-        for isi in blok:
-            baris = [b.rstrip() for b in isi.splitlines()]
+        for indent, isi in blok:
+            baris = [(b[len(indent):] if b.startswith(indent) else b).rstrip() for b in isi.splitlines()]
             while baris and not baris[-1].strip():
                 baris.pop()
             diperiksa += 1

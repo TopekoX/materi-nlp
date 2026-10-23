@@ -1,0 +1,92 @@
+[
+  {
+    "model": "LSTM PyTorch (10_lstm_pytorch.py)",
+    "seed": 1,
+    "uji sintetis": {
+      "f1_makro": 0.98,
+      "recall_e": 0.947,
+      "presisi_e": 1.0
+    },
+    "tulis-tangan": {
+      "f1_makro": 0.459,
+      "recall_e": 0.125,
+      "presisi_e": 1.0
+    },
+    "torch": "2.14.1+cpu",
+    "transformers": "-",
+    "perangkat": "cpu",
+    "detik_total": 8
+  },
+  {
+    "model": "LSTM PyTorch (10_lstm_pytorch.py)",
+    "seed": 2,
+    "uji sintetis": {
+      "f1_makro": 0.98,
+      "recall_e": 1.0,
+      "presisi_e": 0.95
+    },
+    "tulis-tangan": {
+      "f1_makro": 0.608,
+      "recall_e": 0.333,
+      "presisi_e": 0.889
+    },
+    "torch": "2.14.1+cpu",
+    "transformers": "-",
+    "perangkat": "cpu",
+    "detik_total": 5
+  },
+  {
+    "model": "LSTM PyTorch (10_lstm_pytorch.py)",
+    "seed": 3,
+    "uji sintetis": {
+      "f1_makro": 1.0,
+      "recall_e": 1.0,
+      "presisi_e": 1.0
+    },
+    "tulis-tangan": {
+      "f1_makro": 0.531,
+      "recall_e": 0.208,
+      "presisi_e": 1.0
+    },
+    "torch": "2.14.1+cpu",
+    "transformers": "-",
+    "perangkat": "cpu",
+    "detik_total": 5
+  },
+  {
+    "model": "LSTM PyTorch (10_lstm_pytorch.py)",
+    "seed": 4,
+    "uji sintetis": {
+      "f1_makro": 0.951,
+      "recall_e": 0.947,
+      "presisi_e": 0.923
+    },
+    "tulis-tangan": {
+      "f1_makro": 0.333,
+      "recall_e": 0.0,
+      "presisi_e": 0.0
+    },
+    "torch": "2.14.1+cpu",
+    "transformers": "-",
+    "perangkat": "cpu",
+    "detik_total": 5
+  },
+  {
+    "model": "LSTM PyTorch (10_lstm_pytorch.py)",
+    "seed": 5,
+    "uji sintetis": {
+      "f1_makro": 0.96,
+      "recall_e": 0.947,
+      "presisi_e": 0.947
+    },
+    "tulis-tangan": {
+      "f1_makro": 0.595,
+      "recall_e": 0.292,
+      "presisi_e": 1.0
+    },
+    "torch": "2.14.1+cpu",
+    "transformers": "-",
+    "perangkat": "cpu",
+    "detik_total": 5
+  }
+]

@@ -7,3 +7,4 @@ venv-freeze.txt
 examples/**/artefak/
 examples/**/.ipynb_checkpoints/
 .pytest_cache/
+examples/**/berat/artefak/

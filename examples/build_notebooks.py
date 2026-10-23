@@ -373,7 +373,67 @@ kelayakan operasional dari data sintetis.
     ]
 
 
-DAFTAR = {2: level_2, 3: level_3, 4: level_4, 5: level_5}
+# ------------------------------------------------------------------ Proyek, Tahap C (EDA)
+PEMBUKA_PROYEK = PEMBUKA.replace("Path.cwd().parent", "Path.cwd().parents[1]")
+
+
+def proyek_eda():
+    return RAIS / "disaster-classification" / "proyek" / "tahap_c_eda.ipynb", [
+        md("""
+# Tahap C proyek: analisis data eksploratif (EDA)
+
+> **Data sintetis.** Temuan di sini tentang dataset buatan, bukan tentang postingan nyata
+> (lihat `../DATA_CARD.md`). Teks yang ditampilkan seluruhnya sintetis.
+
+Prasyarat: `pip install -r requirements-ml.txt`. Jalankan sel dari atas ke bawah.
+"""),
+        kode(PEMBUKA_PROYEK),
+        md("## 1. Membaca dan memeriksa struktur"),
+        kode("""
+import pandas as pd
+from nlp_hub.data import muat_dataset
+
+df = muat_dataset(hapus_duplikat=False)
+print(df.shape)
+print(df.dtypes)
+print("nilai hilang:", df.isna().sum().sum(), "| duplikat teks:", int(df["text"].duplicated().sum()))
+"""),
+        md("""
+## 2. Distribusi label dan jenis postingan
+Label pada data ini ditentukan oleh jenis templat, jadi tabel silang di bawah memang sempurna; pada data nyata tidak akan demikian.
+"""),
+        kode("""
+print(df["label"].value_counts())
+pd.crosstab(df["post_type"], df["label"])
+"""),
+        md("""
+## 3. Panjang teks
+Perhatikan apakah panjang teks berbeda menurut label: itu bisa menjadi jalan pintas (*shortcut*) bagi model.
+"""),
+        kode("""
+df = df.assign(panjang=df["text"].str.len(), n_kata=df["text"].str.split().str.len())
+df.groupby("label")[["panjang", "n_kata"]].agg(["mean", "std", "min", "max"]).round(1)
+"""),
+        md("## 4. Memeriksa kemungkinan kebocoran"),
+        kode("""
+from nlp_hub.data import bagi_latih_uji
+
+latih, uji = bagi_latih_uji(muat_dataset())
+print("event_id beririsan:", len(set(latih["event_id"]) & set(uji["event_id"])))
+print("templat uji yang juga ada di latih:", len(set(uji["template_id"]) & set(latih["template_id"])), "dari", uji["template_id"].nunique())
+"""),
+        md("""
+**Membaca hasil:** pembagian per kejadian tidak menyisakan irisan `event_id`, tetapi hampir semua templat uji juga muncul di
+latih. Skor tinggi pada uji sintetis karena itu tidak boleh dibaca sebagai kemampuan menggeneralisasi.
+
+## Latihan
+1. Tambahkan histogram panjang teks per label (matplotlib) dan tulis satu kalimat interpretasi.
+2. Hitung kata yang paling sering pada tiap label setelah `praproses`. Mana yang tampak seperti artefak templat?
+"""),
+    ]
+
+
+DAFTAR = {2: level_2, 3: level_3, 4: level_4, 5: level_5, 7: proyek_eda}  # 7 = notebook EDA proyek (Tahap C)
 
 if __name__ == "__main__":
     pilihan = [int(a) for a in sys.argv[1:]] or sorted(DAFTAR)

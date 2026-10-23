@@ -1,0 +1,117 @@
+[
+  {
+    "model": "indolem/indobert-base-uncased",
+    "seed": 1,
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "perangkat": "cpu",
+    "data": "SINTETIS; bukan untuk penggunaan operasional",
+    "uji sintetis": {
+      "akurasi": 0.938,
+      "f1_makro": 0.932,
+      "presisi_e": 0.878,
+      "recall_e": 0.947,
+      "f1_e": 0.911
+    },
+    "tulis-tangan": {
+      "akurasi": 0.688,
+      "f1_makro": 0.663,
+      "presisi_e": 0.909,
+      "recall_e": 0.417,
+      "f1_e": 0.571
+    },
+    "detik_total": 181
+  },
+  {
+    "model": "indolem/indobert-base-uncased",
+    "seed": 2,
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "perangkat": "cpu",
+    "data": "SINTETIS; bukan untuk penggunaan operasional",
+    "uji sintetis": {
+      "akurasi": 0.929,
+      "f1_makro": 0.922,
+      "presisi_e": 0.857,
+      "recall_e": 0.947,
+      "f1_e": 0.9
+    },
+    "tulis-tangan": {
+      "akurasi": 0.729,
+      "f1_makro": 0.719,
+      "presisi_e": 0.867,
+      "recall_e": 0.542,
+      "f1_e": 0.667
+    },
+    "detik_total": 113
+  },
+  {
+    "model": "indolem/indobert-base-uncased",
+    "seed": 3,
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "perangkat": "cpu",
+    "data": "SINTETIS; bukan untuk penggunaan operasional",
+    "uji sintetis": {
+      "akurasi": 0.946,
+      "f1_makro": 0.941,
+      "presisi_e": 0.9,
+      "recall_e": 0.947,
+      "f1_e": 0.923
+    },
+    "tulis-tangan": {
+      "akurasi": 0.688,
+      "f1_makro": 0.654,
+      "presisi_e": 1.0,
+      "recall_e": 0.375,
+      "f1_e": 0.545
+    },
+    "detik_total": 102
+  },
+  {
+    "model": "indolem/indobert-base-uncased",
+    "seed": 4,
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "perangkat": "cpu",
+    "data": "SINTETIS; bukan untuk penggunaan operasional",
+    "uji sintetis": {
+      "akurasi": 0.875,
+      "f1_makro": 0.865,
+      "presisi_e": 0.773,
+      "recall_e": 0.895,
+      "f1_e": 0.829
+    },
+    "tulis-tangan": {
+      "akurasi": 0.667,
+      "f1_makro": 0.652,
+      "presisi_e": 0.786,
+      "recall_e": 0.458,
+      "f1_e": 0.579
+    },
+    "detik_total": 109
+  },
+  {
+    "model": "indolem/indobert-base-uncased",
+    "seed": 5,
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "perangkat": "cpu",
+    "data": "SINTETIS; bukan untuk penggunaan operasional",
+    "uji sintetis": {
+      "akurasi": 0.92,
+      "f1_makro": 0.913,
+      "presisi_e": 0.837,
+      "recall_e": 0.947,
+      "f1_e": 0.889
+    },
+    "tulis-tangan": {
+      "akurasi": 0.667,
+      "f1_makro": 0.644,
+      "presisi_e": 0.833,
+      "recall_e": 0.417,
+      "f1_e": 0.556
+    },
+    "detik_total": 108
+  }
+]
