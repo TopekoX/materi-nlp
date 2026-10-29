@@ -20,6 +20,10 @@
       ...config,
       securityLevel: "strict", // no HTML labels / click handlers from diagram source
       suppressErrorRendering: true, // keep the "Syntax error" bomb out of the page
+      // Diagram lebar (mis. alur 8-10 kotak) tidak diperkecil sampai tak terbaca: ukuran asli dipertahankan dan
+      // kontainer menggulir horizontal (aturan CSS .mermaid di extra.css).
+      flowchart: { ...(config.flowchart || {}), useMaxWidth: false },
+      sequence: { ...(config.sequence || {}), useMaxWidth: false },
       themeCSS: (config.themeCSS || "") + themeCSS,
     });
 })();

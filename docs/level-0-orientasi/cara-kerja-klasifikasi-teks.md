@@ -267,7 +267,7 @@ Kata di luar kosakata (OOV)
 ## Referensi
 
 - McCallum, A., & Nigam, K. (1998). A comparison of event models for Naive Bayes text classification. *AAAI-98 Workshop on Learning for Text Categorization*, 41–48 (makalah akademik; detail diperiksa daring).
-- Dokumentasi scikit-learn, *Working With Text Data*: <https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html> (dokumentasi resmi).
+- Dokumentasi scikit-learn, contoh *Classification of text documents using sparse features*: <https://scikit-learn.org/stable/auto_examples/text/plot_document_classification_20newsgroups.html> (dokumentasi resmi; URL diperiksa 2026-10-23; tautan lama ke tutorial *Working With Text Data* sudah tidak ada).
 
 ## Materi selanjutnya
 

@@ -1,0 +1,117 @@
+[
+  {
+    "model": "indobenchmark/indobert-base-p1",
+    "seed": 1,
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "perangkat": "cpu",
+    "data": "SINTETIS; bukan untuk penggunaan operasional",
+    "uji sintetis": {
+      "akurasi": 0.982,
+      "f1_makro": 0.98,
+      "presisi_e": 1.0,
+      "recall_e": 0.947,
+      "f1_e": 0.973
+    },
+    "tulis-tangan": {
+      "akurasi": 0.917,
+      "f1_makro": 0.916,
+      "presisi_e": 1.0,
+      "recall_e": 0.833,
+      "f1_e": 0.909
+    },
+    "detik_total": 217
+  },
+  {
+    "model": "indobenchmark/indobert-base-p1",
+    "seed": 2,
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "perangkat": "cpu",
+    "data": "SINTETIS; bukan untuk penggunaan operasional",
+    "uji sintetis": {
+      "akurasi": 0.982,
+      "f1_makro": 0.98,
+      "presisi_e": 0.974,
+      "recall_e": 0.974,
+      "f1_e": 0.974
+    },
+    "tulis-tangan": {
+      "akurasi": 0.854,
+      "f1_makro": 0.851,
+      "presisi_e": 1.0,
+      "recall_e": 0.708,
+      "f1_e": 0.829
+    },
+    "detik_total": 141
+  },
+  {
+    "model": "indobenchmark/indobert-base-p1",
+    "seed": 3,
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "perangkat": "cpu",
+    "data": "SINTETIS; bukan untuk penggunaan operasional",
+    "uji sintetis": {
+      "akurasi": 0.991,
+      "f1_makro": 0.99,
+      "presisi_e": 0.974,
+      "recall_e": 1.0,
+      "f1_e": 0.987
+    },
+    "tulis-tangan": {
+      "akurasi": 0.896,
+      "f1_makro": 0.895,
+      "presisi_e": 1.0,
+      "recall_e": 0.792,
+      "f1_e": 0.884
+    },
+    "detik_total": 112
+  },
+  {
+    "model": "indobenchmark/indobert-base-p1",
+    "seed": 4,
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "perangkat": "cpu",
+    "data": "SINTETIS; bukan untuk penggunaan operasional",
+    "uji sintetis": {
+      "akurasi": 0.982,
+      "f1_makro": 0.98,
+      "presisi_e": 0.974,
+      "recall_e": 0.974,
+      "f1_e": 0.974
+    },
+    "tulis-tangan": {
+      "akurasi": 0.958,
+      "f1_makro": 0.958,
+      "presisi_e": 1.0,
+      "recall_e": 0.917,
+      "f1_e": 0.957
+    },
+    "detik_total": 111
+  },
+  {
+    "model": "indobenchmark/indobert-base-p1",
+    "seed": 5,
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "perangkat": "cpu",
+    "data": "SINTETIS; bukan untuk penggunaan operasional",
+    "uji sintetis": {
+      "akurasi": 1.0,
+      "f1_makro": 1.0,
+      "presisi_e": 1.0,
+      "recall_e": 1.0,
+      "f1_e": 1.0
+    },
+    "tulis-tangan": {
+      "akurasi": 0.938,
+      "f1_makro": 0.937,
+      "presisi_e": 1.0,
+      "recall_e": 0.875,
+      "f1_e": 0.933
+    },
+    "detik_total": 114
+  }
+]

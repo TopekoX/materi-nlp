@@ -6,14 +6,26 @@ ditambah seiring materi baru ditulis.
 
 ## A–F
 
+Ablation
+:   Menambah atau mencabut komponen untuk mengukur kontribusinya. ([tahap-d-preprocessing](proyek-klasifikasi-bencana/tahap-d-preprocessing.md))
+
 Ablation study
 :   Eksperimen yang mencabut satu komponen pipeline untuk mengukur kontribusinya ([Ablation](level-5-evaluasi/ablation-robustness.md)).
+
+Adam
+:   Optimizer dengan langkah adaptif per parameter. ([neural-network-dasar](level-6-deep-learning/neural-network-dasar.md))
+
+AdamW
+:   Adam dengan peluruhan bobot yang dipisahkan. ([fine-tuning-transfer-learning](level-6-deep-learning/fine-tuning-transfer-learning.md))
 
 Akurasi
 :   Proporsi tebakan yang benar: (TP+TN)/N. Menyesatkan pada kelas tidak seimbang.
 
 Aliasing
 :   Dua nama yang menunjuk ke objek yang sama.
+
+Analisis irisan
+:   Menghitung metrik per subkelompok. ([bias-robustness-ood](level-7-advanced-nlp/bias-robustness-ood.md))
 
 Anonimisasi
 :   Menghilangkan atau mengganti identitas pengguna.
@@ -30,11 +42,20 @@ Anotator
 Array (`ndarray`)
 :   Tabel angka bertipe seragam berukuran tetap.
 
+Artefak
+:   Berkas hasil pelatihan yang dipakai saat inferensi. ([arsitektur-pipeline](level-7-advanced-nlp/arsitektur-pipeline.md))
+
 Artefak data
 :   Pola pada data yang berasal dari cara data dibuat, bukan dari fenomena sebenarnya (mis. alamat selalu ada pada templat laporan).
 
 Artificial Intelligence (AI)
 :   Bidang yang membuat sistem komputer melakukan tugas yang biasanya memerlukan kecerdasan manusia.
+
+Atomik
+:   Semua atau tidak sama sekali. ([fastapi-batch-riwayat-tes](level-7-advanced-nlp/fastapi-batch-riwayat-tes.md))
+
+Backpropagation
+:   Penerapan aturan rantai untuk menghitung gradien semua parameter. ([neural-network-dasar](level-6-deep-learning/neural-network-dasar.md))
 
 Bag of Words (BoW)
 :   Representasi teks sebagai hitungan kata dari kosakata, tanpa urutan ([Bag of Words](level-3-representasi-teks/bag-of-words.md)).
@@ -45,11 +66,26 @@ Baseline
 Bootstrap
 :   Resampling dengan pengembalian untuk memperkirakan sebaran sebuah statistik, mis. selang kepercayaan metrik.
 
+BPE
+:   Algoritma pembentuk kosakata subword dengan menggabungkan pasangan simbol tersering. ([tokenizer-bert-indobert](level-6-deep-learning/tokenizer-bert-indobert.md))
+
+Cakupan kosakata
+:   Proporsi token yang dikenal kosakata model. ([pemantauan-drift](level-7-advanced-nlp/pemantauan-drift.md))
+
 Case folding
 :   Menyeragamkan huruf besar/kecil (biasanya menjadi huruf kecil).
 
+Celah generalisasi
+:   Selisih performa latih dan validasi. ([overfitting-evaluasi-dl](level-6-deep-learning/overfitting-evaluasi-dl.md))
+
 Checksum (SHA-256)
 :   Sidik jari berkas untuk mendeteksi perubahan; dipakai untuk memeriksa data dan model.
+
+Checksum / SHA-256
+:   Sidik jari berkas. ([arsitektur-pipeline](level-7-advanced-nlp/arsitektur-pipeline.md))
+
+Cherry-picking
+:   Melaporkan hasil terbaik dari beberapa percobaan tanpa menyebut sisanya. ([tahap-f-evaluasi](proyek-klasifikasi-bencana/tahap-f-evaluasi.md))
 
 Class imbalance
 :   Jumlah contoh antarkelas sangat tidak seimbang, misalnya Emergency jauh lebih sedikit daripada Non-Emergency.
@@ -66,6 +102,9 @@ Commit
 Comprehension
 :   Sintaks ringkas membuat list/set dari perulangan.
 
+Concept drift
+:   Perubahan hubungan masukan–label. ([pemantauan-drift](level-7-advanced-nlp/pemantauan-drift.md))
+
 Confusion matrix
 :   Tabel hitungan TP, TN, FP, FN ([Confusion Matrix](level-5-evaluasi/confusion-matrix.md)).
 
@@ -74,6 +113,12 @@ Context manager (`with`)
 
 CSV
 :   Format tabel teks dengan kolom dipisah koma.
+
+Data card
+:   Dokumen yang menjelaskan dataset. ([tahap-b-dataset](proyek-klasifikasi-bencana/tahap-b-dataset.md))
+
+Data drift
+:   Perubahan distribusi masukan. ([pemantauan-drift](level-7-advanced-nlp/pemantauan-drift.md))
 
 Data leakage
 :   Informasi dari data uji (atau masa depan) ikut memengaruhi pelatihan sehingga skor evaluasi terlalu optimistis.
@@ -114,8 +159,17 @@ Document (dokumen)
 Document frequency (DF)
 :   Jumlah dokumen yang memuat suatu kata minimal sekali.
 
+Dropout
+:   Mematikan neuron acak saat latihan. ([overfitting-evaluasi-dl](level-6-deep-learning/overfitting-evaluasi-dl.md))
+
 Duplikat
 :   Baris yang isinya sama dengan baris lain.
+
+Early stopping
+:   Menghentikan pelatihan ketika loss validasi tidak membaik. ([overfitting-evaluasi-dl](level-6-deep-learning/overfitting-evaluasi-dl.md))
+
+ECE
+:   Selisih tertimbang antara prediksi dan frekuensi nyata per bin. ([kalibrasi-threshold](level-7-advanced-nlp/kalibrasi-threshold.md))
 
 EDA
 :   *Exploratory data analysis*: pemeriksaan data (struktur, duplikat, distribusi) untuk memahaminya sebelum modeling.
@@ -123,11 +177,17 @@ EDA
 Ekspresi kondisional (ternary)
 :   `x if syarat else y`: memilih satu dari dua nilai.
 
+Embedding
+:   Vektor padat yang mewakili kata (atau kalimat) dan dipelajari dari data. ([embedding-kata](level-6-deep-learning/embedding-kata.md))
+
 Emergency
 :   Label untuk postingan yang melaporkan kejadian darurat yang sedang atau baru terjadi, atau meminta bantuan. Definisi operasional lengkap ada di [Masalah Emergency](level-0-orientasi/masalah-emergency.md).
 
 Emoji dan emotikon
 :   Emoji: karakter Unicode bergambar. Emotikon: rangkaian tanda baca yang membentuk wajah, mis. `:(`.
+
+Encoder / Decoder
+:   Tumpukan blok Transformer dua arah / satu arah. ([attention-transformer](level-6-deep-learning/attention-transformer.md))
 
 Encoding
 :   Aturan mengubah karakter (code point) menjadi byte; UTF-8 yang paling umum.
@@ -143,6 +203,12 @@ f-string
 
 F1 dan F-beta
 :   F1 = rata-rata harmonik presisi dan recall; F-beta menekankan recall ($\beta>1$) atau presisi ($\beta<1$).
+
+Factory
+:   Fungsi yang membuat aplikasi. ([fastapi-dasar](level-7-advanced-nlp/fastapi-dasar.md))
+
+Faithfulness
+:   Kesetiaan penjelasan terhadap perilaku model. ([interpretabilitas](level-7-advanced-nlp/interpretabilitas.md))
 
 False negative (FN)
 :   Kasus positif yang terlewat; pada proyek ini, pesan Emergency yang ditebak Non-Emergency.
@@ -165,8 +231,17 @@ Feature engineering
 `finally`
 :   Blok yang selalu berjalan setelah `try`.
 
+Fine-tuning
+:   Melanjutkan pelatihan model pra-latih pada tugas dan data berlabel khusus. ([fine-tuning-transfer-learning](level-6-deep-learning/fine-tuning-transfer-learning.md))
+
 Fitur (feature)
 :   Representasi numerik dari suatu contoh yang menjadi masukan model.
+
+Fixture
+:   Fungsi pytest yang menyiapkan sumber daya tes. ([fastapi-batch-riwayat-tes](level-7-advanced-nlp/fastapi-batch-riwayat-tes.md))
+
+*Frozen dataclass*
+:   Objek data yang tidak dapat diubah setelah dibuat; dipakai untuk konfigurasi. ([tahap-d-preprocessing](proyek-klasifikasi-bencana/tahap-d-preprocessing.md))
 
 Function
 :   Blok kode bernama yang dapat dipanggil berulang.
@@ -176,14 +251,29 @@ Function
 Gazetteer
 :   Daftar nama tempat yang dipakai untuk mengenali lokasi dalam teks.
 
+Gerbang (*gate*)
+:   Nilai 0–1 yang mengatur seberapa banyak informasi lewat. ([rnn-lstm-gru](level-6-deep-learning/rnn-lstm-gru.md))
+
 Git
 :   Sistem pelacak riwayat perubahan berkas.
+
+GPU
+:   Prosesor paralel yang mempercepat perkalian matriks. ([ml-klasik-vs-dl-komputasi](level-6-deep-learning/ml-klasik-vs-dl-komputasi.md))
+
+Gradien menghilang
+:   Gradien yang mengecil eksponensial saat dirambatkan melintasi banyak langkah. ([rnn-lstm-gru](level-6-deep-learning/rnn-lstm-gru.md))
+
+*Gradient check*
+:   Memeriksa gradien analitik dengan beda hingga. ([neural-network-dasar](level-6-deep-learning/neural-network-dasar.md))
 
 Greedy / non-greedy
 :   Mengambil sebanyak / sesedikit mungkin.
 
 Grid search
 :   Pencarian semua kombinasi nilai hyperparameter dari daftar (`GridSearchCV`).
+
+Ground truth
+:   Label yang dianggap benar sebagai acuan evaluasi. ([tahap-b-dataset](proyek-klasifikasi-bencana/tahap-b-dataset.md))
 
 Hapax
 :   Kata yang muncul tepat sekali di korpus.
@@ -202,6 +292,9 @@ Hinge loss
 
 Human in the loop
 :   Manusia memverifikasi atau memutuskan hasil sistem.
+
+Human-in-the-loop
+:   Manusia memeriksa dan memutuskan. ([keamanan-model-card-roadmap](level-7-advanced-nlp/keamanan-model-card-roadmap.md))
 
 Hyperparameter
 :   Pengaturan model yang ditetapkan sebelum pelatihan (mis. `C`, `alpha`, `ngram_range`).
@@ -224,8 +317,17 @@ Indeks (*index*)
 Indentasi
 :   Spasi di awal baris yang menandai blok kode.
 
+IndoBERT
+:   Nama untuk model BERT berbahasa Indonesia; ada lebih dari satu. ([tokenizer-bert-indobert](level-6-deep-learning/tokenizer-bert-indobert.md))
+
 Inference (inferensi)
 :   Memakai model yang sudah dilatih untuk memprediksi data baru.
+
+Inferensi
+:   Memakai model yang sudah dilatih untuk memprediksi data baru. ([ml-klasik-vs-dl-komputasi](level-6-deep-learning/ml-klasik-vs-dl-komputasi.md))
+
+Inferensi batch
+:   Memprediksi banyak teks dalam satu panggilan. ([arsitektur-pipeline](level-7-advanced-nlp/arsitektur-pipeline.md))
 
 Iterasi
 :   Mengunjungi elemen koleksi satu per satu.
@@ -245,11 +347,20 @@ Kasus tepi
 Kata dasar (root)
 :   Bentuk kata tanpa imbuhan; hasil stemming.
 
+Keadaan tersembunyi (*hidden state*)
+:   Vektor ringkasan bacaan hingga langkah tertentu. ([rnn-lstm-gru](level-6-deep-learning/rnn-lstm-gru.md))
+
 Kebocoran data
 :   Informasi dari data uji ikut memengaruhi pelatihan.
 
 Kelompok (*group*)
 :   Bagian pola dalam kurung yang dapat diambil atau dirujuk.
+
+Kemiripan kosinus
+:   Kosinus sudut antara dua vektor. ([embedding-kata](level-6-deep-learning/embedding-kata.md))
+
+Kepala klasifikasi
+:   Lapisan akhir yang memetakan representasi ke kelas. ([fine-tuning-transfer-learning](level-6-deep-learning/fine-tuning-transfer-learning.md))
 
 Kernel Jupyter
 :   Proses Python yang menjalankan sel notebook.
@@ -257,14 +368,29 @@ Kernel Jupyter
 Kesepakatan (*agreement*)
 :   Proporsi contoh yang diberi label sama oleh dua anotator.
 
+Kesetaraan peluang
+:   Recall sama antar kelompok. ([bias-robustness-ood](level-7-advanced-nlp/bias-robustness-ood.md))
+
 Ketidakseimbangan kelas
 :   Jumlah contoh antarkelas sangat berbeda.
 
 Klasifikasi teks
 :   Tugas memberi satu label dari himpunan tetap pada sebuah teks.
 
+Ko-kemunculan
+:   Hitungan berapa kali dua kata muncul berdekatan. ([embedding-kata](level-6-deep-learning/embedding-kata.md))
+
 Kode keluar (*exit code*)
 :   Angka yang dikembalikan program ke terminal; `0` berarti sukses.
+
+Kode status HTTP
+:   Angka yang menyatakan hasil permintaan (200, 422, 500). ([fastapi-dasar](level-7-advanced-nlp/fastapi-dasar.md))
+
+Kontrak respons
+:   Kesepakatan kolom dan makna yang dijaga oleh tes. ([tahap-h-deployment](proyek-klasifikasi-bencana/tahap-h-deployment.md))
+
+Kontribusi fitur
+:   Nilai fitur dikali koefisien. ([interpretabilitas](level-7-advanced-nlp/interpretabilitas.md))
 
 Korpus
 :   Kumpulan dokumen yang dianalisis.
@@ -272,11 +398,23 @@ Korpus
 Kosakata (vocabulary)
 :   Himpunan tipe token (kata unik) yang menjadi kolom matriks fitur.
 
+Kredensial
+:   Rahasia akses seperti kunci API. ([keamanan-model-card-roadmap](level-7-advanced-nlp/keamanan-model-card-roadmap.md))
+
+Kriteria inklusi/eksklusi
+:   Aturan postingan mana yang masuk atau dikeluarkan dari dataset. ([tahap-a-definisi-masalah](proyek-klasifikasi-bencana/tahap-a-definisi-masalah.md))
+
 Kuantifier
 :   Penanda jumlah pengulangan (`+`, `*`, `?`, `{n,m}`).
 
 Label
 :   Jawaban yang benar untuk suatu contoh (target `y`), misalnya `Emergency`.
+
+Latensi
+:   Waktu dari permintaan sampai jawaban diterima. ([tahap-h-deployment](proyek-klasifikasi-bencana/tahap-h-deployment.md))
+
+Learning rate
+:   Ukuran langkah pembaruan parameter. ([neural-network-dasar](level-6-deep-learning/neural-network-dasar.md))
 
 Lemmatization
 :   Mengembalikan kata ke bentuk kamus (lemma) dengan memperhatikan tata bahasa; berbeda dari stemming.
@@ -293,8 +431,14 @@ Machine Learning (ML)
 Margin
 :   Jarak antara hyperplane pemisah dan contoh terdekat pada SVM.
 
+Mask kausal
+:   Pembatas agar posisi tidak melihat posisi sesudahnya. ([attention-transformer](level-6-deep-learning/attention-transformer.md))
+
 Mention
 :   Penyebutan akun dengan awalan `@`.
+
+Metadata model
+:   Catatan versi, library, data, ambang, dan checksum. ([arsitektur-pipeline](level-7-advanced-nlp/arsitektur-pipeline.md))
 
 Method chaining
 :   Merantai beberapa metode sehingga hasil satu menjadi masukan berikutnya.
@@ -302,8 +446,14 @@ Method chaining
 Metode (*method*)
 :   Fungsi yang melekat pada objek dan dipanggil dengan titik, mis. `teks.strip()`.
 
+Minimisasi data
+:   Menyimpan hanya data yang diperlukan. ([fastapi-batch-riwayat-tes](level-7-advanced-nlp/fastapi-batch-riwayat-tes.md))
+
 Missing value
 :   Nilai yang tidak ada pada data.
+
+MLM
+:   Tugas pra-latih menebak kata yang ditutup dari konteks. ([tokenizer-bert-indobert](level-6-deep-learning/tokenizer-bert-indobert.md))
 
 Mode buka
 :   Cara membuka berkas: `"r"`, `"w"`, `"a"`.
@@ -311,11 +461,20 @@ Mode buka
 Model
 :   Fungsi yang dipelajari dari data untuk memetakan fitur ke prediksi.
 
+Model card
+:   Dokumen ringkas tentang tujuan, data, evaluasi, dan keterbatasan model. ([keamanan-model-card-roadmap](level-7-advanced-nlp/keamanan-model-card-roadmap.md))
+
+Model pra-latih
+:   Model yang sudah dilatih pada korpus besar sebelum disesuaikan. ([tahap-g-advanced-modeling](proyek-klasifikasi-bencana/tahap-g-advanced-modeling.md))
+
 Modul
 :   Berkas Python yang dapat di-*import*.
 
 Mojibake
 :   Teks rusak karena byte dibaca dengan encoding yang salah.
+
+Multi-head attention
+:   Beberapa attention paralel yang hasilnya digabung. ([attention-transformer](level-6-deep-learning/attention-transformer.md))
 
 N-gram
 :   Urutan *n* item (kata atau karakter) yang berurutan.
@@ -338,6 +497,9 @@ Near-duplicate
 Negasi
 :   Kata yang membalik makna (tidak, belum, bukan, jangan); cakupannya sulit ditangkap BoW.
 
+Neuron / lapisan
+:   Unit hitung $\sigma(wx+b)$ dan kumpulannya. ([neural-network-dasar](level-6-deep-learning/neural-network-dasar.md))
+
 Non-Emergency
 :   Label untuk semua postingan lain: berita, opini, informasi lama, peringatan umum, dan topik tak terkait.
 
@@ -352,17 +514,35 @@ Normalisasi Unicode
 
 ## O–Z
 
+`[CLS]` / `[SEP]`
+:   Token awal (ringkasan) / pemisah pada BERT. ([tokenizer-bert-indobert](level-6-deep-learning/tokenizer-bert-indobert.md))
+
 Off-by-one
 :   Kesalahan selisih satu pada batas indeks.
+
+Oklusi
+:   Menghapus bagian masukan untuk melihat perubahan keluaran. ([interpretabilitas](level-7-advanced-nlp/interpretabilitas.md))
 
 One-hot encoding
 :   Representasi kategori sebagai vektor dengan satu elemen 1 dan sisanya 0.
 
+OOD
+:   Data yang berbeda jenis dari data latih. ([bias-robustness-ood](level-7-advanced-nlp/bias-robustness-ood.md))
+
+OOV (*out-of-vocabulary*)
+:   Kata yang tidak ada di kosakata model. ([embedding-kata](level-6-deep-learning/embedding-kata.md))
+
 OOV (out of vocabulary)
 :   Kata pada data baru yang tidak ada di kosakata yang dipelajari saat pelatihan.
 
+Overfitting
+:   Model menghafal data latih sehingga buruk pada data baru. ([overfitting-evaluasi-dl](level-6-deep-learning/overfitting-evaluasi-dl.md))
+
 Overfitting dan underfitting
 :   Overfitting: model menghafal data latih sehingga buruk pada data baru. Underfitting: model terlalu sederhana sehingga buruk bahkan pada data latih.
+
+Padding
+:   Token kosong untuk menyamakan panjang teks dalam satu batch. ([rnn-lstm-gru](level-6-deep-learning/rnn-lstm-gru.md))
 
 Paket
 :   Folder berisi modul.
@@ -373,11 +553,20 @@ Parameter (model)
 Parameter / argumen
 :   Nama di definisi / nilai yang diberikan saat memanggil.
 
+`parametrize`
+:   Menjalankan satu tes dengan banyak masukan. ([fastapi-batch-riwayat-tes](level-7-advanced-nlp/fastapi-batch-riwayat-tes.md))
+
 Pasangan surrogate
 :   Dua kode `\uXXXX` yang mewakili satu karakter di luar BMP, seperti emoji.
 
 Path (jalur)
 :   Lokasi berkas atau folder.
+
+Penggunaan di luar maksud
+:   Memakai model untuk tujuan yang tidak divalidasi. ([keamanan-model-card-roadmap](level-7-advanced-nlp/keamanan-model-card-roadmap.md))
+
+Penjelasan lokal / global
+:   Alasan satu prediksi / perilaku model secara keseluruhan. ([interpretabilitas](level-7-advanced-nlp/interpretabilitas.md))
 
 Penugasan (*assignment*)
 :   Pembuatan hubungan nama dan nilai dengan tanda `=`.
@@ -397,11 +586,23 @@ Perturbasi
 Perulangan tak berujung
 :   `while` yang kondisinya tidak pernah salah.
 
+PII
+:   Informasi yang dapat mengidentifikasi seseorang. ([keamanan-model-card-roadmap](level-7-advanced-nlp/keamanan-model-card-roadmap.md))
+
 pip
 :   Alat pemasang pustaka Python dari PyPI.
 
 Pipeline (scikit-learn)
 :   Rangkaian langkah transformasi dan model yang bekerja sebagai satu estimator ([Pipeline](level-4-machine-learning/pipeline-sklearn.md)).
+
+Positional encoding
+:   Informasi posisi yang ditambahkan ke embedding. ([attention-transformer](level-6-deep-learning/attention-transformer.md))
+
+PPMI
+:   PMI yang nilai negatifnya dijadikan 0. ([embedding-kata](level-6-deep-learning/embedding-kata.md))
+
+Pra-latih (*pre-trained*)
+:   Model yang sudah dilatih pada korpus besar dan dipakai ulang untuk tugas lain. ([ml-klasik-vs-dl-komputasi](level-6-deep-learning/ml-klasik-vs-dl-komputasi.md))
 
 Precision
 :   Dari semua yang diprediksi positif, berapa proporsi yang benar-benar positif.
@@ -412,14 +613,32 @@ Preprocessing
 Prevalensi
 :   Proporsi kelas positif pada data.
 
+Prior shift
+:   Perubahan proporsi kelas. ([pemantauan-drift](level-7-advanced-nlp/pemantauan-drift.md))
+
+Probe
+:   Kumpulan kecil contoh untuk menyelidiki satu perilaku. ([bias-robustness-ood](level-7-advanced-nlp/bias-robustness-ood.md))
+
+Provenance
+:   Asal-usul dan riwayat pembuatan data. ([tahap-b-dataset](proyek-klasifikasi-bencana/tahap-b-dataset.md))
+
+PSI
+:   Population Stability Index. ([pemantauan-drift](level-7-advanced-nlp/pemantauan-drift.md))
+
 Pustaka standar
 :   Kumpulan modul bawaan Python.
+
+Pydantic
+:   Pustaka validasi data berbasis tipe. ([fastapi-dasar](level-7-advanced-nlp/fastapi-dasar.md))
 
 PyPI
 :   Gudang paket Python publik.
 
 `pytest`
 :   Kerangka pengujian untuk Python.
+
+Query, Key, Value
+:   Tiga proyeksi masukan yang dipakai attention untuk bertanya, ditawarkan, dan diberikan. ([attention-transformer](level-6-deep-learning/attention-transformer.md))
 
 `raise`
 :   Perintah membangkitkan exception secara sengaja.
@@ -436,11 +655,23 @@ Regex (*regular expression*)
 Regularisasi
 :   Hukuman pada bobot besar agar model tidak menghafal (L2: jumlah kuadrat bobot).
 
+Regularisasi L2
+:   Penalti pada kuadrat bobot agar bobot kecil. ([overfitting-evaluasi-dl](level-6-deep-learning/overfitting-evaluasi-dl.md))
+
+ReLU
+:   Aktivasi $\max(0,z)$. ([neural-network-dasar](level-6-deep-learning/neural-network-dasar.md))
+
+Rentang antar seed
+:   Minimum dan maksimum hasil beberapa pelatihan acak. ([tahap-f-evaluasi](proyek-klasifikasi-bencana/tahap-f-evaluasi.md))
+
 Representasi
 :   Cara mengubah teks menjadi angka yang dapat diproses model.
 
 Reproducibility
 :   Kemampuan mengulang eksperimen dan mendapat hasil yang sama.
+
+REST / endpoint
+:   Gaya API berbasis HTTP; alamat tempat operasi ditawarkan. ([fastapi-dasar](level-7-advanced-nlp/fastapi-dasar.md))
 
 Robustness
 :   Ketahanan prediksi terhadap perubahan masukan yang tidak mengubah arti.
@@ -450,6 +681,9 @@ Scope (lingkup)
 
 Selang kepercayaan
 :   Rentang nilai yang masuk akal untuk sebuah statistik pada tingkat kepercayaan tertentu.
+
+Self-attention
+:   Attention di mana $Q,K,V$ berasal dari barisan yang sama. ([attention-transformer](level-6-deep-learning/attention-transformer.md))
 
 Seri (*tie*)
 :   Dua kelas memiliki skor yang sama.
@@ -469,11 +703,23 @@ Set (himpunan)
 `shape` / `dtype`
 :   Ukuran tiap dimensi / tipe elemen array.
 
+Shortcut
+:   Sifat kebetulan yang berkorelasi dengan label. ([tahap-c-eda](proyek-klasifikasi-bencana/tahap-c-eda.md))
+
+*Shortcut learning*
+:   Model memakai petunjuk kebetulan dari data. ([interpretabilitas](level-7-advanced-nlp/interpretabilitas.md))
+
 Sigmoid
 :   Fungsi $1/(1+e^{-z})$ yang memetakan skor ke rentang 0-1.
 
+Skala Platt
+:   Pemetaan sigmoid dari skor ke probabilitas. ([kalibrasi-threshold](level-7-advanced-nlp/kalibrasi-threshold.md))
+
 Skor
 :   Angka keyakinan atau kecocokan yang dihasilkan model.
+
+Skor Brier
+:   Rata-rata kuadrat selisih probabilitas dan label. ([kalibrasi-threshold](level-7-advanced-nlp/kalibrasi-threshold.md))
 
 Slice
 :   Potongan urutan, ditulis `s[awal:akhir:langkah]`.
@@ -490,6 +736,9 @@ Sparse matrix
 Sparsity
 :   Sinyal terpecah menjadi banyak fitur yang jarang muncul.
 
+SQL injection / XSS
+:   Penyisipan perintah SQL / skrip melalui masukan. ([fastapi-batch-riwayat-tes](level-7-advanced-nlp/fastapi-batch-riwayat-tes.md))
+
 Stemming
 :   Memotong imbuhan dengan aturan sehingga bentuk turunan menyatu; Sastrawi untuk bahasa Indonesia.
 
@@ -498,6 +747,9 @@ Stopword
 
 String
 :   Urutan karakter yang ditulis dengan tanda kutip.
+
+Subword
+:   Potongan kata yang dipakai sebagai satuan, mis. $n$-gram karakter. ([embedding-kata](level-6-deep-learning/embedding-kata.md))
 
 Supervised learning
 :   Pembelajaran dari contoh berlabel (pasangan teks dan label).
@@ -508,8 +760,14 @@ SVM linear
 `sys.path`
 :   Daftar lokasi tempat Python mencari modul.
 
+Tabel silang
+:   Hitungan dua variabel kategorik sekaligus. ([tahap-c-eda](proyek-klasifikasi-bencana/tahap-c-eda.md))
+
 Tes regresi
 :   Tes yang menjaga agar bug yang sudah diperbaiki tidak kembali.
+
+`TestClient`
+:   Klien yang memanggil aplikasi di dalam proses yang sama untuk pengujian. ([fastapi-dasar](level-7-advanced-nlp/fastapi-dasar.md))
 
 Text mining
 :   Proses menggali informasi dan pola dari kumpulan teks; beririsan dengan NLP.
@@ -541,14 +799,23 @@ Traceback
 Training (pelatihan)
 :   Proses model menyesuaikan parameter berdasarkan data berlabel.
 
+Transfer learning
+:   Memakai pengetahuan dari satu tugas atau korpus untuk tugas lain. ([fine-tuning-transfer-learning](level-6-deep-learning/fine-tuning-transfer-learning.md))
+
 Truthy / falsy
 :   Nilai yang dianggap benar atau salah dalam syarat.
 
 Tuple
 :   Wadah berurutan yang tidak dapat diubah.
 
+Uji kontrafaktual
+:   Mengubah satu atribut dan mengamati perubahan keluaran. ([bias-robustness-ood](level-7-advanced-nlp/bias-robustness-ood.md))
+
 `uncertain` (`U`)
 :   Label sementara untuk kasus yang ragu dan perlu ditinjau bersama.
+
+Unit analisis
+:   Apa yang dianggap satu contoh; di sini satu postingan. ([tahap-a-definisi-masalah](proyek-klasifikasi-bencana/tahap-a-definisi-masalah.md))
 
 Unit test
 :   Pemeriksaan otomatis atas satu perilaku kecil.
@@ -565,6 +832,9 @@ UTF-8
 Validasi silang (cross-validation)
 :   Evaluasi berulang dengan bergantian memakai lipatan data sebagai uji.
 
+Validasi silang berkelompok
+:   Validasi silang di mana kelompok (kejadian) tidak terpecah antar lipatan. ([tahap-e-modeling](proyek-klasifikasi-bencana/tahap-e-modeling.md))
+
 Variabel
 :   Nama yang menunjuk ke sebuah nilai.
 
@@ -580,6 +850,15 @@ Virtual environment
 Vocabulary shift
 :   Perbedaan kosakata antara data latih dan data baru.
 
+Warmup
+:   Menaikkan learning rate bertahap di awal pelatihan. ([fine-tuning-transfer-learning](level-6-deep-learning/fine-tuning-transfer-learning.md))
+
 Wheel
 :   Format paket Python yang sudah dikompilasi untuk versi Python tertentu.
+
+WordPiece
+:   Kosakata subword dengan pemecahan greedy longest-match dan awalan `##`. ([tokenizer-bert-indobert](level-6-deep-learning/tokenizer-bert-indobert.md))
+
+Zona ragu
+:   Rentang skor dekat ambang yang perlu perhatian manusia. ([kalibrasi-threshold](level-7-advanced-nlp/kalibrasi-threshold.md))
 
