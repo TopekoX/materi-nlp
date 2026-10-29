@@ -15,7 +15,9 @@ theme:
   language: id
   font: false # system fonts; no Google Fonts request
   features:
-    - navigation.sections
+    # `navigation.sections` sengaja tidak dipakai: fitur itu membuat bab level
+    # atas menjadi judul statis tanpa panah. Tanpa fitur itu, setiap bab dapat
+    # dibuka/ditutup dengan ikon panah (chevron) bawaan Material.
     - navigation.indexes
     - navigation.path # breadcrumbs
     - navigation.footer # previous / next links
